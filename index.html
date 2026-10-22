@@ -3303,8 +3303,8 @@ body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-even
 </style>
 <style id="gmHeroPlus">
 /* menos espaço entre banner e Indicações */
-html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero { padding-bottom: 24px !important; }
-html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu > .gm-grp:first-of-type { margin-top: 24px !important; }
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero { padding-bottom: 6px !important; }
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu > .gm-grp:first-of-type { margin-top: 16px !important; }
 /* ===== Banner: melhorias (movimento, balão, números, selo, ajustes) ===== */
 /* menu de categorias numa linha só */
 html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmChips { gap: 6px !important; }
@@ -3380,6 +3380,15 @@ html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .surpris
   html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-mascot, html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-sp, html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-bubble { animation: none !important; }
   html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-orbit { display: none !important; }
 }
+/* Try me em cima do logo */
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .brand-text { position: relative !important; display: block !important; width: fit-content !important; max-width: 100% !important; }
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero button#surpriseStamp#surpriseStamp#surpriseStamp#surpriseStamp.surprise-stamp { inset: -60px auto auto 79.5% !important; top: -60px !important; left: 79.5% !important; right: auto !important; bottom: auto !important; width: 104px !important; height: 104px !important; z-index: 5 !important; }
+@media (max-width: 760px) { html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero button#surpriseStamp#surpriseStamp#surpriseStamp#surpriseStamp.surprise-stamp { inset: -44px auto auto 78% !important; top: -44px !important; left: 78% !important; width: 78px !important; height: 78px !important; } }
+/* estrelas piscando intercaladas; uma vermelha */
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-sp, html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-sp.hs2, html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-sp.hs3 { animation: orbTwinkle 2.4s ease-in-out infinite !important; }
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-sp.hs2 { animation-delay: -.8s !important; }
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-sp.hs3 { animation-delay: -1.6s !important; color: #D7262E !important; }
+@media (prefers-reduced-motion: reduce) { html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-sp, html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-sp.hs2, html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .hero-sp.hs3 { animation: none !important; } }
 </style>
 <script>
 (function(){
@@ -3418,7 +3427,8 @@ html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmHead #gmHero .surpris
     if(g) g.textContent=Object.keys(keys).length; if(c&&cats) c.textContent=cats;
     return true;
   }
-  function init(){ buildOrbit(); if(!countStats()){ var n=0, t=setInterval(function(){ if(countStats()||++n>40) clearInterval(t); },250); } }
+  function moveStamp(){ var st=$('#surpriseStamp'), bt=$('#gmHero .brand-text'); if(st&&bt&&st.parentNode!==bt) bt.appendChild(st); }
+  function init(){ moveStamp(); buildOrbit(); if(!countStats()){ var n=0, t=setInterval(function(){ if(countStats()||++n>40) clearInterval(t); },250); } }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(init,50); }); else setTimeout(init,50);
   window.addEventListener('load',buildOrbit);
   var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(buildOrbit,150); });
