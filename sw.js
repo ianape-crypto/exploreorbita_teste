@@ -1,5 +1,5 @@
 /* ÓRBITA service worker: deixa a visita de volta mais rápida (cache local do navegador). */
-var PAGE='orbita-page-v1', STATIC='orbita-static-v1', KEEP=[PAGE,STATIC];
+var PAGE='orbita-page-v2', STATIC='orbita-static-v1', KEEP=[PAGE,STATIC];
 self.addEventListener('install',function(e){self.skipWaiting();});
 self.addEventListener('activate',function(e){
   e.waitUntil(caches.keys().then(function(ks){return Promise.all(ks.filter(function(k){return KEEP.indexOf(k)<0;}).map(function(k){return caches.delete(k);}));}).then(function(){return self.clients.claim();}));
