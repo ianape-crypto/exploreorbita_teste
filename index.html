@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<script>(function(){var H=history;function fx(u){try{if(u==null)return u;var s=String(u);if(/#inicio$/.test(s))return s.replace(/#inicio$/,'')||location.pathname+location.search;}catch(e){}return u;}['replaceState','pushState'].forEach(function(m){var o=H[m];if(!o)return;H[m]=function(st,t,u){return o.call(H,st,t,arguments.length>2?fx(u):u);};});function clean(){if(location.hash==='#inicio'){try{H.replaceState(H.state,'',location.pathname+location.search);}catch(e){}}}window.addEventListener('hashchange',clean);window.addEventListener('load',clean);window.addEventListener('pageshow',clean);document.addEventListener('DOMContentLoaded',clean);var n=0,t=setInterval(function(){clean();if(++n>40)clearInterval(t);},250);})();</script>
 <style id="orbBoot">html.orb-boot body{visibility:hidden!important}html.orb-boot{background:#F2EBDD!important}html.orb-boot::after{content:"";position:fixed;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border:3px solid #201f1c;border-right-color:transparent;border-radius:50%;animation:orbSpin .8s linear infinite;visibility:visible}@keyframes orbSpin{to{transform:rotate(360deg)}}</style>
 <script>(function(){var h=document.documentElement;h.classList.add('orb-boot');function done(){h.classList.remove('orb-boot');}function ready(){return document.querySelector('#gmMenu .gm-pick')&&document.querySelector('#gmChips .gm-chip')&&document.querySelector('#gmHero .hero-orbit');}function show(){var n=0;(function tick(){if(ready()||++n>160){requestAnimationFrame(function(){requestAnimationFrame(done);});}else setTimeout(tick,50);})();}if(document.readyState!=='loading')show();else document.addEventListener('DOMContentLoaded',show);setTimeout(function(){h.classList.remove('orb-boot');},30000);})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F2EBDD">
-<meta name="orbita-version" content="205">
+<meta name="orbita-version" content="206">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="script" href="js/orbita-1.js?v=203">
@@ -3681,7 +3682,6 @@ html body #tabGames#tabGames#tabGames#tabGames#tabGames#tabGames #gmStage #gmBod
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
 })();
 </script>
-<script>(function(){function clean(){if(location.hash==='#inicio'){try{history.replaceState(history.state,'',location.pathname+location.search);}catch(e){}}}window.addEventListener('hashchange',clean);window.addEventListener('load',clean);document.addEventListener('DOMContentLoaded',function(){clean();setTimeout(clean,0);setTimeout(clean,500);});})();</script>
 </body>
 </html>
 
