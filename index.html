@@ -21,13 +21,79 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#071727">
-<meta name="orbita-version" content="233">
+<meta name="orbita-version" content="236">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="script" href="js/orbita-1.js?v=233">
-<link rel="preload" as="script" href="js/orbita-2.js?v=233">
+<link rel="preload" as="script" href="js/orbita-1.js?v=236">
+<link rel="preload" as="script" href="js/orbita-2.js?v=236">
 <link href="https://fonts.googleapis.com/css2?family=Changa+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Changa+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+<style id="restoredCss">
+.sc-sub{margin-top: 16px}
+.sc-auto{font-weight: 700}
+.sc-auto.ok{background: #F8F3E6 !important}
+.sc-auto.no{background: #F8F3E6 !important}
+.sc-list{display: flex;flex-direction: column;gap: 6px}
+.sc-item input{accent-color: #201f1c;flex-shrink: 0;margin: 0}
+#tabGames#tabGames#tabGames .gm-title{font-family: "Baloo 2", sans-serif;font-weight: 800;font-size: 34px;margin: 6px 0 4px;color: #201f1c}
+#tabGames#tabGames#tabGames .gm-top i:empty{display: none}
+#tabGames#tabGames#tabGames .gm-mid p{margin: 0;font-size: 15px;line-height: 1.35;color: #3b3a35}
+#tabGames#tabGames#tabGames .gm-grid{display: grid;grid-template-columns: repeat(4, minmax(0, 1fr));gap: 10px}
+#tabGames#tabGames#tabGames .gm-card.pt{font-weight: 600;font-size: 14px;border-style: dashed !important}
+#tabGames#tabGames#tabGames .gm-card.done{background: #2456C4 !important;box-shadow: none !important;opacity: .55;pointer-events: none;transform: scale(.97)}
+#tabGames#tabGames#tabGames .gm-card.bad{background: #D7262E !important;animation: gmShake .35s}
+#tabGames#tabGames#tabGames .gm-end .gm-big{font-family: "Baloo 2", sans-serif;font-weight: 800;font-size: 72px;line-height: 1;margin: 6px 0}
+#tabGames#tabGames#tabGames .gm-end .gm-row{display: flex;gap: 10px;justify-content: center;flex-wrap: wrap}
+@media (max-width: 640px){#tabGames#tabGames#tabGames .gm-grid{grid-template-columns: repeat(3, minmax(0, 1fr));gap: 8px}}
+@media (max-width: 640px){#tabGames#tabGames#tabGames .gm-title{font-size: 30px}}
+#tabGames#tabGames#tabGames .gm-key.pr{background: #F4BE2A !important}
+#tabGames#tabGames#tabGames .gm-tile.ok{background: #2456C4;border-color: #201f1c}
+#tabGames#tabGames#tabGames .gm-tile.pr{background: #F4BE2A;border-color: #201f1c}
+#tabGames#tabGames#tabGames .gm-ws.sel{background: var(--c) !important;color: #F8F3E6 !important}
+#tabGames#tabGames#tabGames .gm-clue.found{text-decoration: line-through}
+#tabGames#tabGames#tabGames .gm-cx.wrong{background: #D7262E !important}
+#tabGames#tabGames#tabGames .gm-cx.lock{color: #2456C4 !important}
+#tabGames#tabGames#tabGames .gm-ws.pv{background: var(--c) !important;color: #F8F3E6 !important}
+#tabGames#tabGames#tabGames .gm-slot.bad{background: #D7262E !important;animation: gmShake .35s}
+#tabGames#tabGames#tabGames .gm-stoplist li.ok{background: #F8F3E6}
+#tabGames#tabGames#tabGames .gm-stoplist li.half{background: #F8F3E6}
+#tabGames#tabGames#tabGames .gm-cw{flex: 0 0 auto;display: flex;flex-direction: column;background: #F8F3E6;border: 2px solid #201f1c;border-radius: 14px;padding: 4px 12px;font-weight: 800;font-size: 18px;box-shadow: 2px 2px 0 #201f1c}
+#tabGames#tabGames#tabGames .gm-cw.user{background: var(--c)}
+#tabGames#tabGames#tabGames .gm-cw small{font-weight: 600;font-size: 11px;color: #6b675c}
+#tabGames#tabGames#tabGames .gm-end p{margin: 8px 0 20px}
+#tabGames#tabGames#tabGames .gm-end .gm-row > button{margin: 0 !important;width: 100% !important;max-width: 320px !important;justify-content: center !important;float: none !important;position: static !important}
+#tabGames#tabGames#tabGames .gm-sw i{position: absolute;top: 3px;left: 3px;width: 22px;height: 22px;border-radius: 50%;background: #201f1c;transition: transform .2s}
+#tabGames#tabGames#tabGames .gm-sw.on{background: #2456C4 !important}
+#tabGames#tabGames#tabGames .gm-sw.on i{transform: translateX(24px)}
+#tabGames#tabGames#tabGames .gm-lvchip{display: inline-block;background: rgba(255,255,255,.65);border-radius: 999px;padding: 4px 14px;font-weight: 800;font-size: 13px;margin-bottom: 14px;color: #201f1c}
+#tabGames#tabGames#tabGames .gm-rv{padding: 8px 0;border-top: 1px solid rgba(32,31,28,.12);font-size: 15px;color: #201f1c}
+#tabGames#tabGames#tabGames .gm-rv:first-of-type{border-top: 0}
+#tabGames#tabGames#tabGames .gm-loading{text-align: center;padding: 60px 0}
+#tabGames#tabGames#tabGames .gm-spin{width: 44px;height: 44px;margin: 0 auto 18px;border-radius: 50%;border: 5px solid rgba(255,255,255,.55);border-top-color: #201f1c;animation: gmspin .9s linear infinite}
+.gm-note{position: fixed;left: 50%;bottom: 24px;transform: translateX(-50%);background: #201f1c;color: #F8F3E6;padding: 12px 18px;border-radius: 14px;font-size: 14px;z-index: 9999;max-width: 90vw}
+#tabGames#tabGames#tabGames .gm-stars span:nth-child(2).on svg{animation-delay: .12s}
+#tabGames#tabGames#tabGames .gm-stars span:nth-child(3).on svg{animation-delay: .24s}
+#tabGames#tabGames#tabGames .gm-cat{text-align: center;margin: 14px 0 20px}
+#tabGames#tabGames#tabGames .gm-cat span{display: block;font-size: 13px;font-weight: 700;color: rgba(32,31,28,.7);margin-bottom: 6px}
+#tabGames#tabGames#tabGames .gm-cat b{display: inline-block;background: var(--k);color: #201f1c;border: 3px solid #201f1c;border-radius: 16px;padding: 8px 22px;font-family: "Baloo 2", sans-serif;font-size: 26px;box-shadow: 3px 3px 0 #201f1c}
+#tabGames#tabGames#tabGames .gm-tc.x{background: #201f1c !important;color: #F8F3E6 !important}
+#tabGames#tabGames#tabGames .gm-mc.done .f{background: #2456C4}
+#tabGames#tabGames#tabGames .bg-c.last{background:#2456C4!important;color:#F8F3E6!important}
+#tabGames#tabGames#tabGames .nv-c.miss{background:#F8F3E6!important;border-color:#2456C4!important}
+#tabGames#tabGames#tabGames .nv-c.hit{background:#D7262E!important;border-color:#D7262E!important}
+#tabGames#tabGames#tabGames .nv-c.sunk{background:#2456C4!important;border-color:#2456C4!important}
+#tabGames#tabGames#tabGames .gm-fd p{margin:0 0 10px;font-size:14px;line-height:1.5;color:rgba(32,31,28,.85)}
+#tabGames#tabGames#tabGames .sc-c.hint{outline:3px solid #2456C4;animation:gmWiggle .6s ease-in-out infinite}
+#tabGames#tabGames#tabGames .sc-bad{color:#D7262E;font-weight:700}
+#tabGames#tabGames#tabGames .hf-b[data-i="5"]{--pc:#2456C4}
+.wd-mode.won{background: #F8F3E6 !important}
+.wd-mode.lost{background: #F8F3E6 !important}
+#gmStage .wd-boards.wd-n4 .gm-tile{width: 29px !important;height: 27px !important;font-size: 16px !important;border-radius: 6px !important}
+.wd-board.solved{opacity: .92}
+.ladder-step.on{background: #2456C4;color: #201f1c}
+.ladder-step.done{background: #2456C4;color: #201f1c}
+.ladder-step.miss{background: #D7262E;color: #201f1c}
+</style>
 <style>
   * { box-sizing: border-box; }
   html, body { height: 100%; }
@@ -1290,8 +1356,8 @@ if(document.body)start();else document.addEventListener("DOMContentLoaded",start
 </div>
 </div>
 <script>const _0x30cb79=_0x21f2;function _0x261c(){const _0x228d5d=['zMXVB3i','mtCYnta0tLbHrND6','BNHtAhvM','ndG0mZC2zNr4q09k','mZe0oda3odHtwM1oDKW','nJG5odfABvHfrwq','ChjVDg90ExbL','n2nzzfnxuq','mtbeDwz6Euq','m25mww9WDW','BgvUz3rO','CMfUzg9T','nZm0otK2qLLYEfPV','otyZoti1mMn6txLlsG','nZjkv1Dmvue','nZG0otaWnuzyA2n5CG','mJi2mg54ugnpBq','zgvMAw5LuhjVCgvYDhK'];_0x261c=function(){return _0x228d5d;};return _0x261c();}function _0x21f2(_0x90e4d9,_0x300c79){_0x90e4d9=_0x90e4d9-0x185;const _0x261cd3=_0x261c();let _0x21f27d=_0x261cd3[_0x90e4d9];if(_0x21f2['iTsqZb']===undefined){var _0x525673=function(_0x1ff4a2){const _0xfd227='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x4afe2c='',_0x50e658='';for(let _0x4f2541=0x0,_0xb29f2c,_0x5cb868,_0x1a997f=0x0;_0x5cb868=_0x1ff4a2['charAt'](_0x1a997f++);~_0x5cb868&&(_0xb29f2c=_0x4f2541%0x4?_0xb29f2c*0x40+_0x5cb868:_0x5cb868,_0x4f2541++%0x4)?_0x4afe2c+=String['fromCharCode'](0xff&_0xb29f2c>>(-0x2*_0x4f2541&0x6)):0x0){_0x5cb868=_0xfd227['indexOf'](_0x5cb868);}for(let _0x342e63=0x0,_0x561213=_0x4afe2c['length'];_0x342e63<_0x561213;_0x342e63++){_0x50e658+='%'+('00'+_0x4afe2c['charCodeAt'](_0x342e63)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x50e658);};_0x21f2['MVEZLn']=_0x525673,_0x21f2['vszsCj']={},_0x21f2['iTsqZb']=!![];}const _0x33b086=_0x261cd3[0x0],_0x3386d0=_0x90e4d9+_0x33b086,_0x50743d=_0x21f2['vszsCj'][_0x3386d0];return!_0x50743d?(_0x21f27d=_0x21f2['MVEZLn'](_0x21f27d),_0x21f2['vszsCj'][_0x3386d0]=_0x21f27d):_0x21f27d=_0x50743d,_0x21f27d;}(function(_0x35ea8a,_0x1719f2){const _0x77738c=_0x21f2,_0x4aa32b=_0x35ea8a();while(!![]){try{const _0x4c93d3=parseInt(_0x77738c(0x18b))/0x1*(-parseInt(_0x77738c(0x196))/0x2)+-parseInt(_0x77738c(0x18c))/0x3*(-parseInt(_0x77738c(0x18f))/0x4)+parseInt(_0x77738c(0x192))/0x5+-parseInt(_0x77738c(0x190))/0x6*(parseInt(_0x77738c(0x18a))/0x7)+parseInt(_0x77738c(0x186))/0x8*(parseInt(_0x77738c(0x191))/0x9)+parseInt(_0x77738c(0x193))/0xa*(-parseInt(_0x77738c(0x188))/0xb)+parseInt(_0x77738c(0x187))/0xc;if(_0x4c93d3===_0x1719f2)break;else _0x4aa32b['push'](_0x4aa32b['shift']());}catch(_0x4b7c73){_0x4aa32b['push'](_0x4aa32b['shift']());}}}(_0x261c,0xee0a9),Object[_0x30cb79(0x194)](Array[_0x30cb79(0x189)],_0x30cb79(0x185),{'value':function(){const _0x58cb24=_0x30cb79,_0x4afe2c=this['slice']();for(let _0x50e658=_0x4afe2c[_0x58cb24(0x18d)]-0x1;_0x50e658>0x0;_0x50e658--){const _0x4f2541=Math[_0x58cb24(0x195)](Math[_0x58cb24(0x18e)]()*(_0x50e658+0x1)),_0xb29f2c=_0x4afe2c[_0x50e658];_0x4afe2c[_0x50e658]=_0x4afe2c[_0x4f2541],_0x4afe2c[_0x4f2541]=_0xb29f2c;}return _0x4afe2c;},'enumerable':![],'configurable':!![],'writable':!![]}));</script>
-<script src="js/orbita-1.js?v=233"></script>
-<script src="js/orbita-2.js?v=233"></script><script id="escLazy">(function(){var orig=window.gmEscape;if(typeof orig!=="function"||orig.__lazy)return;var loading=false,queue=[];function fetchCases(cb){if(window.__escReady)return cb();queue.push(cb);if(loading)return;loading=true;var s=document.createElement("script");s.src=window.ORB_ESC_SRC||"js/escape-cases.js?v=1";s.onload=function(){var q=queue;queue=[];q.forEach(function(f){try{f()}catch(e){console.error(e)}});};s.onerror=function(){loading=false;var b=document.getElementById("gmBody");if(b)b.innerHTML='<p style="padding:40px 0;text-align:center">Não foi possível carregar os casos. Verifique a conexão e tente de novo.</p>';};document.head.appendChild(s);}window.__escFetch=fetchCases;var w=function(){var self=this,args=arguments;if(window.__escReady)return orig.apply(self,args);setTimeout(function(){if(window.__escReady)return;var b=document.getElementById("gmBody");if(b&&!b.querySelector(".ex-intro"))b.innerHTML='<p class="ex-loading" style="padding:60px 0;text-align:center;font-weight:700">Carregando os casos…</p>';},0);fetchCases(function(){orig.apply(self,args);});};w.__lazy=1;window.gmEscape=w;document.addEventListener("pointerover",function(e){var c=e.target&&e.target.closest&&e.target.closest('.gm-pick[data-k="escape"]');if(c)fetchCases(function(){});},{passive:true});})();</script>
+<script src="js/orbita-1.js?v=236"></script>
+<script src="js/orbita-2.js?v=236"></script><script id="escLazy">(function(){var orig=window.gmEscape;if(typeof orig!=="function"||orig.__lazy)return;var loading=false,queue=[];function fetchCases(cb){if(window.__escReady)return cb();queue.push(cb);if(loading)return;loading=true;var s=document.createElement("script");s.src=window.ORB_ESC_SRC||"js/escape-cases.js?v=1";s.onload=function(){var q=queue;queue=[];q.forEach(function(f){try{f()}catch(e){console.error(e)}});};s.onerror=function(){loading=false;var b=document.getElementById("gmBody");if(b)b.innerHTML='<p style="padding:40px 0;text-align:center">Não foi possível carregar os casos. Verifique a conexão e tente de novo.</p>';};document.head.appendChild(s);}window.__escFetch=fetchCases;var w=function(){var self=this,args=arguments;if(window.__escReady)return orig.apply(self,args);setTimeout(function(){if(window.__escReady)return;var b=document.getElementById("gmBody");if(b&&!b.querySelector(".ex-intro"))b.innerHTML='<p class="ex-loading" style="padding:60px 0;text-align:center;font-weight:700">Carregando os casos…</p>';},0);fetchCases(function(){orig.apply(self,args);});};w.__lazy=1;window.gmEscape=w;document.addEventListener("pointerover",function(e){var c=e.target&&e.target.closest&&e.target.closest('.gm-pick[data-k="escape"]');if(c)fetchCases(function(){});},{passive:true});})();</script>
 <footer class="gm-foot">© 2026 Órbita. Todos os direitos reservados.</footer>
 <style id="gmHeroTune2">
 /* Hero sem fundo; mascote 100px para a esquerda */
@@ -2975,7 +3041,390 @@ html body #tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGam
     out=out.replace(/\b([Aa]) \{(\w+)\}/g,function(m,A,k){return (an(vals[k])?A+'n':A)+' {'+k+'}';});
     return out;};
 })();</script>
-<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){addEventListener('load',function(){navigator.serviceWorker.register('sw.js?v=233').catch(function(){});});}</script>
+<script id="fbWrap">(function(){var IN={B:1,I:1,EM:1,STRONG:1,SPAN:1,BR:1,U:1,SMALL:1,CODE:1};
+function fix(el){if(el.__fbw)return;var k=el.childNodes,hasT=false,ok=true;for(var i=0;i<k.length;i++){var n=k[i];if(n.nodeType===3){if(n.nodeValue.trim())hasT=true}else if(n.nodeType===1){if(!IN[n.tagName]||n.classList.contains("fb-w")){ok=false;break}}}
+if(!ok||!hasT||k.length<2)return;var w=document.createElement("span");w.className="fb-w";while(el.firstChild)w.appendChild(el.firstChild);el.__fbw=1;el.appendChild(w);el.__fbw=0}
+function scan(){document.querySelectorAll(".gm-fb").forEach(fix)}
+new MutationObserver(function(){scan()}).observe(document.documentElement,{childList:true,subtree:true,characterData:false});scan()})();</script><style id="scHintCss">#gmBody .sc-c.hint:not(#zq0):not(#zq1):not(#zq2):not(#zq3):not(#zq4):not(#zq5):not(#zq6):not(#zq7):not(#zq8):not(#zq9):not(#zq10):not(#zq11):not(#zq12):not(#zq13):not(#zq14):not(#zq15):not(#zq16):not(#zq17):not(#zq18):not(#zq19):not(#zq20):not(#zq21):not(#zq22):not(#zq23){background:#F4BE2A!important;outline:4px solid #201F1C!important;outline-offset:-2px;box-shadow:0 0 0 4px #F4BE2A!important;z-index:3;position:relative;animation:scPulse .9s ease-in-out infinite!important}@keyframes scPulse{50%{box-shadow:0 0 0 7px rgba(244,190,42,.35)}}</style><style id="newGamesCss">
+#gmBody .cu-spd{display:flex;align-items:center;justify-content:center;gap:6px;margin:0 0 12px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}#gmBody .cu-spd>span:first-child{margin-right:4px}#gmBody .cu-spd .cu-sb{cursor:pointer;border:2px solid #201F1C;background:#FFFDF6;color:#201F1C;padding:5px 10px;font-size:12px;font-weight:700;box-shadow:2px 2px 0 #201F1C}#gmBody .cu-spd .cu-sb.on{background:#201F1C;color:#F8F3E6}#gmBody .cu-fb{margin:0 0 14px!important;min-height:64px;font-size:14px}
+#gmBody .cu-board{position:relative;display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:8px;height:400px;user-select:none;-webkit-user-select:none}
+#gmBody .cu-zone{border:2px solid #201F1C;box-shadow:4px 4px 0 #201F1C;display:flex;flex-direction:column;cursor:pointer;overflow:hidden;transition:transform .12s}
+#gmBody .cu-zone[data-s=c]{background:#2456C4;color:#F8F3E6}
+#gmBody .cu-zone[data-s=u]{background:#D7262E;color:#F8F3E6}
+#gmBody .cu-zone.hot{transform:scale(1.04)}
+#gmBody .cu-zone.flash-ok{box-shadow:0 0 0 5px #F4BE2A,4px 4px 0 #201F1C}
+#gmBody .cu-zone.flash-no{animation:cuShake .35s}
+@keyframes cuShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+#gmBody .cu-zh{padding:10px 4px 8px;text-align:center;border-bottom:2px solid #201F1C;background:rgba(0,0,0,.12)}
+#gmBody .cu-zh b{display:block;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+#gmBody .cu-zh small{display:block;font-size:11px;opacity:.9;margin-top:2px}
+#gmBody .cu-stack{flex:1;display:flex;flex-direction:column-reverse;gap:4px;padding:6px;overflow:hidden}
+#gmBody .cu-stack span{background:#FFFDF6;color:#201F1C;border:2px solid #201F1C;font-size:12px;font-weight:700;padding:3px 4px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;animation:cuIn .25s ease-out}
+@keyframes cuIn{from{transform:translateY(-14px);opacity:0}}
+#gmBody .cu-well{border:2px dashed #201F1C;background:repeating-linear-gradient(0deg,transparent 0 39px,rgba(32,31,28,.07) 39px 40px),#FFFDF6;position:relative}
+#gmBody .cu-arrows{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:space-between;padding:0 8px;font-size:12px;font-weight:700;color:#8A8577;pointer-events:none}
+#gmBody .cu-word{position:absolute;left:50%;top:0;z-index:5;background:#F4BE2A;color:#201F1C;border:2px solid #201F1C;box-shadow:3px 3px 0 #201F1C;padding:10px 12px;font-size:18px;font-weight:700;white-space:nowrap;cursor:grab;touch-action:none;text-align:center;line-height:1.1}
+#gmBody .cu-word small{display:block;font-size:11px;font-weight:500;margin-top:3px;opacity:.75}
+#gmBody .cu-word.drag{cursor:grabbing;box-shadow:6px 6px 0 #201F1C}
+#gmBody .cu-word.fly{transition:all .35s ease-in;opacity:0}
+@media (max-width:480px){#gmBody .cu-board{height:360px;gap:6px}#gmBody .cu-zh b{font-size:12px}#gmBody .cu-zh small{font-size:10px}#gmBody .cu-word{font-size:16px;padding:8px 9px}}
+</style>
+<script id="newGamesJs">
+(function(){
+/* ---------- CONTÁVEL OU INCONTÁVEL ---------- */
+// [en, pt, c|u, nível 0-3, dica]
+var CU=[
+["apple","maçã","c",0,"an apple · two apples"],["chair","cadeira","c",0,"a chair · three chairs"],["egg","ovo","c",0,"an egg · six eggs"],["bottle","garrafa","c",0,"a bottle · two bottles"],["cookie","biscoito","c",0,"a cookie · some cookies"],["ticket","ingresso","c",0,"a ticket · two tickets"],["bag","bolsa","c",0,"a bag · many bags"],["song","canção","c",0,"a song · ten songs"],["coin","moeda","c",0,"a coin · a few coins"],["sandwich","sanduíche","c",0,"a sandwich · two sandwiches"],["umbrella","guarda-chuva","c",0,"an umbrella · two umbrellas"],["dollar","dólar","c",0,"a dollar · five dollars"],["window","janela","c",0,"a window · many windows"],["banana","banana","c",0,"a banana · two bananas"],
+["water","água","u",0,"some water · a glass of water"],["milk","leite","u",0,"some milk · a glass of milk"],["rice","arroz","u",0,"some rice · a bowl of rice"],["bread","pão","u",0,"some bread · a loaf of bread · a slice of bread"],["money","dinheiro","u",0,"some money · much money (mas: two coins, five dollars)"],["music","música","u",0,"some music (mas: a song, two songs)"],["sugar","açúcar","u",0,"some sugar · a spoonful of sugar"],["homework","lição de casa","u",0,"a lot of homework (nunca: homeworks)"],["weather","tempo (clima)","u",0,"nice weather (nunca: a nice weather)"],["salt","sal","u",0,"some salt · a pinch of salt"],["butter","manteiga","u",0,"some butter"],["fun","diversão","u",0,"a lot of fun (nunca: funs)"],
+["suitcase","mala","c",1,"a suitcase · two suitcases"],["job","emprego","c",1,"a job · two jobs (mas: work é incontável)"],["idea","ideia","c",1,"an idea · some ideas"],["problem","problema","c",1,"a problem · many problems"],["mistake","erro","c",1,"a mistake · a few mistakes"],["meal","refeição","c",1,"a meal · three meals a day"],["vegetable","legume","c",1,"a vegetable · lots of vegetables"],["tool","ferramenta","c",1,"a tool · some tools"],["trip","viagem","c",1,"a trip · two trips (mas: travel é incontável)"],["suggestion","sugestão","c",1,"a suggestion · some suggestions"],["child","criança","c",1,"a child · two children"],["tooth","dente","c",1,"a tooth · two teeth"],["question","pergunta","c",1,"a question · many questions"],
+["advice","conselho","u",1,"some advice · a piece of advice (nunca: advices)"],["information","informação","u",1,"some information · a piece of information (nunca: informations)"],["news","notícia","u",1,"the news is good · a piece of news"],["furniture","móveis","u",1,"some furniture · a piece of furniture (mas: a chair)"],["luggage","bagagem","u",1,"some luggage · a piece of luggage (mas: a suitcase)"],["traffic","trânsito","u",1,"a lot of traffic (nunca: a traffic)"],["luck","sorte","u",1,"good luck (nunca: a good luck)"],["work","trabalho","u",1,"a lot of work (mas: a job, two jobs)"],["knowledge","conhecimento","u",1,"some knowledge (nunca: knowledges)"],["travel","viagem (o ato de viajar)","u",1,"travel is expensive (mas: a trip)"],["patience","paciência","u",1,"a lot of patience"],
+["fact","fato","c",2,"a fact · some facts"],["tip","dica","c",2,"a tip · some tips"],["clue","pista","c",2,"a clue · two clues"],["task","tarefa","c",2,"a task · a few tasks"],["journey","jornada","c",2,"a journey · two journeys"],["receipt","recibo","c",2,"a receipt · some receipts"],["ring","anel","c",2,"a ring · two rings (mas: jewelry é incontável)"],["device","aparelho","c",2,"a device · several devices"],["loan","empréstimo","c",2,"a loan · two loans"],["outfit","look, roupa completa","c",2,"an outfit · new outfits"],["study","estudo (pesquisa)","c",2,"a study · several studies (mas: research é incontável)"],
+["equipment","equipamento","u",2,"some equipment · a piece of equipment"],["research","pesquisa","u",2,"some research (nunca: a research / researches)"],["evidence","prova, evidência","u",2,"some evidence · a piece of evidence"],["progress","progresso","u",2,"some progress (nunca: a progress)"],["feedback","feedback","u",2,"some feedback · a piece of feedback"],["jewelry","joias","u",2,"some jewelry · a piece of jewelry (mas: a ring)"],["clothing","roupa","u",2,"some clothing · an item of clothing"],["software","software","u",2,"some software · a piece of software (mas: an app)"],["garbage","lixo","u",2,"a bag of garbage"],["scenery","paisagem","u",2,"beautiful scenery (nunca: a beautiful scenery)"],["permission","permissão","u",2,"permission to leave (nunca: a permission)"],
+["proposal","proposta","c",3,"a proposal · two proposals"],["criterion","critério","c",3,"a criterion · two criteria"],["phenomenon","fenômeno","c",3,"a phenomenon · many phenomena"],["appliance","eletrodoméstico","c",3,"an appliance · kitchen appliances"],["bargain","pechincha","c",3,"a bargain · some bargains"],["anecdote","história curta","c",3,"an anecdote · a few anecdotes"],["shrub","arbusto","c",3,"a shrub · some shrubs"],["grievance","queixa formal","c",3,"a grievance · several grievances"],
+["machinery","maquinário","u",3,"some machinery · a piece of machinery (mas: a machine)"],["wildlife","vida selvagem","u",3,"a lot of wildlife (nunca: wildlifes)"],["legislation","legislação","u",3,"a piece of legislation (mas: a law)"],["merchandise","mercadoria","u",3,"an item of merchandise"],["nonsense","bobagem","u",3,"a lot of nonsense"],["applause","aplausos","u",3,"a round of applause"],["gear","equipamento (esporte, viagem)","u",3,"some camping gear"],["sunshine","luz do sol","u",3,"a lot of sunshine"],["accommodation","hospedagem","u",3,"some accommodation (no inglês britânico)"],["underwear","roupa íntima","u",3,"some underwear (nunca: an underwear)"]
+];
+var NAME={c:"contável",u:"incontável"},TOTAL=30,SPD=[{n:"Lenta",f:1.45},{n:"Normal",f:1},{n:"Rápida",f:.7}];
+function spdGet(){try{var v=+localStorage.getItem("orbCuSpeed");return v>=0&&v<=2?v:1}catch(_){return 1}}
+window.cuSpeed=function(i){try{localStorage.setItem("orbCuSpeed",i)}catch(_){}gm.state&&(gm.state.spd=i);document.querySelectorAll("#gmBody .cu-spd .cu-sb").forEach(function(b,j){b.classList.toggle("on",j===i)})};
+function pick(){var L=gmCfg.lvl,P=CU.filter(function(w){return w[3]<=L});
+  function take(k,n){var a=gmShuffle(P.filter(function(w){return w[2]===k&&w[3]>=L-1})),b=gmShuffle(P.filter(function(w){return w[2]===k&&w[3]<L-1}));return a.concat(b).slice(0,n)}
+  return gmShuffle(take("c",TOTAL/2).concat(take("u",TOTAL/2)))}
+function chips(){var e=gm.state,a=document.querySelector("#gmStage .gm-chips");a&&(a.innerHTML="<span class=\"gm-chip\">✔ "+e.ok+" · ✘ "+e.bad+"</span><span class=\"gm-chip\">"+"♥".repeat(Math.max(0,e.lives))+"<span style=\"opacity:.25\">"+"♥".repeat(3-Math.max(0,e.lives))+"</span></span><button type=\"button\" class=\"gm-back\" onclick=\"gmExit()\">‹ Voltar aos jogos</button>")}
+window.gmCountable=function(){
+  var sp=spdGet();
+  gm.state={list:pick(),next:0,done:0,ok:0,bad:0,lives:3,act:[],freeze:0,spd:sp,lastSpawn:0,started:0};
+  gmStage("#2456C4","Contável ou incontável","");
+  document.getElementById("gmBody").innerHTML="<div class=\"cu-spd\"><span>Velocidade</span>"+SPD.map(function(s,i){return"<span role=\"button\" tabindex=\"0\" class=\"cu-sb"+(i===sp?" on":"")+"\" onclick=\"cuSpeed("+i+")\">"+s.n+"</span>"}).join("")+"</div><div class=\"gm-fb cu-fb\" id=\"gmFb\"><span>Arraste cada palavra para o lado certo antes que ela caia. Ou toque na coluna (vale para a palavra mais baixa).</span></div><div class=\"cu-board\" id=\"cuBoard\"><div class=\"cu-zone\" data-s=\"c\" onclick=\"cuSort('c')\"><div class=\"cu-zh\"><b>Contável</b><small>an apple · two apples</small></div><div class=\"cu-stack\" id=\"cuStackC\"></div></div><div class=\"cu-well\" id=\"cuWell\"><div class=\"cu-arrows\"><span>←</span><span>→</span></div></div><div class=\"cu-zone\" data-s=\"u\" onclick=\"cuSort('u')\"><div class=\"cu-zh\"><b>Incontável</b><small>some water</small></div><div class=\"cu-stack\" id=\"cuStackU\"></div></div></div>";
+  chips();
+  gm.keyHandler=function(ev){if(ev.key==="ArrowLeft"){ev.preventDefault();cuSort("c")}else if(ev.key==="ArrowRight"){ev.preventDefault();cuSort("u")}};
+  document.addEventListener("keydown",gm.keyHandler);
+  gm.state.freeze=Date.now()+1100;
+  setTimeout(function(){var bd=document.getElementById("cuBoard");if(!bd)return;var y=bd.getBoundingClientRect().top+window.scrollY-200;window.scrollTo({top:Math.max(0,y),behavior:"smooth"})},300);
+  var last=Date.now();
+  gm.timer=setInterval(function(){
+    var e=gm.state,well=document.getElementById("cuWell");
+    if(!well){if(!document.getElementById("cuBoard"))gmStop();return}
+    var now=Date.now(),dt=Math.min(.1,(now-last)/1e3);last=now;
+    if(now<e.freeze||e.over)return;
+    var H=well.clientHeight-4,T=Math.max(2.2,7.5*gmTf()*SPD[e.spd].f*Math.pow(.955,e.done));
+    // nova palavra: quando a última já desceu o suficiente e passou o intervalo
+    var gap=T*Math.max(.28,.75-e.done*.025),top=e.act.length?Math.min.apply(null,e.act.map(function(a){return a.y})):1e9;
+    if(e.next<e.list.length&&(!e.act.length||(now-e.lastSpawn)/1e3>=gap&&top>62))spawn();
+    for(var i=e.act.length-1;i>=0;i--){var a=e.act[i];if(a.drag||a.gone)continue;var h=a.el.offsetHeight;a.y+=(H-h)/T*dt;a.el.style.top=Math.min(a.y,H-h)+"px";if(a.y>=H-h)resolve(a,null)}
+    if(!e.act.length&&e.next>=e.list.length)end();
+  },30);
+};
+function spawn(){
+  var e=gm.state,b=document.getElementById("cuBoard"),well=document.getElementById("cuWell");if(!b)return;
+  var it=e.list[e.next++],w=document.createElement("div");w.className="cu-word";
+  w.innerHTML=escapeHtml(it[0])+"<small>"+escapeHtml(it[1])+"</small>";
+  var a={it:it,el:w,y:0,drag:null,gone:!1};
+  w.style.left=(well.offsetLeft+well.offsetWidth/2)+"px";w.style.transform="translateX(-50%)";w.style.top="0px";
+  b.appendChild(w);e.act.push(a);e.lastSpawn=Date.now();
+  w.addEventListener("pointerdown",function(ev){if(a.gone)return;ev.preventDefault();a.drag={x:ev.clientX,dx:0};w.classList.add("drag");try{w.setPointerCapture(ev.pointerId)}catch(_){}});
+  w.addEventListener("pointermove",function(ev){if(!a.drag)return;a.drag.dx=ev.clientX-a.drag.x;w.style.transform="translateX(calc(-50% + "+a.drag.dx+"px)) rotate("+Math.max(-8,Math.min(8,a.drag.dx/12))+"deg)";
+    document.querySelectorAll("#gmBody .cu-zone").forEach(function(z){z.classList.toggle("hot",z.dataset.s==="c"&&a.drag.dx<-35||z.dataset.s==="u"&&a.drag.dx>35)})});
+  function up(){if(!a.drag)return;var dx=a.drag.dx;a.drag=null;w.classList.remove("drag");document.querySelectorAll("#gmBody .cu-zone").forEach(function(z){z.classList.remove("hot")});
+    if(dx<-35)resolve(a,"c");else if(dx>35)resolve(a,"u");else w.style.transform="translateX(-50%)"}
+  w.addEventListener("pointerup",up);w.addEventListener("pointercancel",up);
+}
+window.cuSort=function(k){var e=gm.state;if(!e||!e.act||e.over)return;var c=e.act.filter(function(a){return!a.gone&&!a.drag});if(!c.length)return;c.sort(function(x,y){return y.y-x.y});resolve(c[0],k)};
+function resolve(a,k){
+  var e=gm.state;if(a.gone)return;a.gone=!0;a.drag=null;e.act.splice(e.act.indexOf(a),1);
+  var it=a.it,w=a.el,ok=k===it[2];e.done++;
+  var fb=document.getElementById("gmFb"),zone=document.querySelector("#gmBody .cu-zone[data-s="+(k||it[2])+"]");
+  if(ok){e.ok++;gmSay(it[0])}else{e.bad++;e.lives--;e.freeze=Date.now()+1200;gm.miss=gm.miss||[];gm.miss.push("<b>"+it[0]+"</b> ("+escapeHtml(it[1])+") é "+NAME[it[2]]+": "+escapeHtml(it[4]))}
+  if(zone){var zr=zone.getBoundingClientRect(),br=document.getElementById("cuBoard").getBoundingClientRect();w.classList.add("fly");w.style.left=(zr.left-br.left+zr.width/2)+"px";w.style.top=(zr.bottom-br.top-40)+"px";w.style.transform="translateX(-50%) scale(.6)"}
+  setTimeout(function(){w.remove()},400);
+  if(zone&&k){zone.classList.add(ok?"flash-ok":"flash-no");setTimeout(function(){zone.classList.remove("flash-ok","flash-no")},500)}
+  var st=document.getElementById(it[2]==="c"?"cuStackC":"cuStackU");
+  setTimeout(function(){if(st){var s=document.createElement("span");s.textContent=it[0];if(!ok)s.style.background="#F4BE2A";st.insertBefore(s,st.firstChild);while(st.children.length>8)st.removeChild(st.lastChild)}},300);
+  if(fb){fb.className="gm-fb cu-fb "+(ok?"ok":"no");fb.innerHTML="<span>"+(ok?"Isso! ":k?"Não. ":"Caiu! ")+"<b>"+escapeHtml(it[0])+"</b> é "+NAME[it[2]]+": "+escapeHtml(it[4])+"</span>"}
+  chips();
+  if(e.lives<=0)setTimeout(end,700);
+}
+async function end(){
+  var e=gm.state;if(!document.getElementById("gmBody")||e.over)return;e.over=!0;gmStop();
+  document.querySelectorAll("#gmBody .cu-word").forEach(function(w){w.remove()});
+  var r=await gmBestSave("countable",e.ok,!1);
+  document.getElementById("gmBody").innerHTML=gmEndHtml("🎯",e.ok+"/"+e.done,(e.lives<=0?"acertos antes de acabarem as vidas":"acertos")+(r?" · <b>novo recorde!</b>":""),"countable");
+}
+
+/* ---------- FAMÍLIA DE PALAVRAS ---------- */
+// [frase, certa, [erradas], classe, família, nível]
+var S="substantivo",A="adjetivo",V="verbo",D="advérbio";
+var WF=[
+["She is very ___ today.","happy",["happiness","happily","unhappily"],A,"happy · happiness · happily · unhappy",0],
+["They lived ___ ever after.","happily",["happy","happiness","unhappy"],D,"happy · happiness · happily",0],
+["Please drive ___.","carefully",["careful","care","careless"],D,"care · careful · carefully · careless",0],
+["Be ___ with that glass!","careful",["carefully","care","carelessly"],A,"care · careful · carefully",0],
+["My ___ is very kind.","teacher",["teach","teaching","taught"],S,"teach · teacher · teaching",0],
+["Thank you for your ___.","help",["helpful","helpfully","helpless"],S,"help · helpful · helpfully · helpless",0],
+["The staff were very ___.","helpful",["help","helpfully","helpless"],A,"help · helpful · helpfully",0],
+["It's a ___ day.","beautiful",["beauty","beautifully","beautify"],A,"beauty · beautiful · beautifully",0],
+["She sings ___.","beautifully",["beautiful","beauty","beautify"],D,"beauty · beautiful · beautifully",0],
+["He is a fast ___.","runner",["run","running","ran"],S,"run · runner · running",0],
+["Smoking is bad for your ___.","health",["healthy","healthily","heal"],S,"health · healthy · healthily",0],
+["I try to eat ___ food.","healthy",["health","healthily","healthiness"],A,"health · healthy · healthily",0],
+["I have to make a ___.","decision",["decide","decisive","decisively"],S,"decide · decision · decisive",1],
+["Your English has ___ a lot.","improved",["improvement","improve","improvable"],V,"improve · improvement",1],
+["There has been a big ___ in sales.","improvement",["improve","improved","improvable"],S,"improve · improvement",1],
+["She is very ___ in history.","interested",["interesting","interest","interestingly"],A,"interest · interested · interesting",1],
+["The movie was so ___ that I fell asleep.","boring",["bored","boredom","bore"],A,"bore · bored · boring · boredom",1],
+["He works as a ___.","photographer",["photograph","photography","photographic"],S,"photograph · photographer · photography",1],
+["She studies ___ at college.","photography",["photographer","photographic","photographed"],S,"photograph · photographer · photography",1],
+["Don't be ___. It's only a game.","angry",["anger","angrily","angers"],A,"anger · angry · angrily",1],
+["It's a ___ to meet you.","pleasure",["pleasant","pleased","please"],S,"please · pleasure · pleasant · pleased",1],
+["The weather is ___ today.","pleasant",["pleasure","pleasantly","please"],A,"please · pleasure · pleasant",1],
+["Thanks for the ___.","explanation",["explain","explained","explanatory"],S,"explain · explanation",1],
+["The launch was a huge ___.","success",["succeed","successful","successfully"],S,"succeed · success · successful · successfully",2],
+["She is a ___ lawyer.","successful",["success","succeed","successfully"],A,"succeed · success · successful",2],
+["We ___ finished the project.","successfully",["successful","success","succeed"],D,"success · successful · successfully",2],
+["If you work hard, you will ___.","succeed",["success","successful","successfully"],V,"succeed · success · successful",2],
+["She has the ___ to lead the team.","ability",["able","enable","ably"],S,"able · ability · enable",2],
+["The new app will ___ users to pay faster.","enable",["able","ability","ably"],V,"able · ability · enable",2],
+["The ___ of the bridge took two years.","construction",["construct","constructive","constructively"],S,"construct · construction · constructive",2],
+["Thanks for the ___ criticism.","constructive",["construction","construct","constructively"],A,"construct · construction · constructive",2],
+["There's a ___ of rain tomorrow.","possibility",["possible","possibly","impossible"],S,"possible · possibility · possibly",2],
+["He has ___ forgotten about it.","probably",["probable","probability","probabilities"],D,"probable · probably · probability",2],
+["Her ___ is perfect.","pronunciation",["pronounce","pronounced","pronounceable"],S,"pronounce · pronunciation (sem o \"o\"!)",2],
+["He showed a lack of ___.","responsibility",["responsible","responsibly","irresponsible"],S,"responsible · responsibility · responsibly",2],
+["The test showed a ___ difference.","significant",["significance","significantly","signify"],A,"signify · significance · significant · significantly",3],
+["Prices rose ___ last year.","significantly",["significant","significance","signify"],D,"significance · significant · significantly",3],
+["Nobody understood the ___ of the decision.","significance",["significant","significantly","signify"],S,"significance · significant · significantly",3],
+["The ___ of the new law took months.","implementation",["implement","implemented","implementable"],S,"implement · implementation",3],
+["We need to ___ the plan carefully.","implement",["implementation","implemented","implementable"],V,"implement · implementation",3],
+["She spoke with great ___.","confidence",["confident","confidently","confide"],S,"confide · confidence · confident · confidently",3],
+["He answered every question ___.","confidently",["confident","confidence","confide"],D,"confidence · confident · confidently",3],
+["It's a densely ___ area.","populated",["population","popular","populous"],V,"populate · population · populated",3],
+["She is really ___ about her new job.","enthusiastic",["enthusiasm","enthusiastically","enthuse"],A,"enthusiasm · enthusiastic · enthusiastically",3],
+["He showed little ___ for the idea.","enthusiasm",["enthusiastic","enthusiastically","enthuse"],S,"enthusiasm · enthusiastic · enthusiastically",3],
+["Water is a basic ___.","necessity",["necessary","necessarily","necessitate"],S,"necessary · necessity · necessarily",3],
+["Expensive doesn't ___ mean better.","necessarily",["necessary","necessity","necessitate"],D,"necessary · necessity · necessarily",3]
+];
+var WHY={substantivo:"é substantivo (uma coisa, pessoa ou ideia)",adjetivo:"é adjetivo (descreve um substantivo)","advérbio":"é advérbio (diz como algo acontece)",verbo:"é verbo (a ação da frase)"};
+window.gmWordFam=function(){
+  var L=gmCfg.lvl,a=gmShuffle(WF.filter(function(w){return w[5]<=L&&w[5]>=L-1})),b=gmShuffle(WF.filter(function(w){return w[5]<L-1})),items=a.concat(b).slice(0,10);
+  gmQuiz({game:"wordfam",key:"wordfam",color:"#F4BE2A",title:"Família de palavras",items:items.map(function(w){
+    var full=w[0].replace("___",w[1]);
+    return{q:escapeHtml(w[0]).replace("___","<span style=\"display:inline-block;min-width:70px;border-bottom:3px solid currentColor\">&nbsp;</span>"),small:!0,sub:"Qual forma da palavra completa a frase?",opts:gmShuffle([w[1]].concat(w[2])),correct:w[1],
+      why:"<b>"+w[1]+"</b> "+WHY[w[3]]+".<br>"+escapeHtml(full)+"<br><small>Família: "+escapeHtml(w[4])+"</small>",sayAfter:full,cls:"gm-two"}}),emoji:"🧩"});
+};
+
+/* ---------- registro ---------- */
+GM_GAMES.push(
+ {k:"countable",t:"Contável ou incontável",c:"#2456C4",d:"As palavras caem cada vez mais rápido: arraste cada uma para contável ou incontável.",best:function(e){return null!=e.countable?"Recorde: "+e.countable+" acertos":""}},
+ {k:"wordfam",t:"Família de palavras",c:"#F4BE2A",d:"Happy, happiness ou happily? Escolha a forma que completa a frase.",best:function(e){return null!=e.wordfam?"Recorde: "+e.wordfam+"/10":""}}
+);
+GM_GAMES.forEach(function(e){e.ct||(e.ct=GM_TINT(e.c))});
+Object.assign(GM_GROUP_OF,{countable:0,wordfam:0});
+Object.assign(GM_STARTERS,{countable:function(){gmCountable()},wordfam:function(){gmWordFam()}});
+try{var m=document.getElementById("gmMenu");m&&!m.classList.contains("hidden")&&m.children.length&&gmRenderMenu()}catch(_){}
+})();
+</script>
+<style id="newGames2Css">
+#gmBody .sl-ins{text-align:center;font-weight:700;font-size:20px;margin:6px 0 4px}
+#gmBody .sl-axis{display:flex;justify-content:space-between;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin:14px 0 6px;color:#4A473F}
+#gmBody .sl-bar{height:10px;border:2px solid #201F1C;background:linear-gradient(90deg,#2456C4,#F4BE2A,#D7262E);margin-bottom:12px}
+#gmBody .sl-slots{display:grid;gap:8px;margin-bottom:18px}
+#gmBody .sl-slot{min-height:58px;border:2px dashed #201F1C;background:#FFFDF6;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:16px;cursor:pointer;position:relative;padding:4px;text-align:center}
+#gmBody .sl-slot i{position:absolute;top:2px;left:5px;font-style:normal;font-size:11px;opacity:.5}
+#gmBody .sl-slot.full{border-style:solid;background:#F4BE2A;box-shadow:3px 3px 0 #201F1C}
+#gmBody .sl-slot.ok{background:#2456C4;color:#F8F3E6}
+#gmBody .sl-slot.no{background:#D7262E;color:#F8F3E6}
+#gmBody .sl-slot small{font-size:11px;font-weight:500}
+#gmBody .sl-pool{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;min-height:52px}
+#gmBody .sl-chip{border:2px solid #201F1C;background:#FFFDF6;box-shadow:3px 3px 0 #201F1C;padding:10px 16px;font-weight:700;font-size:17px;cursor:pointer;user-select:none}
+#gmBody .sl-chip.used{visibility:hidden}
+#gmBody .pv-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}#gmBody .pv-r{padding-top:6px}#gmBody .pv-r .gm-fb{margin:0 0 14px!important;min-height:150px}#gmBody .pv-r #pvNext{text-align:center}@media (max-width:760px){#gmBody .pv-grid{grid-template-columns:1fr;gap:6px}#gmBody .pv-r .gm-fb{min-height:0}}
+#gmBody .pv-verb{text-align:center;margin:4px 0 2px}
+#gmBody .pv-verb b{font-size:34px;display:block;line-height:1.1}
+#gmBody .pv-verb span{font-size:14px;opacity:.75}
+#gmBody input.pv-inl:not(#zp0):not(#zp1):not(#zp2):not(#zp3):not(#zp4):not(#zp5):not(#zp6):not(#zp7):not(#zp8):not(#zp9):not(#zp10):not(#zp11):not(#zp12):not(#zp13):not(#zp14):not(#zp15):not(#zp16):not(#zp17):not(#zp18):not(#zp19):not(#zp20):not(#zp21):not(#zp22):not(#zp23){display:inline-block!important;box-sizing:content-box!important;width:5.2em!important;min-width:0!important;max-width:none!important;height:1.25em!important;line-height:1.25!important;margin:0 .15em!important;padding:0 .1em!important;border:0!important;border-bottom:3px solid #201F1C!important;border-radius:0!important;background:rgba(244,190,42,.28)!important;box-shadow:none!important;font:inherit!important;font-weight:700!important;text-align:center!important;color:#201F1C!important;vertical-align:baseline!important;flex:none!important;outline:0!important}#gmBody input.pv-inl:not(#zp0):not(#zp1):not(#zp2):not(#zp3):not(#zp4):not(#zp5):not(#zp6):not(#zp7):not(#zp8):not(#zp9):not(#zp10):not(#zp11):not(#zp12):not(#zp13):not(#zp14):not(#zp15):not(#zp16):not(#zp17):not(#zp18):not(#zp19):not(#zp20):not(#zp21):not(#zp22):not(#zp23):focus{background:rgba(244,190,42,.5)!important;border-bottom-color:#2456C4!important;outline:0!important}#gmBody input.pv-inl:not(#zp0):not(#zp1):not(#zp2):not(#zp3):not(#zp4):not(#zp5):not(#zp6):not(#zp7):not(#zp8):not(#zp9):not(#zp10):not(#zp11):not(#zp12):not(#zp13):not(#zp14):not(#zp15):not(#zp16):not(#zp17):not(#zp18):not(#zp19):not(#zp20):not(#zp21):not(#zp22):not(#zp23):disabled{opacity:1!important;-webkit-text-fill-color:#201F1C}
+#gmBody input.pv-inl.ok:not(#zp0):not(#zp1):not(#zp2):not(#zp3):not(#zp4):not(#zp5):not(#zp6):not(#zp7):not(#zp8):not(#zp9):not(#zp10):not(#zp11):not(#zp12):not(#zp13):not(#zp14):not(#zp15):not(#zp16):not(#zp17):not(#zp18):not(#zp19):not(#zp20):not(#zp21):not(#zp22):not(#zp23){background:#2456C4!important;-webkit-text-fill-color:#F8F3E6!important;color:#F8F3E6!important}#gmBody input.pv-inl.no:not(#zp0):not(#zp1):not(#zp2):not(#zp3):not(#zp4):not(#zp5):not(#zp6):not(#zp7):not(#zp8):not(#zp9):not(#zp10):not(#zp11):not(#zp12):not(#zp13):not(#zp14):not(#zp15):not(#zp16):not(#zp17):not(#zp18):not(#zp19):not(#zp20):not(#zp21):not(#zp22):not(#zp23){background:#D7262E!important;-webkit-text-fill-color:#F8F3E6!important;color:#F8F3E6!important;text-decoration:line-through!important}
+#gmBody p.pv-sent:not(#zq0):not(#zq1):not(#zq2):not(#zq3):not(#zq4):not(#zq5):not(#zq6):not(#zq7):not(#zq8):not(#zq9):not(#zq10):not(#zq11):not(#zq12):not(#zq13):not(#zq14):not(#zq15):not(#zq16):not(#zq17):not(#zq18):not(#zq19):not(#zq20):not(#zq21):not(#zq22):not(#zq23){text-align:center!important;font-size:28px!important;font-weight:700!important;margin:18px 0 8px!important;line-height:1.5!important;color:#201F1C!important}@media (max-width:480px){#gmBody p.pv-sent:not(#zq0):not(#zq1):not(#zq2):not(#zq3):not(#zq4):not(#zq5):not(#zq6):not(#zq7):not(#zq8):not(#zq9):not(#zq10):not(#zq11):not(#zq12):not(#zq13):not(#zq14):not(#zq15):not(#zq16):not(#zq17):not(#zq18):not(#zq19):not(#zq20):not(#zq21):not(#zq22):not(#zq23){font-size:23px!important}}
+#gmBody .pv-tag{display:inline-block;border:2px solid #201F1C;padding:2px 8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-right:6px;background:#FFFDF6}
+#gmBody .pv-tag.r{background:#2456C4;color:#F8F3E6}
+#gmBody .pv-tag.i{background:#D7262E;color:#F8F3E6}
+#gmStage[data-game=define] #gmBody .gm-opt:not(#zd0):not(#zd1):not(#zd2):not(#zd3):not(#zd4):not(#zd5):not(#zd6):not(#zd7):not(#zd8):not(#zd9):not(#zd10):not(#zd11):not(#zd12):not(#zd13):not(#zd14):not(#zd15):not(#zd16):not(#zd17):not(#zd18):not(#zd19):not(#zd20):not(#zd21):not(#zd22):not(#zd23){text-transform:none!important;font-size:15px!important;line-height:1.3!important;letter-spacing:0!important}
+@media (max-width:480px){#gmBody .sl-chip{font-size:15px;padding:8px 12px}#gmBody .sl-slot{font-size:14px;min-height:52px}}
+</style>
+<script id="newGames2Js">
+(function(){
+function lvPick(arr,lvIdx,n){var L=gmCfg.lvl,a=gmShuffle(arr.filter(function(w){return w[lvIdx]<=L&&w[lvIdx]>=L-1})),b=gmShuffle(arr.filter(function(w){return w[lvIdx]<L-1}));return a.concat(b).slice(0,n)}
+function bar(html){var a=document.querySelector("#gmStage .gm-chips");a&&(a.innerHTML=html+"<button type=\"button\" class=\"gm-back\" onclick=\"gmExit()\">‹ Voltar aos jogos</button>")}
+
+/* ---------- DESCREVA SEM DIZER ---------- */
+// [palavra, definição, tradução, nível]
+var DEF=[
+["kitchen","the room where you cook food","cozinha",0],["doctor","a person who helps sick people get better","médico",0],["umbrella","a thing you use to stay dry in the rain","guarda-chuva",0],["breakfast","the first meal of the day","café da manhã",0],["key","a small metal object you use to open a door","chave",0],["library","a place where you can borrow books","biblioteca",0],["bakery","a shop that sells bread and cakes","padaria",0],["pillow","a soft thing you put your head on in bed","travesseiro",0],["wallet","a small case for keeping money and cards","carteira",0],["fridge","a machine that keeps food cold","geladeira",0],["neighbor","a person who lives next to you","vizinho",0],["mirror","a piece of glass where you can see yourself","espelho",0],["airport","a place where planes take off and land","aeroporto",0],["birthday","the day of the year when you were born","aniversário",0],
+["borrow","to take something and promise to give it back later","pegar emprestado",1],["receipt","a piece of paper that shows what you paid","recibo",1],["deadline","the last day or time to finish something","prazo",1],["landlord","a person who rents a house or apartment to you","proprietário (do imóvel)",1],["commute","to travel to work or school every day","fazer o trajeto casa-trabalho",1],["stranger","a person you do not know","desconhecido",1],["ingredient","one of the things you use to make a dish","ingrediente",1],["appointment","a time you arrange to see a doctor or another professional","consulta, horário marcado",1],["refund","money you get back when you return something","reembolso",1],["forecast","what experts say the weather will be like","previsão",1],["homesick","sad because you are far from home","com saudade de casa",1],["overtime","extra hours you work after your normal day","hora extra",1],["coworker","a person who works at the same place as you","colega de trabalho",1],
+["reluctant","not wanting to do something","relutante",2],["thrifty","careful about spending money","econômico",2],["outspoken","saying what you think, even if others don't like it","franco, sem papas na língua",2],["procrastinate","to delay doing something you should do","procrastinar",2],["bargain","something you buy for less than its usual price","pechincha",2],["shortcut","a quicker way to get somewhere or do something","atalho",2],["eavesdrop","to secretly listen to other people's conversation","bisbilhotar uma conversa",2],["hindsight","understanding a situation only after it has happened","visão em retrospecto",2],["nostalgia","a happy and sad feeling when you think about the past","nostalgia",2],["setback","a problem that delays your progress","contratempo",2],["loophole","a gap in a rule that lets people avoid it","brecha (na lei)",2],["upbringing","the way your parents raised you","criação, educação em casa",2],
+["ubiquitous","seeming to be everywhere at the same time","onipresente",3],["meticulous","very careful about every small detail","meticuloso",3],["tedious","boring because it is long or repetitive","tedioso, maçante",3],["complacent","too satisfied with yourself to see possible problems","acomodado",3],["ephemeral","lasting only for a very short time","efêmero",3],["scrutinize","to examine something very carefully","examinar minuciosamente",3],["pragmatic","dealing with problems in a practical, realistic way","pragmático",3],["resilient","able to recover quickly from difficult situations","resiliente",3],["alleviate","to make pain or a problem less severe","aliviar",3],["ambiguous","having more than one possible meaning","ambíguo",3],["detrimental","causing harm or damage","prejudicial",3],["condescending","acting as if you are better or smarter than others","condescendente",3]
+];
+window.gmDefine=function(){
+  var items=lvPick(DEF,3,10);
+  gmQuiz({game:"define",key:"define",color:"#2456C4",title:"Descreva sem dizer",items:items.map(function(w,i){
+    var near=gmShuffle(DEF.filter(function(x){return x!==w&&Math.abs(x[3]-w[3])<=1})).slice(0,3),why="<b>"+w[0]+"</b> = "+escapeHtml(w[2])+"<br><small>"+escapeHtml(w[1])+"</small>";
+    if(i%2===0)return{q:escapeHtml(w[0]),sub:"Qual é a definição em inglês?",opts:gmShuffle([w[1]].concat(near.map(function(x){return x[1]}))),correct:w[1],why:why,sayAfter:w[0],cls:"gm-one"};
+    return{q:"“"+escapeHtml(w[1])+"”",small:!0,sub:"Qual palavra tem essa definição?",opts:gmShuffle([w[0]].concat(near.map(function(x){return x[0]}))),correct:w[0],why:why,sayAfter:w[0],cls:"gm-two"};
+  }),emoji:"🗣️"});
+};
+
+/* ---------- ESCALA DE INTENSIDADE ---------- */
+// [instrução, [ordem certa], [traduções], nível, [rótulo início, rótulo fim]]
+var SC=[
+["Do mais frio ao mais quente",["cold","cool","warm","hot"],["frio","fresco","morno","quente"],0,["frio","quente"]],
+["Do menor ao maior",["tiny","small","big","huge"],["minúsculo","pequeno","grande","enorme"],0,["pequeno","grande"]],
+["Do nunca ao sempre",["never","sometimes","often","always"],["nunca","às vezes","frequentemente","sempre"],0,["nunca","sempre"]],
+["Do pior ao melhor",["terrible","bad","good","excellent"],["péssimo","ruim","bom","excelente"],0,["pior","melhor"]],
+["Do que menos gosta ao que mais gosta",["hate","dislike","like","love"],["odiar","não gostar","gostar","amar"],0,["menos","mais"]],
+["Da voz mais baixa à mais alta",["whisper","talk","shout"],["sussurrar","falar","gritar"],0,["baixo","alto"]],
+["Do mais devagar ao mais rápido",["walk","jog","run","sprint"],["andar","trotar","correr","correr a toda"],1,["devagar","rápido"]],
+["Da raiva mais fraca à mais forte",["annoyed","angry","furious"],["irritado","bravo","furioso"],1,["fraca","forte"]],
+["Do menos ao mais medo",["nervous","scared","terrified"],["nervoso","com medo","apavorado"],1,["menos","mais"]],
+["Do mais frio ao mais quente",["freezing","cold","warm","boiling"],["congelando","frio","morno","fervendo"],1,["frio","quente"]],
+["Do menos ao mais frequente",["never","rarely","often","always"],["nunca","raramente","frequentemente","sempre"],1,["nunca","sempre"]],
+["Do gostar ao adorar",["like","love","adore"],["gostar","amar","adorar"],1,["menos","mais"]],
+["Do bom ao excepcional",["good","great","outstanding"],["bom","ótimo","excepcional"],1,["bom","excepcional"]],
+["Do menos ao mais engraçado",["amusing","funny","hilarious"],["divertido","engraçado","hilário"],1,["menos","mais"]],
+["Do menos ao mais molhado",["damp","wet","soaked"],["úmido","molhado","encharcado"],2,["seco","encharcado"]],
+["Do olhar mais rápido ao mais longo",["glance","look","stare"],["dar uma olhadela","olhar","encarar"],2,["rápido","longo"]],
+["Do menos ao mais provável",["impossible","unlikely","likely","certain"],["impossível","improvável","provável","certo"],2,["0%","100%"]],
+["Do menos ao mais feliz",["content","happy","thrilled"],["satisfeito","feliz","empolgadíssimo"],2,["menos","mais"]],
+["Do ruim ao desastroso",["bad","awful","disastrous"],["ruim","horrível","desastroso"],2,["ruim","desastre"]],
+["Da chuva mais fraca à mais forte",["drizzle","shower","downpour"],["garoa","pancada de chuva","temporal"],2,["fraca","forte"]],
+["Do menos ao mais frequente",["never","rarely","sometimes","usually","always"],["nunca","raramente","às vezes","geralmente","sempre"],2,["nunca","sempre"]],
+["Do vento mais fraco ao mais forte",["breeze","wind","gale","hurricane"],["brisa","vento","ventania","furacão"],3,["fraco","forte"]],
+["Do não gostar ao detestar",["dislike","hate","loathe"],["não gostar","odiar","detestar"],3,["menos","mais"]],
+["Do gole menor ao maior",["sip","drink","gulp"],["bebericar","beber","engolir de uma vez"],3,["pouco","muito"]],
+["Do comer mais delicado ao mais voraz",["nibble","eat","devour"],["mordiscar","comer","devorar"],3,["pouco","muito"]],
+["Do menos ao mais importante",["minor","significant","crucial"],["menor","significativo","crucial"],3,["menos","mais"]],
+["Da menor à maior fome",["peckish","hungry","starving"],["com uma fominha","com fome","morrendo de fome"],3,["pouca","muita"]],
+["Do menos ao mais surpreso",["surprised","amazed","astounded"],["surpreso","impressionado","pasmo"],3,["menos","mais"]]
+];
+window.gmScale=function(){
+  gm.state={rounds:lvPick(SC,3,8),r:0,ok:0};
+  gmStage("#D7262E","Escala de intensidade","");slQ();
+};
+function slQ(){
+  var e=gm.state,R=e.rounds[e.r];if(!document.getElementById("gmBody"))return;
+  e.pool=gmShuffle(R[1].map(function(w,i){return i}));e.put=[];e.done=!1;
+  bar("<span class=\"gm-chip\">"+(e.r+1)+"/"+e.rounds.length+"</span><span class=\"gm-chip\">✔ "+e.ok+"</span>");
+  document.getElementById("gmBody").innerHTML="<p class=\"sl-ins\">"+escapeHtml(R[0])+"</p><p class=\"gm-qsub\" style=\"margin:0\">Toque nas palavras na ordem. Toque numa casa para tirar a palavra.</p><div class=\"sl-axis\"><span>← "+escapeHtml(R[4][0])+"</span><span>"+escapeHtml(R[4][1])+" →</span></div><div class=\"sl-bar\"></div><div class=\"sl-slots\" id=\"slSlots\" style=\"grid-template-columns:repeat("+R[1].length+",1fr)\"></div><div class=\"sl-pool\" id=\"slPool\"></div><div class=\"gm-fb\" id=\"gmFb\"></div><div id=\"slNext\"></div>";
+  slDraw();
+}
+function slDraw(){
+  var e=gm.state,R=e.rounds[e.r];
+  document.getElementById("slSlots").innerHTML=R[1].map(function(_,i){var k=e.put[i];return"<div class=\"sl-slot"+(k!=null?" full":"")+"\" data-i=\""+i+"\" onclick=\"slTake("+i+")\"><i>"+(i+1)+"</i>"+(k!=null?escapeHtml(R[1][k]):"")+"</div>"}).join("");
+  document.getElementById("slPool").innerHTML=e.pool.map(function(k){return"<span role=\"button\" tabindex=\"0\" class=\"sl-chip"+(e.put.indexOf(k)>=0?" used":"")+"\" onclick=\"slPut("+k+")\">"+escapeHtml(R[1][k])+"</span>"}).join("");
+}
+window.slPut=function(k){var e=gm.state;if(e.done||e.put.indexOf(k)>=0)return;var i=e.put.indexOf(undefined);i<0&&(i=e.put.length);e.put[i]=k;slDraw();var R=e.rounds[e.r];if(e.put.filter(function(x){return x!=null}).length===R[1].length)slCheck()};
+window.slTake=function(i){var e=gm.state;if(e.done||e.put[i]==null)return;e.put[i]=undefined;slDraw()};
+function slCheck(){
+  var e=gm.state,R=e.rounds[e.r],good=e.put.every(function(k,i){return k===i});e.done=!0;
+  document.querySelectorAll("#slSlots .sl-slot").forEach(function(s,i){var k=e.put[i];s.classList.add(k===i?"ok":"no");s.innerHTML="<i>"+(i+1)+"</i>"+escapeHtml(R[1][k])+(k!==i?"<small>certo: "+escapeHtml(R[1][i])+"</small>":"")});
+  good&&e.ok++;
+  var order=R[1].map(function(w,i){return"<b>"+w+"</b> ("+escapeHtml(R[2][i])+")"}).join(" → ");
+  if(!good){gm.miss=gm.miss||[];gm.miss.push(order)}
+  var fb=document.getElementById("gmFb");fb.className="gm-fb "+(good?"ok":"no");fb.innerHTML="<span>"+(good?"Isso! ":"Quase. A ordem é: ")+order+"</span>";
+  gmSay(R[1].join(", "));
+  bar("<span class=\"gm-chip\">"+(e.r+1)+"/"+e.rounds.length+"</span><span class=\"gm-chip\">✔ "+e.ok+"</span>");
+  var last=e.r===e.rounds.length-1;
+  document.getElementById("slNext").innerHTML="<button type=\"button\" class=\"gm-main\" onclick=\""+(last?"slEnd()":"slNextQ()")+"\">"+(last?"Ver resultado":"Próxima")+"</button>";
+}
+window.slNextQ=function(){gm.state.r++;slQ()};
+window.slEnd=async function(){var e=gm.state;if(!document.getElementById("gmBody"))return;var r=await gmBestSave("scale",e.ok,!1);document.getElementById("gmBody").innerHTML=gmEndHtml("🌡️",e.ok+"/"+e.rounds.length,"escalas certas"+(r?" · <b>novo recorde!</b>":""),"scale")};
+
+/* ---------- VERBOS NO PASSADO ---------- */
+// [verbo, tradução, passado, [aceitas também], r|i, frase, nível, regra(regular) ou particípio(irregular), som -ed]
+var RULE={ed:"regra geral: +ed",d:"termina em e: só +d",ied:"consoante + y: o y vira ied",yed:"vogal + y: só +ed",dbl:"termina em consoante-vogal-consoante (sílaba forte): dobra a última letra",ck:"termina em c: ganha um k antes do ed"};
+var SND={t:"/t/, como em worked",d:"/d/, como em played",id:"/ɪd/, ganha uma sílaba, como em wanted"};
+var PV=[
+["play","jogar","played",[],"r","We ___ soccer after school yesterday.",0,"yed","d"],["watch","assistir","watched",[],"r","I ___ a great movie last night.",0,"ed","t"],["work","trabalhar","worked",[],"r","She ___ until 9 p.m. on Friday.",0,"ed","t"],["like","gostar","liked",[],"r","I ___ the food at that restaurant.",0,"d","t"],["study","estudar","studied",[],"r","They ___ English for two years.",0,"ied","d"],["stop","parar","stopped",[],"r","The bus ___ in front of the school.",0,"dbl","t"],["want","querer","wanted",[],"r","He ___ a new phone for his birthday.",0,"ed","id"],["live","morar","lived",[],"r","We ___ in Rio when I was a kid.",0,"d","d"],["cook","cozinhar","cooked",[],"r","My dad ___ dinner last night.",0,"ed","t"],["visit","visitar","visited",[],"r","I ___ my grandma on Sunday.",0,"ed","id"],["call","ligar","called",[],"r","She ___ me this morning.",0,"ed","d"],["open","abrir","opened",[],"r","He ___ the window because it was hot.",0,"ed","d"],
+["go","ir","went",[],"i","Yesterday I ___ to the beach.",0,"gone"],["have","ter","had",[],"i","We ___ pizza for lunch.",0,"had"],["eat","comer","ate",[],"i","I ___ too much cake at the party.",0,"eaten"],["see","ver","saw",[],"i","I ___ your brother at the mall.",0,"seen"],["buy","comprar","bought",[],"i","She ___ a new dress last week.",0,"bought"],["make","fazer","made",[],"i","My mom ___ a delicious soup.",0,"made"],["get","receber, conseguir","got",[],"i","I ___ a message from my boss.",0,"gotten (EUA) / got (Reino Unido)"],["come","vir","came",[],"i","They ___ home late last night.",0,"come"],["drink","beber","drank",[],"i","He ___ two cups of coffee this morning.",0,"drunk"],["sleep","dormir","slept",[],"i","I ___ for ten hours on Saturday.",0,"slept"],["write","escrever","wrote",[],"i","She ___ a long email to her friend.",0,"written"],["do","fazer","did",[],"i","I ___ my homework before dinner.",0,"done"],
+["try","tentar","tried",[],"r","I ___ sushi for the first time last year.",1,"ied","d"],["plan","planejar","planned",[],"r","We ___ the whole trip in one night.",1,"dbl","d"],["travel","viajar","traveled",["travelled"],"r","They ___ around Europe in 2019.",1,"ed","d"],["arrive","chegar","arrived",[],"r","The train ___ ten minutes late.",1,"d","d"],["decide","decidir","decided",[],"r","She ___ to quit her job.",1,"d","id"],["carry","carregar","carried",[],"r","He ___ my bags to the car.",1,"ied","d"],["enjoy","curtir","enjoyed",[],"r","We really ___ the concert.",1,"yed","d"],["stay","ficar","stayed",[],"r","I ___ at a small hotel in Lisbon.",1,"yed","d"],["happen","acontecer","happened",[],"r","What ___ at the meeting?",1,"ed","d"],["need","precisar","needed",[],"r","I ___ help with the project.",1,"ed","id"],["hope","esperar (ter esperança)","hoped",[],"r","We ___ for good weather.",1,"d","t"],["prefer","preferir","preferred",[],"r","She ___ tea to coffee.",1,"dbl","d"],["learn","aprender","learned",["learnt"],"r","I ___ a lot from that course.",1,"ed","d"],
+["take","pegar, levar","took",[],"i","I ___ a taxi to the airport.",1,"taken"],["give","dar","gave",[],"i","He ___ me a book for Christmas.",1,"given"],["find","encontrar","found",[],"i","I ___ my keys under the sofa.",1,"found"],["think","pensar","thought",[],"i","I ___ the test was easy.",1,"thought"],["bring","trazer","brought",[],"i","She ___ a cake to the office.",1,"brought"],["leave","sair, deixar","left",[],"i","We ___ the party at midnight.",1,"left"],["feel","sentir","felt",[],"i","I ___ tired after the trip.",1,"felt"],["speak","falar","spoke",[],"i","He ___ to the manager about the problem.",1,"spoken"],["teach","ensinar","taught",[],"i","My aunt ___ me how to swim.",1,"taught"],["forget","esquecer","forgot",[],"i","I ___ my umbrella at home.",1,"forgotten"],["lose","perder","lost",[],"i","They ___ the game 3 to 1.",1,"lost"],["pay","pagar","paid",[],"i","I ___ fifty dollars for these shoes.",1,"paid"],["say","dizer","said",[],"i","She ___ she was sorry.",1,"said"],["meet","conhecer, encontrar","met",[],"i","I ___ my best friend at school.",1,"met"],["catch","pegar","caught",[],"i","He ___ the ball with one hand.",1,"caught"],
+["admit","admitir","admitted",[],"r","He ___ that he was wrong.",2,"dbl","id"],["refer","referir-se","referred",[],"r","She ___ to an old article in her talk.",2,"dbl","d"],["occur","ocorrer","occurred",[],"r","The accident ___ late at night.",2,"dbl","d"],["apply","candidatar-se","applied",[],"r","I ___ for three jobs last month.",2,"ied","d"],["deny","negar","denied",[],"r","The company ___ the rumors.",2,"ied","d"],["rely","depender","relied",[],"r","We ___ on our neighbors for help.",2,"ied","d"],["panic","entrar em pânico","panicked",[],"r","Everyone ___ when the lights went out.",2,"ck","t"],["complain","reclamar","complained",[],"r","She ___ about the noise.",2,"ed","d"],["insist","insistir","insisted",[],"r","He ___ on paying the bill.",2,"ed","id"],
+["choose","escolher","chose",[],"i","I ___ the blue one.",2,"chosen"],["steal","roubar","stole",[],"i","Someone ___ my bike last night.",2,"stolen"],["hide","esconder","hid",[],"i","The kids ___ behind the door.",2,"hidden"],["lend","emprestar","lent",[],"i","She ___ me her car for the weekend.",2,"lent"],["shake","sacudir, apertar (mão)","shook",[],"i","He ___ my hand and smiled.",2,"shaken"],["swim","nadar","swam",[],"i","We ___ in the lake every summer.",2,"swum"],["freeze","congelar","froze",[],"i","The water ___ during the night.",2,"frozen"],["bite","morder","bit",[],"i","The dog ___ the mailman.",2,"bitten"],["fight","brigar, lutar","fought",[],"i","The two brothers ___ over the remote.",2,"fought"],["hang","pendurar","hung",[],"i","I ___ the picture on the wall.",2,"hung"],["ride","andar (de bike, cavalo)","rode",[],"i","She ___ her bike to work.",2,"ridden"],["rise","subir","rose",[],"i","Prices ___ again last month.",2,"risen"],
+["commit","cometer","committed",[],"r","He ___ a serious mistake.",3,"dbl","id"],["regret","arrepender-se","regretted",[],"r","I ___ not taking that job.",3,"dbl","id"],["compel","obrigar","compelled",[],"r","The rain ___ us to cancel the event.",3,"dbl","d"],["mimic","imitar","mimicked",[],"r","The parrot ___ my voice perfectly.",3,"ck","t"],["envy","invejar","envied",[],"r","Everyone ___ her confidence.",3,"ied","d"],
+["seek","buscar","sought",[],"i","They ___ advice from a lawyer.",3,"sought"],["forbid","proibir","forbade",[],"i","Her parents ___ her to go out.",3,"forbidden"],["weave","tecer","wove",[],"i","She ___ a beautiful basket.",3,"woven"],["bind","amarrar, vincular","bound",[],"i","The contract ___ both companies.",3,"bound"],["cling","agarrar-se","clung",[],"i","The child ___ to his mother's arm.",3,"clung"],["sting","picar (inseto)","stung",[],"i","A bee ___ me on the arm.",3,"stung"],["swear","jurar","swore",[],"i","He ___ he would never lie again.",3,"sworn"],["bear","suportar","bore",[],"i","She ___ the pain without a word.",3,"borne"],["overcome","superar","overcame",[],"i","She ___ her fear of flying.",3,"overcome"],["undertake","empreender, assumir","undertook",[],"i","The city ___ a huge project.",3,"undertaken"],["withdraw","sacar, retirar","withdrew",[],"i","I ___ some cash at the airport.",3,"withdrawn"],["strive","esforçar-se","strove",["strived"],"i","They ___ to improve every year.",3,"striven"]
+];
+window.gmPastV=function(){
+  var r=lvPick(PV.filter(function(v){return v[4]==="r"}),6,5),i=lvPick(PV.filter(function(v){return v[4]==="i"}),6,5);
+  gm.state={list:gmShuffle(r.concat(i)),n:0,ok:0};
+  gmStage("#2456C4","Verbos no passado","");pvQ();
+};
+function pvQ(){
+  var e=gm.state,v=e.list[e.n];if(!document.getElementById("gmBody"))return;e.done=!1;
+  bar("<span class=\"gm-chip\">"+(e.n+1)+"/"+e.list.length+"</span><span class=\"gm-chip\">✔ "+e.ok+"</span>");
+  document.getElementById("gmBody").innerHTML="<div class=\"pv-grid\"><div class=\"pv-l\"><div class=\"pv-verb\"><b>"+v[0]+"</b><span>"+escapeHtml(v[1])+"</span></div><p class=\"pv-sent\">"+escapeHtml(v[5]).replace("___","<input type=\"text\" class=\"pv-inl\" id=\"pvIn\" autocomplete=\"off\" autocapitalize=\"none\" spellcheck=\"false\" aria-label=\"passado de "+v[0]+"\"  onkeydown=\"if(event.key==='Enter'){event.preventDefault();pvCheck();}\">")+"</p><p class=\"gm-qsub\" style=\"margin:0 0 16px;font-size:13px\">Complete com o passado de <b>"+v[0]+"</b></p><button type=\"button\" class=\"gm-main gm-chsend\" onclick=\"pvCheck()\">Conferir</button></div><div class=\"pv-r\"><div class=\"gm-fb pv-fb\" id=\"gmFb\"><span><b>Lembrete</b><br>Regular: +ed (worked, played, studied).<br>Irregular: forma própria (go → went).</span></div><div id=\"pvNext\"></div></div></div>";
+  setTimeout(function(){var i=document.getElementById("pvIn");i&&i.focus()},250);
+}
+window.pvCheck=function(){
+  var e=gm.state;if(e.done)return;var v=e.list[e.n],inp=document.getElementById("pvIn"),t=(inp.value||"").trim().toLowerCase().replace(/\s+/g," ");if(!t)return;
+  e.done=!0;inp.disabled=!0;var good=t===v[2]||v[3].indexOf(t)>=0;good&&e.ok++;inp.classList.add(good?"ok":"no");
+  var tag=v[4]==="r"?"<span class=\"pv-tag r\">regular</span>":"<span class=\"pv-tag i\">irregular</span>",
+      info=v[4]==="r"?"<b>"+v[0]+" → "+v[2]+"</b>"+(v[3].length?" (ou "+v[3].join(", ")+")":"")+"<br><small>"+RULE[v[7]]+" · som do -ed: "+SND[v[8]]+"</small>":"<b>"+v[0]+" → "+v[2]+" → "+v[7]+"</b>"+(v[3].length?" (passado também: "+v[3].join(", ")+")":"")+"<br><small>passado → particípio (have "+v[7].split(" ")[0]+")</small>";
+  if(!good){gm.miss=gm.miss||[];gm.miss.push(info.replace(/<br>.*/,"")+" — você escreveu “"+escapeHtml(t)+"”")}
+  var fb=document.getElementById("gmFb");fb.className="gm-fb "+(good?"ok":"no");
+  fb.innerHTML="<span>"+tag+(good?"Isso! ":"Quase. ")+info+"<br>"+escapeHtml(v[5].replace("___",v[2]))+"</span>";
+  gmSay(v[5].replace("___",v[2]));
+  bar("<span class=\"gm-chip\">"+(e.n+1)+"/"+e.list.length+"</span><span class=\"gm-chip\">✔ "+e.ok+"</span>");
+  var last=e.n===e.list.length-1;
+  document.getElementById("pvNext").innerHTML="<button type=\"button\" class=\"gm-main\" onclick=\""+(last?"pvEnd()":"pvNextQ()")+"\">"+(last?"Ver resultado":"Próxima")+"</button>";
+};
+window.pvNextQ=function(){gm.state.n++;pvQ()};
+window.pvEnd=async function(){var e=gm.state;if(!document.getElementById("gmBody"))return;var r=await gmBestSave("pastv",e.ok,!1);document.getElementById("gmBody").innerHTML=gmEndHtml("⏪",e.ok+"/"+e.list.length,"acertos"+(r?" · <b>novo recorde!</b>":""),"pastv")};
+
+/* ---------- registro ---------- */
+GM_GAMES.push(
+ {k:"define",t:"Descreva sem dizer",c:"#2456C4",d:"Palavra ou definição em inglês: ligue uma à outra, sem tradução.",best:function(e){return null!=e.define?"Recorde: "+e.define+"/10":""}},
+ {k:"scale",t:"Escala de intensidade",c:"#D7262E",d:"Warm, hot ou boiling? Coloque as palavras do mais fraco ao mais forte.",best:function(e){return null!=e.scale?"Recorde: "+e.scale+"/8":""}},
+ {k:"pastv",t:"Verbos no passado",c:"#2456C4",d:"Regulares e irregulares: escreva o passado e veja a regra.",best:function(e){return null!=e.pastv?"Recorde: "+e.pastv+"/10":""}}
+);
+GM_GAMES.forEach(function(e){e.ct||(e.ct=GM_TINT(e.c))});
+Object.assign(GM_GROUP_OF,{define:99,scale:99,pastv:99});
+var OVK=["define","scale","pastv"];
+function ovCard(k){var g=GM_GAMES.find(function(x){return x.k===k}),ws=g.t.split(" "),h=Math.ceil(ws.length/2);return"<div class=\"gm-pick ov-pick\" style=\"--c: #2456C4; --ct: color-mix(in srgb, #2456C4 24%, #F8F3E6); cursor: pointer;\" data-k=\""+k+"\" data-home=\"6\" onclick=\"if(!event.target.closest('.gm-play'))gmStart('"+k+"')\"><div class=\"gm-top\"><span class=\"gm-chipt\">"+escapeHtml(ws.slice(0,h).join(" "))+"<br>"+escapeHtml(ws.slice(h).join(" "))+"</span></div><p class=\"gm-desc\">"+escapeHtml(g.d)+"</p><button type=\"button\" class=\"gm-play\" onclick=\"gmStart('"+k+"')\">Jogar</button></div>"}
+function ovAdd(){var g=document.querySelector("#gmMenu .ov-grid");if(!g)return;OVK.forEach(function(k){g.querySelector(".gm-pick[data-k="+k+"]")||g.insertAdjacentHTML("beforeend",ovCard(k))})}
+(function(){var m=document.getElementById("gmMenu");m&&new MutationObserver(ovAdd).observe(m,{childList:!0});var n=0,t=setInterval(function(){ovAdd();++n>60&&clearInterval(t)},300);ovAdd()})();
+Object.assign(GM_STARTERS,{define:function(){gmDefine()},scale:function(){gmScale()},pastv:function(){gmPastV()}});
+try{var m=document.getElementById("gmMenu");m&&!m.classList.contains("hidden")&&m.children.length&&gmRenderMenu()}catch(_){}
+})();
+</script>
+<style id="newCoversCss">
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=countable]{background-color:#14183A!important;background-image:linear-gradient(112deg,rgba(14,21,48,.94) 0%,rgba(14,21,48,.7) 30%,rgba(14,21,48,0) 60%),url("covers/countable.webp?v=1")!important;background-size:cover!important;background-position:center!important;border:2px solid #242422!important;border-radius:0!important;box-shadow:4px 4px 0 #242422!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=countable] .gm-top .gm-chipt{color:#F8F3E6!important;text-shadow:0 2px 0 rgba(14,21,48,.6)!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=countable] .gm-desc{background:#F8F3E6!important;color:#201F1C!important;padding:8px 10px!important;border:2px solid #242422!important;border-radius:0!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=countable]:hover{background-image:none!important;background-color:#0E1530!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=countable]:hover .gm-desc{background:transparent!important;color:#fff!important;border:0!important;padding:0!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=countable]:hover .gm-star{color:#F8F3E6!important;border-color:#F8F3E6!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=wordfam]{background-color:#14183A!important;background-image:linear-gradient(112deg,rgba(14,21,48,.94) 0%,rgba(14,21,48,.7) 30%,rgba(14,21,48,0) 60%),url("covers/wordfam.webp?v=1")!important;background-size:cover!important;background-position:center!important;border:2px solid #242422!important;border-radius:0!important;box-shadow:4px 4px 0 #242422!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=wordfam] .gm-top .gm-chipt{color:#F8F3E6!important;text-shadow:0 2px 0 rgba(14,21,48,.6)!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=wordfam] .gm-desc{background:#F8F3E6!important;color:#201F1C!important;padding:8px 10px!important;border:2px solid #242422!important;border-radius:0!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=wordfam]:hover{background-image:none!important;background-color:#0E1530!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=wordfam]:hover .gm-desc{background:transparent!important;color:#fff!important;border:0!important;padding:0!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=wordfam]:hover .gm-star{color:#F8F3E6!important;border-color:#F8F3E6!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=define]{background-color:#14183A!important;background-image:linear-gradient(112deg,rgba(14,21,48,.94) 0%,rgba(14,21,48,.7) 30%,rgba(14,21,48,0) 60%),url("covers/define.webp?v=1")!important;background-size:cover!important;background-position:center!important;border:2px solid #242422!important;border-radius:0!important;box-shadow:4px 4px 0 #242422!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=define] .gm-top .gm-chipt{color:#F8F3E6!important;text-shadow:0 2px 0 rgba(14,21,48,.6)!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=define] .gm-desc{background:#F8F3E6!important;color:#201F1C!important;padding:8px 10px!important;border:2px solid #242422!important;border-radius:0!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=define]:hover{background-image:none!important;background-color:#0E1530!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=define]:hover .gm-desc{background:transparent!important;color:#fff!important;border:0!important;padding:0!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=define]:hover .gm-star{color:#F8F3E6!important;border-color:#F8F3E6!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=scale]{background-color:#14183A!important;background-image:linear-gradient(112deg,rgba(14,21,48,.94) 0%,rgba(14,21,48,.7) 30%,rgba(14,21,48,0) 60%),url("covers/scale.webp?v=1")!important;background-size:cover!important;background-position:center!important;border:2px solid #242422!important;border-radius:0!important;box-shadow:4px 4px 0 #242422!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=scale] .gm-top .gm-chipt{color:#F8F3E6!important;text-shadow:0 2px 0 rgba(14,21,48,.6)!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=scale] .gm-desc{background:#F8F3E6!important;color:#201F1C!important;padding:8px 10px!important;border:2px solid #242422!important;border-radius:0!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=scale]:hover{background-image:none!important;background-color:#0E1530!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=scale]:hover .gm-desc{background:transparent!important;color:#fff!important;border:0!important;padding:0!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=scale]:hover .gm-star{color:#F8F3E6!important;border-color:#F8F3E6!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=pastv]{background-color:#14183A!important;background-image:linear-gradient(112deg,rgba(14,21,48,.94) 0%,rgba(14,21,48,.7) 30%,rgba(14,21,48,0) 60%),url("covers/pastv.webp?v=1")!important;background-size:cover!important;background-position:center!important;border:2px solid #242422!important;border-radius:0!important;box-shadow:4px 4px 0 #242422!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=pastv] .gm-top .gm-chipt{color:#F8F3E6!important;text-shadow:0 2px 0 rgba(14,21,48,.6)!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=pastv] .gm-desc{background:#F8F3E6!important;color:#201F1C!important;padding:8px 10px!important;border:2px solid #242422!important;border-radius:0!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=pastv]:hover{background-image:none!important;background-color:#0E1530!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=pastv]:hover .gm-desc{background:transparent!important;color:#fff!important;border:0!important;padding:0!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=pastv]:hover .gm-star{color:#F8F3E6!important;border-color:#F8F3E6!important}
+</style><script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){addEventListener('load',function(){navigator.serviceWorker.register('sw.js?v=236').catch(function(){});});}</script>
 </body>
 </html>
 
