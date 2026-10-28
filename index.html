@@ -5387,7 +5387,7 @@ function lookup(it,tok,para){var s=it.s,out=[],seen={};if(!s){var g0=gloss(tok);
 function artHtml(it){var s=it.s,h=window.__o2.topbar('leitura');
   var R=lsj('o2read');
   h+='<article class="rd-art"><a class="back" href="#leitura">← Leitura</a><h1>'+esc(it.title)+'</h1><div class="rd-chips"><span class="y">'+it.lv+'</span><span>'+esc(it.gen)+'</span><span>'+mins(it.w)+' min</span><span>'+it.w+' palavras</span></div>';
-  h+='<div class="rd-tools"><button type="button" id="rdPlay">▶ Ouvir</button><select id="rdRate" aria-label="Velocidade"><option value="0.7">Lento</option><option value="0.9" selected>Normal</option><option value="1.1">Rápido</option></select><button type="button" id="rdTr">Tradução</button>'+(s&&s.grammar_words?'<button type="button" id="rdGr">Gramática</button>':'')+'<button type="button" id="rdLs">Só ouvir</button></div><div class="rd-leg" id="rdLeg" hidden>'+GCAT.filter(function(c){return s&&s.grammar_words&&(s.grammar_words[c[0]]||[]).length}).map(function(c){return '<span class="g-'+c[0]+'">'+c[1]+'</span>'}).join('')+'</div><div class="rd-hid" id="rdHid" hidden><b>Texto escondido</b><span>Aperte ▶ Ouvir e tente entender sem ler. Depois mostre o texto para conferir.</span><button type="button" id="rdShow">Mostrar texto</button></div>';
+  h+='<div class="rd-tools"><button type="button" id="rdPlay">▶ Ouvir</button><select id="rdRate" aria-label="Velocidade"><option value="0.6">Lento</option><option value="0.9" selected>Normal</option><option value="1.25">Rápido</option></select><button type="button" id="rdTr">Tradução</button>'+(s&&s.grammar_words?'<button type="button" id="rdGr">Gramática</button>':'')+'<button type="button" id="rdLs">Só ouvir</button></div><div class="rd-leg" id="rdLeg" hidden>'+GCAT.filter(function(c){return s&&s.grammar_words&&(s.grammar_words[c[0]]||[]).length}).map(function(c){return '<span class="g-'+c[0]+'">'+c[1]+'</span>'}).join('')+'</div><div class="rd-hid" id="rdHid" hidden><b>Texto escondido</b><span>Aperte ▶ Ouvir e tente entender sem ler. Depois mostre o texto para conferir.</span><button type="button" id="rdShow">Mostrar texto</button></div>';
   h+='<div class="rd-text" id="rdText">'+it.paras.map(function(p,i){return '<div class="pg" data-p="'+i+'"><p class="en">'+wrap(p,(s&&s.hard_words||[]).map(function(x){return x.toLowerCase()}),s&&s.grammar_words)+'</p><p class="pt">'+esc(it.pt[i]||'')+'</p></div>'}).join('')+'</div>';
   if(s&&s.vocab&&s.vocab.length)h+='<div class="rd-box"><h2>Vocabulário do texto</h2><ul class="rd-voc">'+s.vocab.map(function(v){return '<li><b>'+esc(v.word)+'</b> · '+esc(v.meaning)+(v.note?'<small>'+esc(v.note)+'</small>':'')+'</li>'}).join('')+'</ul></div>';
   var ex=s&&s.exercises;
@@ -5418,9 +5418,15 @@ function afterArt(root){var it=cur;if(!it)return;var art=root.querySelector('.rd
   });
   var pl=document.getElementById('rdPlay');if(pl)pl.addEventListener('click',function(){
     if(spk){stop();return}
-    var u=say(it.paras.join(' '),+document.getElementById('rdRate').value);
+    startSay(0)});
+  var rdPos=0,rdTok=0,rdFull=it.paras.join(' ');
+  function startSay(from){var tok=++rdTok;rdPos=from;
+    var u=say(rdFull.slice(from),+document.getElementById('rdRate').value);
     if(!u){pl.textContent='Sem áudio neste navegador';return}
-    spk=true;pl.textContent='⏸ Parar';pl.classList.add('on');u.onend=u.onerror=function(){if(spk)stop()}});
+    spk=true;pl.textContent='⏸ Parar';pl.classList.add('on');
+    u.onboundary=function(ev){if(tok===rdTok&&typeof ev.charIndex==='number')rdPos=from+ev.charIndex};
+    u.onend=u.onerror=function(){if(tok===rdTok&&spk)stop()}}
+  var rt=document.getElementById('rdRate');if(rt)rt.addEventListener('change',function(){if(spk){var f=rdPos;while(f>0&&/\S/.test(rdFull.charAt(f-1)))f--;startSay(f)}});
   var gr=document.getElementById('rdGr');if(gr){var gon=false;try{gon=localStorage.getItem('o2rdgr')==='1'}catch(e){}
     function setG(v){var t=document.getElementById('rdText'),lg=document.getElementById('rdLeg');t.classList.toggle('gr',v);gr.classList.toggle('on',v);if(lg)lg.hidden=!v;try{localStorage.setItem('o2rdgr',v?'1':'0')}catch(e){}}
     setG(gon);gr.addEventListener('click',function(){setG(!document.getElementById('rdText').classList.contains('gr'))})}
