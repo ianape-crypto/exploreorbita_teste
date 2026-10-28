@@ -3672,7 +3672,7 @@ window.__o2v=window.__o2v||{};
 window.__o2={hud:hudRefresh,pgd:pgd,dkey:dkey,dadd:dadd,byDay:byDay,get info(){return info},SECS:SECS,topbar:function(v){return topbar(v)},img:function(k,c){return img(k,c)},esc:esc,collect:function(){return collect()}};
 function render(){
   if(!root)return; if(!collect())return;
-  var h=(location.hash||'').replace(/^#/,'');var html;if(h==='progress'){window.scrollTo(0,0);try{gmStart('vprog')}catch(e){}return;}
+  var h=(location.hash||'').replace(/^#/,'');var html;if(h.indexOf('jogo/')===0)return;if(h==='progress'){window.scrollTo(0,0);try{gmStart('vprog')}catch(e){}return;}
   var vw=(window.__o2v||{})[h.split('/')[0]];
   if(vw)html=vw.html(h);else if(h==='jogos')html=jogos();else if(h==='todos')html=todos();else if(h.indexOf('s-')===0)html=section(h.slice(2));else html=home();
   root.innerHTML=html+'<div class="o2foot"><span>© Órbita · exploreorbita.com.br</span><span><a href="#" data-act="donate">♥ Apoiar a Órbita</a> &nbsp;·&nbsp; <a href="#" data-act="about">Por trás da Órbita</a></span></div>';
@@ -5972,7 +5972,7 @@ function introHtml(){var T=TR[CFG.tr],steps={
  ladder:['Cada rodada tem 5 frases. A primeira vez toca na velocidade rápida.','Se não chegar a 90% de acerto, a mesma frase toca mais devagar.','Quanto mais rápido você acertar, mais estrelas ganha.'],
  dialog:['Ouça a conversa entre duas pessoas, sem ver o texto.','Responda as 3 perguntas. Acertar ouvindo uma vez só vale uma estrela de bônus.','Depois veja o texto e a tradução, e toque numa fala para ouvir só ela.'],
  numbers:['Cada rodada tem 10 itens: números, preços, horários, datas, anos, telefones e nomes soletrados.','Ouça e digite. Se errar, o item toca mais devagar.','De primeira vale 3 estrelas, depois 2 e 1.'],
- bignum:['Cada rodada tem 10 números grandes, de 4 dígitos até milhões (como 650.325).','Ouça e digite só os dígitos. Pontos e vírgulas são opcionais. Se errar, o número toca mais devagar.','De primeira vale 3 estrelas, depois 2 e 1. Depois de cada número você vê como se diz por extenso.']}[CFG.tr];
+ bignum:['Cada rodada tem 10 números grandes, de 4 dígitos até milhões (como 650.325).','Ouça e digite só os dígitos. Pontos e vírgulas são opcionais.','Escolha a velocidade e ouça quantas vezes quiser. Aqui não há estrelas nem pontuação: depois de cada número você vê como se diz por extenso.']}[CFG.tr];
   return '<div class="xintro"><div class="xcard"><h2>'+esc(T.t)+'</h2><ol class="xsteps">'+steps.map(function(s,i){return '<li><span>'+(i+1)+'</span>'+esc(s)+'</li>'}).join('')+'</ol></div></div>'}
 function layout(main,playing,crumb){var o=window.__o2;
   return o.topbar('escuta')+'<div class="xbar"><a href="#home">‹ Início</a><span>/</span><a href="#escuta" data-esleave="1">Escuta</a>'+(crumb?'<span>/</span><b>'+esc(crumb)+'</b>':'')+'<em class="xchips" id="esChips"></em></div><div class="xlay'+(playing?' pl':'')+'">'+sideHtml()+'<main class="xmain">'+main+'</main></div><div class="foot2">© Órbita · exploreorbita.com.br</div>'}
@@ -6067,19 +6067,19 @@ function dlgAct(a,b){var D=E;
   if(a==='dpt'){D.showPt=!D.showPt;draw();return}
   if(a==='dline'){dlgPlayFrom(+b.getAttribute('data-i'),true);return}}
 // ---------- NÚMEROS
-function numInit(){var kinds=E.tr==='bignum'?['bigx','bigx','bigx','bigx','bigx','bigx','bigx','bigx','bigx','bigx']:['teen','teen','big','price','time','date','year','phone','spell','spell'];E.items=shuf(kinds.map(function(k){return numMake(k)}));E.i=0;E.right=0;E.first=0;E.si=0;E.stars=E.items.map(function(){return null});E.missed=[];E.draft='';E.checked=false;E.base=.7}
+function numInit(){var kinds=E.tr==='bignum'?['bigx','bigx','bigx','bigx','bigx','bigx','bigx','bigx','bigx','bigx']:['teen','teen','big','price','time','date','year','phone','spell','spell'];E.items=shuf(kinds.map(function(k){return numMake(k)}));E.i=0;E.right=0;E.first=0;E.si=0;E.stars=E.items.map(function(){return null});E.missed=[];E.draft='';E.checked=false;E.base=E.tr==='bignum'?(+(lsj('o2bigrate').r)||.8):.7}
 function numRateAt(si){return Math.max(.3,Math.round(E.base*[1,.75,.55][si]*100)/100)}
-function numPlay(rate){var N=E,it=N.items[N.i];if(!it)return;var r=rate||numRateAt(N.si),si=rate?0:N.si;
+function numPlay(rate){var N=E,it=N.items[N.i];if(!it)return;if(N.tr==='bignum'){bigSay(it.say,rate||N.base);return}var r=rate||numRateAt(N.si),si=rate?0:N.si;
   if(it.kind==='spell'||it.kind==='phone'){seq(it.say.split(', '),it.kind==='spell'?Math.max(.4,Math.min(.75,r)):r,(it.kind==='spell'?[800,1100,1400]:[600,800,1000])[si]);return}
   seqTok++;speak(it.say,r,null,'en-US')}
 var seqTok=0;
 function seq(parts,rate,gap){if(!hasSpeechSynthesis()){noTts();return}stopSpeak();var tok=++seqTok;ensureVoices().then(function(){var v=pickV('en-US');(function step(i){if(tok!==seqTok||i>=parts.length)return;var u=new SpeechSynthesisUtterance(parts[i]);u.lang='en-US';u.rate=rate;if(v)u.voice=v;var d=false;function nx(){if(d)return;d=true;setTimeout(function(){step(i+1)},gap)}u.onend=nx;u.onerror=nx;setTimeout(nx,2500+gap);try{speechSynthesis.speak(u)}catch(e){nx()}})(0)})}
-function numDraw(){var N=E,it=N.items[N.i];N.checked=false;
+function numDraw(){var N=E,it=N.items[N.i];N.checked=false;if(N.tr==='bignum')return bigDraw();
   var fmt={teen:'Digite o número: 15',big:'Digite o número: 1250',bigx:'Digite o número: 650325',price:'Digite o valor: 12.50',time:'Digite a hora: 7:45',date:'Digite dia/mês: 3/9',year:'Digite o ano: 1998',phone:'Digite os 7 dígitos: 5550123',spell:'Digite o nome soletrado: Smith'}[it.kind]||'Digite o que ouviu';
   var names=['normal','mais devagar','bem devagar'];chipsSet([(N.i+1)+'/'+N.items.length+' · '+it.label,N.stars.reduce(function(a,b){return a+(b||0)},0)+' ★']);
   var msg=N.si===0?'De primeira vale ★★★. Se errar, o mesmo item toca mais devagar (★★ e depois ★).':N.si===1?'Agora mais devagar (★★ se acertar). Corrija o que você escreveu.':'Agora bem devagar (★ se acertar).';
   return '<div class="es-steps">'+names.map(function(n,i){return '<span class="'+(i<N.si?'miss':i===N.si?'on':'')+'">'+n+' '+String(numRateAt(i).toFixed(2)).replace(/0$/,'').replace('.',',')+'x</span>'}).join('')+'</div><div class="esbox"><h3>'+esc(it.label)+'</h3><p class="m">'+msg+'</p><div class="es-ctl"><button type="button" class="ex-btn on" data-es="nplay">▶ Ouvir</button>'+(N.si===0?'<label>Velocidade normal <input type="range" min="0.4" max="1.1" step="0.05" value="'+N.base+'" id="esNr"></label>':'')+'</div><div class="xhint" id="esMsg" style="color:#D7262E"></div><input class="ex-in w" id="esNum" placeholder="'+esc(fmt)+'" autocomplete="off" autocapitalize="off" spellcheck="false" value="'+esc(N.draft||'')+'"><div class="ex-act" id="esAct" style="margin-top:8px"><button type="button" class="p" data-es="nchk">Conferir</button></div><div class="es-res" id="esRes"></div></div>'}
-function numAct(a){var N=E,it=N.items[N.i];
+function numAct(a){var N=E,it=N.items[N.i];if(N.tr==='bignum')return bigAct(a);
   if(a==='nplay'){numPlay();return}
   if(a==='nchk'){if(N.checked)return;var inp=document.getElementById('esNum'),typed=inp.value;if(!typed.trim()){document.getElementById('esMsg').textContent='Digite o que você ouviu.';return}N.checked=true;
     var t=numNorm(typed,it.kind),ok=[it.answer].concat(it.alt||[]).some(function(x){return numNorm(x,it.kind)===t}),res=document.getElementById('esRes'),act=document.getElementById('esAct'),last=N.i+1>=N.items.length;
@@ -6089,6 +6089,29 @@ function numAct(a){var N=E,it=N.items[N.i];
   if(a==='nslow'){N.si=Math.min(2,N.si+1);draw();setTimeout(numPlay,300);return}
   if(a==='nnorm'){numPlay(numRateAt(0));return}
   if(a==='nnext'){N.i++;N.si=0;N.draft='';if(N.i>=N.items.length){numFinish();return}draw();setTimeout(numPlay,300);return}}
+
+// ---------- NÚMEROS GRANDES (sem estrelas, velocidade livre)
+function bigSay(text,rate){if(!hasSpeechSynthesis()){noTts();return}stopSpeak();var tok=++seqTok;
+  try{speechSynthesis.resume()}catch(e){}
+  ensureVoices().then(function(){if(tok!==seqTok)return;
+    setTimeout(function(){if(tok!==seqTok)return;
+      /* a frase de abertura absorve o início cortado do áudio; o número vem inteiro depois */
+      try{var u=new SpeechSynthesisUtterance('The number is: '+text);u.lang='en-US';u.rate=rate||.8;var v=pickV('en-US');if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}},250)})}
+function bigDraw(){var N=E,it=N.items[N.i];N.checked=false;
+  chipsSet([(N.i+1)+'/'+N.items.length+' · Número grande',N.right+(N.right===1?' acerto':' acertos')]);
+  var sp=[.5,.65,.8,1,1.15].map(function(x){return '<option value="'+x+'"'+(Math.abs(x-N.base)<.03?' selected':'')+'>'+String(x).replace('.',',')+'x</option>'}).join('');
+  return '<div class="esbox"><h3>Número grande</h3><p class="m">Ouça e digite o número. Pontos e vírgulas são opcionais. Escolha a velocidade e ouça quantas vezes quiser.</p><div class="es-ctl"><button type="button" class="ex-btn on" data-es="nplay">▶ Ouvir</button><label>Velocidade <select id="esNs">'+sp+'</select></label></div><div class="xhint" id="esMsg" style="color:#D7262E"></div><input class="ex-in w" id="esNum" inputmode="numeric" placeholder="Digite o número: 650325" autocomplete="off" spellcheck="false" value=""><div class="ex-act" id="esAct" style="margin-top:8px"><button type="button" class="p" data-es="bchk">Conferir</button></div><div class="es-res" id="esRes"></div></div>'}
+function bigAct(a){var N=E,it=N.items[N.i];
+  if(a==='nplay'){numPlay();return}
+  if(a==='bchk'){if(N.checked)return;var inp=document.getElementById('esNum'),typed=inp.value;if(!typed.trim()){document.getElementById('esMsg').textContent='Digite o que você ouviu.';return}N.checked=true;
+    var ok=numNorm(typed,'bigx')===numNorm(it.answer,'bigx'),res=document.getElementById('esRes'),act=document.getElementById('esAct'),last=N.i+1>=N.items.length,fm=Number(it.answer).toLocaleString('en-US');
+    if(ok){N.right++;inp.classList.add('ok')}else{N.missed.push({label:'Número grande',answer:fm,say:it.say,typed:typed});inp.classList.add('no')}
+    chipsSet([(N.i+1)+'/'+N.items.length+' · Número grande',N.right+(N.right===1?' acerto':' acertos')]);
+    res.innerHTML='<div class="es-ans '+(ok?'ok':'no')+'"><b>'+(ok?'Correto! ':'Era ')+esc(fm)+'</b> <span class="m">— dito como "'+esc(it.say)+'"</span><p class="m" style="margin:6px 0 0">'+esc(it.hint)+'</p></div>';
+    act.innerHTML='<button type="button" data-es="nplay">▶ Ouvir de novo</button><button type="button" class="p" data-es="bnext">'+(last?'Ver resultado':'Próximo')+'</button>';return}
+  if(a==='bnext'){N.i++;if(N.i>=N.items.length){bigFinish();return}draw();setTimeout(numPlay,300);return}}
+function bigFinish(){var N=E,n=N.items.length;N.done=true;stopSpeak();seqTok++;record('Escuta · Números grandes');
+  document.getElementById('esMain').innerHTML='<div class="esbox" style="text-align:center"><div class="es-big">'+N.right+' de '+n+'</div><p style="margin:6px 0">números entendidos</p></div>'+(N.missed.length?'<div class="esbox"><h3>Para rever</h3>'+N.missed.map(function(m){return '<p><b>'+esc(m.answer)+'</b>, dito como "'+esc(m.say)+'" — você escreveu '+esc(m.typed)+'</p>'}).join('')+'</div>':'')+'<div class="ex-act"><button type="button" class="p" data-es="again">Nova rodada</button><button type="button" data-es="back">Outros treinos</button></div>';chipsSet(['Rodada concluída'])}
 function numFinish(){var N=E,n=N.items.length,tot=N.stars.reduce(function(a,b){return a+(b||0)},0);N.done=true;stopSpeak();seqTok++;var bk=N.tr==='bignum'?'big':'num';record(N.tr==='bignum'?'Escuta · Números grandes':'Escuta · Números e soletração');var B=lsj('o2escbest'),nr=(B[bk]==null||tot>B[bk]);if(nr){B[bk]=tot;lss('o2escbest',B)}
   document.getElementById('esMain').innerHTML='<div class="esbox" style="text-align:center"><div class="es-big">'+N.first+' de '+n+'</div><p style="margin:6px 0">de primeira · '+tot+' de '+(n*3)+' estrelas'+(nr?' · <b>novo recorde!</b>':' · recorde '+B[bk])+'</p></div>'+(N.missed.length?'<div class="esbox"><h3>Para rever</h3>'+N.missed.map(function(m){return '<p><b>'+esc(m.label)+':</b> era <b>'+esc(m.answer)+'</b>, dito como "'+esc(m.say)+'"'+(m.typed?' — você escreveu '+esc(m.typed):'')+'</p>'}).join('')+'</div>':'')+'<div class="ex-act"><button type="button" class="p" data-es="again">Nova rodada</button><button type="button" data-es="back">Outros treinos</button></div>';chipsSet(['Rodada concluída'])}
 // ---------- desenho geral
@@ -6119,9 +6142,9 @@ window.__o2v.escuta={
   bindSide();
   if(playing){var box=root.querySelector('#esMain');draw();
    box.addEventListener('click',function(e){var b=e.target.closest('[data-es]');if(!b||b.disabled)return;e.preventDefault();act(box,b.getAttribute('data-es'),b)});
-   box.addEventListener('input',function(e){if(e.target.id==='esDr'&&E){E.rate=+e.target.value;var l=document.getElementById('esDrl');if(l)l.textContent=String(E.rate.toFixed(2)).replace('.',',')+'x'}if(e.target.id==='esNr'&&E)E.base=+e.target.value});
+   box.addEventListener('input',function(e){if(e.target.id==='esDr'&&E){E.rate=+e.target.value;var l=document.getElementById('esDrl');if(l)l.textContent=String(E.rate.toFixed(2)).replace('.',',')+'x'}if(e.target.id==='esNr'&&E)E.base=+e.target.value;if(e.target.id==='esNs'&&E){E.base=+e.target.value;lss('o2bigrate',{r:E.base})}});
    box.addEventListener('change',function(e){if(e.target.id==='esRate'&&E)E.rate=+e.target.value});
-   box.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.id==='esNum'&&E&&(E.tr==='numbers'||E.tr==='bignum')){e.preventDefault();var s=document.getElementById('esAct');var p=s&&s.querySelector('[data-es=nnext],[data-es=nchk],[data-es=nslow]');if(p)p.click()}});
+   box.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.id==='esNum'&&E&&(E.tr==='numbers'||E.tr==='bignum')){e.preventDefault();var s=document.getElementById('esAct');var p=s&&s.querySelector('[data-es=nnext],[data-es=nchk],[data-es=nslow],[data-es=bnext],[data-es=bchk]');if(p)p.click()}});
    if(E.tr==='ladder'||E.tr==='numbers'||E.tr==='bignum')setTimeout(function(){if(E&&!E.done)(E.tr==='ladder'?ladPlay:numPlay)()},500)}}};
 window.addEventListener('hashchange',function(){if((location.hash||'').indexOf('#escuta')!==0){stopSpeak()}});
 
@@ -7235,6 +7258,36 @@ function init(){
  if(Date.now()>=until)setTimeout(toast,45000);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<script>
+(function(){
+/* links diretos: #jogo/<chave> abre o jogo; o endereço acompanha o jogo aberto */
+var cur=null,busy=false;
+function keyOf(h){return h.indexOf('jogo/')===0?decodeURIComponent(h.slice(5)).replace(/[^a-z0-9_-]/gi,''):''}
+function hash(){return (location.hash||'').replace(/^#/,'')}
+function known(k){try{var i=window.__o2&&window.__o2.info;return !!(k&&i&&i[k])}catch(e){return false}}
+function hook(){
+  if(typeof window.gmStart!=='function'||typeof window.gmExit!=='function')return false;
+  if(window.gmStart.__lk)return true;
+  var os=window.gmStart,oe=window.gmExit;
+  var ws=function(k){var r=os.apply(this,arguments);
+    if(typeof k==='string'&&k&&k!=='vprog'&&!busy){cur=k;if(hash()!=='jogo/'+k){try{history.pushState(null,'','#jogo/'+k)}catch(e){}}}
+    return r};ws.__lk=1;window.gmStart=ws;
+  var we=function(){var r=oe.apply(this,arguments);
+    if(cur&&!busy){cur=null;if(hash().indexOf('jogo/')===0){try{history.replaceState(null,'','#todos')}catch(e){}}}
+    return r};we.__lk=1;window.gmExit=we;
+  return true}
+function openFromHash(){var k=keyOf(hash());if(!k)return;
+  if(!known(k)){try{history.replaceState(null,'','#todos')}catch(e){}return}
+  if(cur===k)return;busy=true;try{window.scrollTo(0,0);window.gmStart(k);cur=k}catch(e){}busy=false}
+window.addEventListener('hashchange',function(){var h=hash();
+  if(h.indexOf('jogo/')===0){openFromHash();return}
+  if(cur){var c=cur;cur=null;busy=true;try{window.gmExit()}catch(e){}busy=false}});
+var tries=0,t=setInterval(function(){tries++;
+  var ready=false;try{ready=Object.keys(window.__o2.info||{}).length>40}catch(e){}
+  if(hook()&&(ready||known(keyOf(hash())))){clearInterval(t);openFromHash();return}
+  if(tries>60){clearInterval(t);if(keyOf(hash()))try{history.replaceState(null,'','#todos')}catch(e){}}},250);
 })();
 </script>
 </body>
