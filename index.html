@@ -5873,7 +5873,8 @@ function numWords(n) {
   if (n < 100) return NUM_TENS[Math.floor(n / 10)] + (n % 10 ? '-' + NUM_ONES[n % 10] : '');
   if (n < 1000) return NUM_ONES[Math.floor(n / 100)] + ' hundred' + (n % 100 ? ' ' + numWords(n % 100) : '');
   if (n < 1000000) return numWords(Math.floor(n / 1000)) + ' thousand' + (n % 1000 ? ' ' + numWords(n % 1000) : '');
-  return String(n);
+  if (n < 1000000000) return numWords(Math.floor(n / 1000000)) + ' million' + (n % 1000000 ? ' ' + numWords(n % 1000000) : '');
+  return numWords(Math.floor(n / 1000000000)) + ' billion' + (n % 1000000000 ? ' ' + numWords(n % 1000000000) : '');
 }
 const NUM_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 function ordWord(d) { const sp = { 1: 'first', 2: 'second', 3: 'third', 5: 'fifth', 8: 'eighth', 9: 'ninth', 12: 'twelfth', 20: 'twentieth', 30: 'thirtieth' }; if (sp[d]) return sp[d]; if (d > 20 && d % 10) return NUM_TENS[Math.floor(d / 10)] + '-' + (sp[d % 10] || NUM_ONES[d % 10] + 'th'); return NUM_ONES[d] + 'th'; }
@@ -5882,6 +5883,13 @@ function numMake(kind) {
   const r = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
   if (kind === 'teen') { const base = r(3, 9); const teen = Math.random() < 0.5; const n = teen ? 10 + base : base * 10; return { kind, label: 'Número', say: numWords(n), answer: String(n), hint: `${numWords(10 + base)} (${10 + base}) x ${numWords(base * 10)} (${base * 10}): no -teen a força vai no fim (fif-TEEN); no -ty, no começo (FIF-ty).` }; }
   if (kind === 'big') { const n = Math.random() < 0.5 ? r(101, 999) : r(1001, 99999); return { kind, label: 'Número', say: numWords(n), answer: String(n), hint: 'Em inglês o "and" depois de hundred é opcional e a vírgula separa os milhares: 1,250.' }; }
+  if (kind === 'bigx') { const mode = r(0, 9); let n;
+    if (mode < 2) n = r(1000, 9999); else if (mode < 4) n = r(10000, 99999);
+    else if (mode < 7) n = r(100, 999) * 1000 + (Math.random() < 0.4 ? 0 : r(1, 999));
+    else if (mode < 9) n = r(1, 9) * 1000000 + r(0, 999) * 1000 + (Math.random() < 0.5 ? 0 : r(1, 999));
+    else n = r(10, 99) * 1000000 + r(0, 999) * 1000 + r(0, 999);
+    const fm = n.toLocaleString('en-US'); const ps = fm.split(',');
+    return { kind, label: 'Número grande', say: numWords(n), answer: String(n), hint: `${fm} = ${numWords(n)}. Cada vírgula marca um grupo: ${ps.length > 2 ? 'million / thousand' : 'thousand'}. Em inglês a vírgula separa os milhares (no Brasil usamos o ponto).` }; }
   if (kind === 'price') { const d = r(1, 199), c = [0, 5, 10, 25, 49, 50, 75, 99][r(0, 7)]; return { kind, label: 'Preço (US$)', say: `${numWords(d)} dollar${d > 1 ? 's' : ''}${c ? ' and ' + numWords(c) + ' cent' + (c > 1 ? 's' : '') : ''}`, answer: c ? `${d}.${String(c).padStart(2, '0')}` : `${d}`, alt: c ? [] : [`${d}.00`], hint: 'Escreva com ponto para os centavos: 12.50.' }; }
   if (kind === 'time') { const h = r(1, 12), m = [0, 5, 10, 15, 20, 30, 40, 45, 50, 55][r(0, 9)]; const say = m === 0 ? `${numWords(h)} o'clock` : m === 15 && Math.random() < 0.5 ? `quarter past ${numWords(h)}` : m === 30 && Math.random() < 0.5 ? `half past ${numWords(h)}` : m === 45 && Math.random() < 0.5 ? `quarter to ${numWords(h % 12 + 1)}` : `${numWords(h)} ${m < 10 ? 'oh ' + numWords(m) : numWords(m)}`; return { kind, label: 'Horário', say, answer: `${h}:${String(m).padStart(2, '0')}`, hint: 'Quarter past = e quinze; half past = e meia; quarter to = quinze para.' }; }
   if (kind === 'date') { const mo = r(0, 11), d = r(1, 28); return { kind, label: 'Data (dia/mês)', say: `${NUM_MONTHS[mo]} ${ordWord(d)}`, answer: `${d}/${mo + 1}`, alt: [`${String(d).padStart(2, '0')}/${String(mo + 1).padStart(2, '0')}`, `${d}/${String(mo + 1).padStart(2, '0')}`, `${String(d).padStart(2, '0')}/${mo + 1}`], hint: `Escreva no formato brasileiro, dia/mês. Nos EUA a data escrita é ${mo + 1}/${d} (mês primeiro).` }; }
@@ -5898,7 +5906,7 @@ function numNorm(t, kind) {
   if (kind === 'date') return s.replace(/\s/g, '').replace(/^0/, '').replace(/\/0/, '/');
   return s.replace(/[\s,.]/g, '');
 }
-const NUM_KIND_PT = { teen: 'teen x ty (15 ou 50)', big: 'números grandes', price: 'preços', time: 'horários', date: 'datas', year: 'anos', phone: 'telefones', spell: 'soletração' };
+const NUM_KIND_PT = { bigx: 'números grandes', teen: 'teen x ty (15 ou 50)', big: 'números grandes', price: 'preços', time: 'horários', date: 'datas', year: 'anos', phone: 'telefones', spell: 'soletração' };
 
 const DLG_F = /samantha|victoria|karen|moira|tessa|fiona|zira|susan|allison|ava|serena|kate|female|woman|aria|jenny|libby|sonia|emma|olivia|natasha|joanna|salli|kimberly|ivy|nicky|martha|catherine|veena|shelley|sandy|flo|grandma/i;
 const DLG_M = /daniel|alex|fred|david|mark|male|man|rishi|aaron|arthur|tom|oliver|guy|ryan|eric|christopher|george|matthew|justin|joey|brian|thomas|lee|reed|rocko|eddy|grandpa|ralph|james/i;
@@ -5923,7 +5931,8 @@ function dlgPickVoices() {
 var TR={loop:{t:'Loop',d:'Ouça um texto sem ver o que está escrito, escreva o que entendeu e confira. Depois traduza para o português e de volta para o inglês.',lv:1},
  ladder:{t:'Escada de velocidade',d:'Cada frase toca primeiro rápida e só desacelera se você não entender. Escreva o que ouviu e ganhe mais estrelas quanto mais rápido acertar.',lv:1},
  dialog:{t:'Diálogos',d:'Conversas lidas por duas vozes. Ouça sem ver o texto, responda 3 perguntas e depois confira o texto com a tradução.',lv:1},
- numbers:{t:'Números e soletração',d:'Ouça e digite números, preços, horários, datas, anos, telefones e sobrenomes soletrados. Não depende do nível.',lv:0}};
+ numbers:{t:'Números e soletração',d:'Ouça e digite números, preços, horários, datas, anos, telefones e sobrenomes soletrados. Não depende do nível.',lv:0},
+ bignum:{t:'Números grandes',d:'Só números grandes, de milhares a milhões, como 650.325 ou 3.480.000. Ouça e digite. Não depende do nível.',lv:0}};
 var CFG=Object.assign({tr:'loop',lv:null,acc:'en-US',nat:false},lsj('o2escfg'));
 function curLv(){if(LVS.indexOf(CFG.lv)>=0)return CFG.lv;var n='';try{n=(window.GM_LV_NAMES||[])[(window.gmCfg||{}).lvl]||''}catch(e){}return LVS.indexOf(n)>=0?n:'A1'}
 function sv(){lss('o2escfg',{tr:CFG.tr,lv:CFG.lv,acc:CFG.acc,nat:CFG.nat})}
@@ -5962,13 +5971,14 @@ function introHtml(){var T=TR[CFG.tr],steps={
  loop:['Ouça o texto sem ver o que está escrito, quantas vezes quiser, frase por frase ou inteiro.','Escreva o que entendeu e confira com o original.','Traduza para o português e compare com a tradução ideal. Opcional: traduza de volta para o inglês.'],
  ladder:['Cada rodada tem 5 frases. A primeira vez toca na velocidade rápida.','Se não chegar a 90% de acerto, a mesma frase toca mais devagar.','Quanto mais rápido você acertar, mais estrelas ganha.'],
  dialog:['Ouça a conversa entre duas pessoas, sem ver o texto.','Responda as 3 perguntas. Acertar ouvindo uma vez só vale uma estrela de bônus.','Depois veja o texto e a tradução, e toque numa fala para ouvir só ela.'],
- numbers:['Cada rodada tem 10 itens: números, preços, horários, datas, anos, telefones e nomes soletrados.','Ouça e digite. Se errar, o item toca mais devagar.','De primeira vale 3 estrelas, depois 2 e 1.']}[CFG.tr];
+ numbers:['Cada rodada tem 10 itens: números, preços, horários, datas, anos, telefones e nomes soletrados.','Ouça e digite. Se errar, o item toca mais devagar.','De primeira vale 3 estrelas, depois 2 e 1.'],
+ bignum:['Cada rodada tem 10 números grandes, de 4 dígitos até milhões (como 650.325).','Ouça e digite só os dígitos. Pontos e vírgulas são opcionais. Se errar, o número toca mais devagar.','De primeira vale 3 estrelas, depois 2 e 1. Depois de cada número você vê como se diz por extenso.']}[CFG.tr];
   return '<div class="xintro"><div class="xcard"><h2>'+esc(T.t)+'</h2><ol class="xsteps">'+steps.map(function(s,i){return '<li><span>'+(i+1)+'</span>'+esc(s)+'</li>'}).join('')+'</ol></div></div>'}
 function layout(main,playing,crumb){var o=window.__o2;
   return o.topbar('escuta')+'<div class="xbar"><a href="#home">‹ Início</a><span>/</span><a href="#escuta" data-esleave="1">Escuta</a>'+(crumb?'<span>/</span><b>'+esc(crumb)+'</b>':'')+'<em class="xchips" id="esChips"></em></div><div class="xlay'+(playing?' pl':'')+'">'+sideHtml()+'<main class="xmain">'+main+'</main></div><div class="foot2">© Órbita · exploreorbita.com.br</div>'}
 function chipsSet(arr){var c=document.getElementById('esChips');if(c)c.innerHTML=(arr||[]).map(function(x){return '<i>'+esc(x)+'</i>'}).join('')}
 // ---------- carregamento dos dados
-function needData(){var tr=CFG.tr;if(tr==='dialog')return loadJs('DIALOGUE_BANK','js/nx-dialogues.js');if(tr==='numbers')return Promise.resolve();return loadJs('LOOP_BANK','js/nx-loop.js')}
+function needData(){var tr=CFG.tr;if(tr==='dialog')return loadJs('DIALOGUE_BANK','js/nx-dialogues.js');if(tr==='numbers'||tr==='bignum')return Promise.resolve();return loadJs('LOOP_BANK','js/nx-loop.js')}
 // ---------- início das sessões
 function begin(){E={tr:CFG.tr,lv:curLv(),done:false};needData().then(function(){
   if(E.tr==='loop')loopInit();else if(E.tr==='ladder')ladInit();else if(E.tr==='dialog')dlgInit();else numInit();
@@ -6057,7 +6067,7 @@ function dlgAct(a,b){var D=E;
   if(a==='dpt'){D.showPt=!D.showPt;draw();return}
   if(a==='dline'){dlgPlayFrom(+b.getAttribute('data-i'),true);return}}
 // ---------- NÚMEROS
-function numInit(){var kinds=['teen','teen','big','price','time','date','year','phone','spell','spell'];E.items=shuf(kinds.map(function(k){return numMake(k)}));E.i=0;E.right=0;E.first=0;E.si=0;E.stars=E.items.map(function(){return null});E.missed=[];E.draft='';E.checked=false;E.base=.7}
+function numInit(){var kinds=E.tr==='bignum'?['bigx','bigx','bigx','bigx','bigx','bigx','bigx','bigx','bigx','bigx']:['teen','teen','big','price','time','date','year','phone','spell','spell'];E.items=shuf(kinds.map(function(k){return numMake(k)}));E.i=0;E.right=0;E.first=0;E.si=0;E.stars=E.items.map(function(){return null});E.missed=[];E.draft='';E.checked=false;E.base=.7}
 function numRateAt(si){return Math.max(.3,Math.round(E.base*[1,.75,.55][si]*100)/100)}
 function numPlay(rate){var N=E,it=N.items[N.i];if(!it)return;var r=rate||numRateAt(N.si),si=rate?0:N.si;
   if(it.kind==='spell'||it.kind==='phone'){seq(it.say.split(', '),it.kind==='spell'?Math.max(.4,Math.min(.75,r)):r,(it.kind==='spell'?[800,1100,1400]:[600,800,1000])[si]);return}
@@ -6065,7 +6075,7 @@ function numPlay(rate){var N=E,it=N.items[N.i];if(!it)return;var r=rate||numRate
 var seqTok=0;
 function seq(parts,rate,gap){if(!hasSpeechSynthesis()){noTts();return}stopSpeak();var tok=++seqTok;ensureVoices().then(function(){var v=pickV('en-US');(function step(i){if(tok!==seqTok||i>=parts.length)return;var u=new SpeechSynthesisUtterance(parts[i]);u.lang='en-US';u.rate=rate;if(v)u.voice=v;var d=false;function nx(){if(d)return;d=true;setTimeout(function(){step(i+1)},gap)}u.onend=nx;u.onerror=nx;setTimeout(nx,2500+gap);try{speechSynthesis.speak(u)}catch(e){nx()}})(0)})}
 function numDraw(){var N=E,it=N.items[N.i];N.checked=false;
-  var fmt={teen:'Digite o número: 15',big:'Digite o número: 1250',price:'Digite o valor: 12.50',time:'Digite a hora: 7:45',date:'Digite dia/mês: 3/9',year:'Digite o ano: 1998',phone:'Digite os 7 dígitos: 5550123',spell:'Digite o nome soletrado: Smith'}[it.kind]||'Digite o que ouviu';
+  var fmt={teen:'Digite o número: 15',big:'Digite o número: 1250',bigx:'Digite o número: 650325',price:'Digite o valor: 12.50',time:'Digite a hora: 7:45',date:'Digite dia/mês: 3/9',year:'Digite o ano: 1998',phone:'Digite os 7 dígitos: 5550123',spell:'Digite o nome soletrado: Smith'}[it.kind]||'Digite o que ouviu';
   var names=['normal','mais devagar','bem devagar'];chipsSet([(N.i+1)+'/'+N.items.length+' · '+it.label,N.stars.reduce(function(a,b){return a+(b||0)},0)+' ★']);
   var msg=N.si===0?'De primeira vale ★★★. Se errar, o mesmo item toca mais devagar (★★ e depois ★).':N.si===1?'Agora mais devagar (★★ se acertar). Corrija o que você escreveu.':'Agora bem devagar (★ se acertar).';
   return '<div class="es-steps">'+names.map(function(n,i){return '<span class="'+(i<N.si?'miss':i===N.si?'on':'')+'">'+n+' '+String(numRateAt(i).toFixed(2)).replace(/0$/,'').replace('.',',')+'x</span>'}).join('')+'</div><div class="esbox"><h3>'+esc(it.label)+'</h3><p class="m">'+msg+'</p><div class="es-ctl"><button type="button" class="ex-btn on" data-es="nplay">▶ Ouvir</button>'+(N.si===0?'<label>Velocidade normal <input type="range" min="0.4" max="1.1" step="0.05" value="'+N.base+'" id="esNr"></label>':'')+'</div><div class="xhint" id="esMsg" style="color:#D7262E"></div><input class="ex-in w" id="esNum" placeholder="'+esc(fmt)+'" autocomplete="off" autocapitalize="off" spellcheck="false" value="'+esc(N.draft||'')+'"><div class="ex-act" id="esAct" style="margin-top:8px"><button type="button" class="p" data-es="nchk">Conferir</button></div><div class="es-res" id="esRes"></div></div>'}
@@ -6079,8 +6089,8 @@ function numAct(a){var N=E,it=N.items[N.i];
   if(a==='nslow'){N.si=Math.min(2,N.si+1);draw();setTimeout(numPlay,300);return}
   if(a==='nnorm'){numPlay(numRateAt(0));return}
   if(a==='nnext'){N.i++;N.si=0;N.draft='';if(N.i>=N.items.length){numFinish();return}draw();setTimeout(numPlay,300);return}}
-function numFinish(){var N=E,n=N.items.length,tot=N.stars.reduce(function(a,b){return a+(b||0)},0);N.done=true;stopSpeak();seqTok++;record('Escuta · Números e soletração');var B=lsj('o2escbest'),nr=(B.num==null||tot>B.num);if(nr){B.num=tot;lss('o2escbest',B)}
-  document.getElementById('esMain').innerHTML='<div class="esbox" style="text-align:center"><div class="es-big">'+N.first+' de '+n+'</div><p style="margin:6px 0">de primeira · '+tot+' de '+(n*3)+' estrelas'+(nr?' · <b>novo recorde!</b>':' · recorde '+B.num)+'</p></div>'+(N.missed.length?'<div class="esbox"><h3>Para rever</h3>'+N.missed.map(function(m){return '<p><b>'+esc(m.label)+':</b> era <b>'+esc(m.answer)+'</b>, dito como "'+esc(m.say)+'"'+(m.typed?' — você escreveu '+esc(m.typed):'')+'</p>'}).join('')+'</div>':'')+'<div class="ex-act"><button type="button" class="p" data-es="again">Nova rodada</button><button type="button" data-es="back">Outros treinos</button></div>';chipsSet(['Rodada concluída'])}
+function numFinish(){var N=E,n=N.items.length,tot=N.stars.reduce(function(a,b){return a+(b||0)},0);N.done=true;stopSpeak();seqTok++;var bk=N.tr==='bignum'?'big':'num';record(N.tr==='bignum'?'Escuta · Números grandes':'Escuta · Números e soletração');var B=lsj('o2escbest'),nr=(B[bk]==null||tot>B[bk]);if(nr){B[bk]=tot;lss('o2escbest',B)}
+  document.getElementById('esMain').innerHTML='<div class="esbox" style="text-align:center"><div class="es-big">'+N.first+' de '+n+'</div><p style="margin:6px 0">de primeira · '+tot+' de '+(n*3)+' estrelas'+(nr?' · <b>novo recorde!</b>':' · recorde '+B[bk])+'</p></div>'+(N.missed.length?'<div class="esbox"><h3>Para rever</h3>'+N.missed.map(function(m){return '<p><b>'+esc(m.label)+':</b> era <b>'+esc(m.answer)+'</b>, dito como "'+esc(m.say)+'"'+(m.typed?' — você escreveu '+esc(m.typed):'')+'</p>'}).join('')+'</div>':'')+'<div class="ex-act"><button type="button" class="p" data-es="again">Nova rodada</button><button type="button" data-es="back">Outros treinos</button></div>';chipsSet(['Rodada concluída'])}
 // ---------- desenho geral
 function draw(){var box=document.getElementById('esMain');if(!box||!E)return;
   if(E.tr==='loop')box.innerHTML=loopDraw();else if(E.tr==='ladder')box.innerHTML=ladDraw();else if(E.tr==='dialog')box.innerHTML=dlgDraw();else box.innerHTML=numDraw();
@@ -6111,8 +6121,8 @@ window.__o2v.escuta={
    box.addEventListener('click',function(e){var b=e.target.closest('[data-es]');if(!b||b.disabled)return;e.preventDefault();act(box,b.getAttribute('data-es'),b)});
    box.addEventListener('input',function(e){if(e.target.id==='esDr'&&E){E.rate=+e.target.value;var l=document.getElementById('esDrl');if(l)l.textContent=String(E.rate.toFixed(2)).replace('.',',')+'x'}if(e.target.id==='esNr'&&E)E.base=+e.target.value});
    box.addEventListener('change',function(e){if(e.target.id==='esRate'&&E)E.rate=+e.target.value});
-   box.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.id==='esNum'&&E&&E.tr==='numbers'){e.preventDefault();var s=document.getElementById('esAct');var p=s&&s.querySelector('[data-es=nnext],[data-es=nchk],[data-es=nslow]');if(p)p.click()}});
-   if(E.tr==='ladder'||E.tr==='numbers')setTimeout(function(){if(E&&!E.done)(E.tr==='ladder'?ladPlay:numPlay)()},500)}}};
+   box.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.id==='esNum'&&E&&(E.tr==='numbers'||E.tr==='bignum')){e.preventDefault();var s=document.getElementById('esAct');var p=s&&s.querySelector('[data-es=nnext],[data-es=nchk],[data-es=nslow]');if(p)p.click()}});
+   if(E.tr==='ladder'||E.tr==='numbers'||E.tr==='bignum')setTimeout(function(){if(E&&!E.done)(E.tr==='ladder'?ladPlay:numPlay)()},500)}}};
 window.addEventListener('hashchange',function(){if((location.hash||'').indexOf('#escuta')!==0){stopSpeak()}});
 
 })();
