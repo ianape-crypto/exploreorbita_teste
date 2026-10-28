@@ -3652,10 +3652,10 @@ function home(){
    ['escuta','4 treinos','listenpick','Escuta','Ouça sem ver o texto, escreva o que entendeu e treine números e diálogos.','Treinar o ouvido'],
    ['escrita','3 treinos','punct','Escrita','Escreva sobre temas do dia a dia ou traduza textos, com revisão guiada.','Escrever agora']];
   var cards=T.map(function(x){return '<a class="hm-card" href="#'+x[0]+'"><span class="hm-cnt">'+x[1]+'</span><span class="hm-ico">'+img(x[2],'')+'</span><h3>'+x[3]+'</h3><p>'+x[4]+'</p><span class="hm-go"><b>'+x[5]+'</b><i>→</i></span></a>'}).join('');
-  var card=dp?'<aside class="hm-day"><div class="hm-dt"><span class="hm-tag">Desafio do dia</span><h2>'+esc(dpi.t)+'</h2><p>'+esc(dpi.d||'Leia, descubra e pratique seu inglês.')+'</p><div class="hm-chips">'+(dsec?'<span>'+esc(dsec)+'</span>':'')+'<span>Partida rápida</span></div><a href="#" class="hm-btn" data-play="'+dp+'">Jogar agora <i>→</i></a></div><div class="hm-di">'+img(dp,'')+'</div></aside>':'';
-  var wod='';try{var wd=wodFromIndex(wodDayNumber());wod='<div class="hm-wod"><div class="hm-wl"><span class="hm-tag">Palavra do dia</span><h2 id="o2wodw">'+esc(wd.word)+'</h2><b>'+esc(wd.meaning)+'</b></div><div class="hm-wm"><p>“'+esc(wd.example)+'”</p><div class="hm-wb"><a href="#" class="hm-btn2" data-act="wodsay">▶ Ouvir <i></i></a><a href="#" class="hm-btn2 alt" data-act="wodsave" id="o2wodb">Salvar no meu vocabulário</a></div></div></div>'}catch(e){}
+  var wslide='';try{var wd=wodFromIndex(wodDayNumber());wslide='<div class="hm-slide" data-i="1"><div class="hm-dt"><span class="hm-tag">Palavra do dia</span><h2 id="o2wodw">'+esc(wd.word)+'</h2><p class="hm-wm1"><b>'+esc(wd.meaning)+'</b><br>“'+esc(wd.example)+'”</p><div class="hm-wb"><a href="#" class="hm-btn2" data-act="wodsay">▶ Ouvir <i></i></a><a href="#" class="hm-btn2 alt" data-act="wodsave" id="o2wodb">Salvar</a></div></div><div class="hm-di"><span class="hm-wmono">Aa</span></div></div>'}catch(e){}
+  var card=dp?'<aside class="hm-day"><div class="hm-slides"><div class="hm-slide on" data-i="0"><div class="hm-dt"><span class="hm-tag">Desafio do dia</span><h2>'+esc(dpi.t)+'</h2><p>'+esc(dpi.d||'Leia, descubra e pratique seu inglês.')+'</p><div class="hm-chips">'+(dsec?'<span>'+esc(dsec)+'</span>':'')+'<span>Partida rápida</span></div><a href="#" class="hm-btn" data-play="'+dp+'">Jogar agora <i>→</i></a></div><div class="hm-di">'+img(dp,'')+'</div></div>'+wslide+'</div>'+(wslide?'<div class="hm-nav"><span class="ar" role="button" tabindex="0" data-hm="prev" aria-label="Anterior">‹</span><span class="hm-dots"><i class="on" data-hm="0"></i><i data-hm="1"></i></span><span class="ar" role="button" tabindex="0" data-hm="next" aria-label="Próximo">›</span></div>':'')+'</aside>':'';
   return topbar('home')+'<section class="hm-hero"><video class="hvid" autoplay muted loop playsinline preload="auto" aria-hidden="true"><source src="vid/hero.webm" type="video/webm"><source src="vid/hero.mp4" type="video/mp4"></video><div class="hm-in"><div class="hm-l"><h1>Um universo de inglês<br>para explorar.</h1><p>Pratique no seu ritmo. Grátis e sem cadastro.</p><div class="hm-cta"><a href="#todos" class="hm-go1">Começar a explorar <i>→</i></a><a href="#" class="hm-lnk" data-act="nivel">Descobrir meu ponto de partida</a></div></div>'+card+'</div></section>'+
-  '<div class="hm-div"><span>Um pouco por dia, um universo de possibilidades.</span></div>'+wod+'<div class="hm-sec"><h2>Como você quer praticar hoje?</h2><p>Escolha uma atividade e dê o próximo passo.</p><div class="hm-cards">'+cards+'</div>'+
+  '<div class="hm-div"><span>Um pouco por dia, um universo de possibilidades.</span></div>'+'<div class="hm-sec"><h2>Como você quer praticar hoje?</h2><p>Escolha uma atividade e dê o próximo passo.</p><div class="hm-cards">'+cards+'</div>'+
   '<div class="hm-nudge"><span class="hm-star">★</span><div><b>Seu primeiro passo pode ser simples.</b><span>Uma atividade rápida para começar hoje.</span></div><a href="#exercicios" class="hm-btn2">Ver atividades '+esc(lvn)+' <i>→</i></a></div></div><div class="foot2">© Órbita · exploreorbita.com.br</div>';
 }
 function secBlock(s,withHead){var gs=secGames(s);if(!gs.length)return'';
@@ -7167,7 +7167,7 @@ try{var mm=document.getElementById('gmMenu');mm&&!mm.classList.contains('hidden'
 #o2 .hm-go1{display:inline-flex;gap:10px;align-items:center;background:var(--yellow);color:var(--ink);font-weight:700;font-size:16px;padding:14px 26px;border-radius:99px;border:2px solid var(--ink);text-decoration:none}
 #o2 .hm-go1 i,#o2 .hm-btn i,#o2 .hm-btn2 i{font-style:normal}
 #o2 .hm-lnk{color:#FBF8F1;font-size:15px;text-decoration:none;border-bottom:1.5px solid #FBF8F1;padding-bottom:2px}
-#o2 .hm-day{background:var(--paper);color:var(--ink);border-radius:18px;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+#o2 .hm-day{background:var(--paper);color:var(--ink);border-radius:18px;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:22px 24px 14px;display:block}
 #o2 .hm-tag{display:inline-block;background:var(--yellow);border:1.5px solid var(--ink);border-radius:99px;padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 #o2 .hm-day h2{font-family:"Changa One",sans-serif;font-weight:400;font-size:28px;line-height:1.05;margin:12px 0 6px}
 #o2 .hm-day p{margin:0 0 12px;font-size:14px;color:var(--mute);line-height:1.4}
@@ -7199,6 +7199,15 @@ try{var mm=document.getElementById('gmMenu');mm&&!mm.classList.contains('hidden'
 #o2 .hm-wm p{font-size:20px;line-height:1.45;margin:0 0 16px;color:#3a362c}#o2 .hm-wb{display:flex;gap:10px;flex-wrap:wrap}
 #o2 .hm-btn2.alt{background:#fff!important}
 @media(max-width:800px){#o2 .hm-wod{grid-template-columns:1fr;margin:24px 16px 30px;padding:20px}}
+#o2 .hm-slides{display:grid}#o2 .hm-slide{grid-area:1/1;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;opacity:0;visibility:hidden;transition:opacity .4s}#o2 .hm-slide.on{opacity:1;visibility:visible}
+#o2 .hm-wm1{font-size:14px!important;line-height:1.45}#o2 .hm-wm1 b{color:#2456C4;font-size:16px}
+#o2 .hm-slide .hm-wb{display:flex;gap:8px;flex-wrap:wrap}#o2 .hm-slide .hm-wb .hm-btn2{padding:8px 16px}
+#o2 .hm-wmono{width:104px;height:104px;border-radius:50%;background:#F4BE2A;border:3px solid #201F1C;display:grid;place-items:center;font:400 44px 'Changa One',sans-serif;color:#201F1C}
+#o2 .hm-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:12px}
+#o2 .hm-nav .ar{user-select:none;width:30px;height:30px;border-radius:50%;border:2px solid #201F1C;background:#FBF8F1;color:#201F1C;font:700 18px/1 sans-serif;cursor:pointer;padding:0;display:grid;place-items:center}
+
+#o2 .hm-dots{display:flex;gap:8px}#o2 .hm-dots i{width:9px;height:9px;border-radius:50%;border:2px solid #201F1C;cursor:pointer;display:block}#o2 .hm-dots i.on{background:#201F1C}
+@media(max-width:700px){#o2 .hm-slide{grid-template-columns:1fr}}
 </style>
 <style id="wlCss">
 #o2 .pill.don{background:#FBE9A6;border-color:var(--ink);color:var(--ink);text-decoration:none}#o2 .pill.don span{color:#D7262E}#o2 .pill.don:hover{background:var(--yellow)}
@@ -7306,6 +7315,12 @@ function shareNow(){if(!cur)return;var inf=(window.__o2&&window.__o2.info||{})[c
 setInterval(function(){if(!cur)return;var side=document.getElementById('o2Side');if(!side||side.querySelector('#o2Share'))return;
   var rl=side.querySelector('.rl'),d=document.createElement('div');d.className='o2shr';d.innerHTML='<button type="button" id="o2Share">Compartilhar este jogo</button>';
   if(rl)rl.parentNode.insertBefore(d,rl);else side.appendChild(d);d.firstChild.addEventListener('click',shareNow)},600);
+
+/* carrossel da home: Desafio do dia <-> Palavra do dia */
+function hmGo(n){var d=document.querySelector('#o2 .hm-day');if(!d)return;var sl=d.querySelectorAll('.hm-slide'),dt=d.querySelectorAll('.hm-dots i');if(!sl.length)return;n=(n+sl.length)%sl.length;sl.forEach(function(x,i){x.classList.toggle('on',i===n)});dt.forEach(function(x,i){x.classList.toggle('on',i===n)});d.setAttribute('data-cur',n);d.__t=Date.now()}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-hm]');if(!b)return;var d=document.querySelector('#o2 .hm-day');if(!d)return;e.preventDefault();var c=+(d.getAttribute('data-cur')||0),v=b.getAttribute('data-hm');hmGo(v==='prev'?c-1:v==='next'?c+1:+v)});
+document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('.hm-nav .ar')){e.preventDefault();e.target.click()}});
+setInterval(function(){var d=document.querySelector('#o2 .hm-day');if(!d||document.hidden||d.matches(':hover')||d.contains(document.activeElement))return;if(!d.__t){d.__t=Date.now();return}if(Date.now()-d.__t<8000)return;hmGo(+(d.getAttribute('data-cur')||0)+1)},1000);
 })();
 </script>
 </body>
