@@ -1,0 +1,8 @@
+Suba todos estes arquivos para a RAIZ do repositório (ao lado do index.html)
+e cole as linhas abaixo dentro do <head> do index.html:
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#F4BE2A">
