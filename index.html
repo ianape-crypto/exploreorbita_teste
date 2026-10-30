@@ -2357,22 +2357,30 @@ GM_GAMES.push(
 Object.assign(GM_STARTERS,{facefind:function(){gmFaceFind()},outfit:function(){gmOutfit()},picfind:function(){gmPicFind()}});
 /* ---------- Ligue os adjetivos ---------- */
 var AM_D={
-dog:{a:{1:["big","grande"],2:["tiny","minúsculo"],3:["fat","gordo"],4:["thin","magro"],5:["old","velho"],6:["young","jovem"],7:["hairy","peludo"],8:["short","baixo"],9:["wet","molhado"],10:["dirty","sujo"],11:["asleep","dormindo"],12:["fast","rápido"]},
+dog:{a:{1:["big","grande"],2:["tiny","minúsculo"],3:["fat","gordo"],4:["thin","magro"],5:["old","velho"],6:["young","jovem"],7:["hairy","peludo"],8:["short","baixo"],9:["wet","molhado"],10:["dirty","sujo"],11:["sleepy","dorminhoco, com sono"],12:["fast","rápido"]},
  c:[[1,3],[1,5],[1,7],[1,9],[2,6],[2,8],[2,4],[3,5],[3,8],[4,8],[4,12],[5,7],[5,10],[7,10],[7,9],[9,10],[6,12],[2,12]]},
-house:{a:{1:["tall","alta"],2:["small","pequena"],3:["broken","quebrada"],4:["modern","moderna"],5:["big","grande"],6:["small","pequena"],7:["brick","de tijolos"],8:["blue","azul"],9:["abandoned","abandonada"],10:["cozy","aconchegante"],11:["far away","longe"],12:["by the river","ao lado do rio"]},
- c:[[2,6],[2,10],[6,10],[3,9],[4,5],[1,5],[1,4]]},
-car:{a:{1:["rusty","enferrujado"],2:["fast","rápido"],3:["school bus","ônibus escolar"],4:["tiny","minúsculo"],5:["limousine","limusine"],6:["muddy","enlameado"],8:["taxi","táxi"],9:["broken","quebrado"],11:["truck","caminhão"],12:["tractor","trator"]},
- c:[[1,9],[1,6],[6,9],[6,12],[1,12],[9,12]],n:[3,5,8,11,12]}
+house:{a:{1:["tall","alta"],2:["small","pequena"],3:["broken","quebrada"],4:["modern","moderna"],5:["big","grande"],6:["small","pequena"],7:["red","vermelha"],8:["blue","azul"],9:["abandoned","abandonada"],10:["cozy","aconchegante"],11:["remote","isolada"]},
+ c:[[2,6],[2,10],[6,10],[3,9],[4,5],[1,5],[1,4],[11,2],[11,6],[11,10],[7,8],[7,3],[7,9]]},
+car:{a:{1:["rusty","enferrujado"],2:["fast","rápido"],3:["yellow","amarelo"],4:["tiny","minúsculo"],5:["long","comprido"],6:["muddy","enlameado"],7:["clean","limpo"],8:["yellow","amarelo"],9:["broken","quebrado"],10:["fast","rápido"]},
+ c:[[1,9],[1,6],[6,9],[3,5],[7,1],[7,6],[7,9],[4,5],[8,5]]}
 };
 
-AM_D.dog2={n:"dog",a:{1:["big","grande"],2:["tiny","minúsculo"],3:["fat","gordo"],4:["thin","magro"],5:["old","velho"],6:["young","jovem","is young"],7:["clean","limpo"],8:["dirty","sujo"],9:["asleep","dormindo"],10:["jumping","pulando"],12:["sad","triste"]},
- c:[[1,5],[1,7],[1,8],[2,6],[2,4],[5,12],[5,7],[5,3],[5,6]]};
-AM_D.cat={n:"cat",a:{1:["fat","gordo"],2:["thin","magro"],3:["fluffy","fofo, peludo"],5:["black","preto"],7:["young","jovem","is young"],8:["old","velho"],9:["asleep","dormindo"],10:["playing","brincando"],11:["in the tree","na árvore"],12:["under the tree","embaixo da árvore"]},
+AM_D.dog2={n:"dog",a:{1:["big","grande"],2:["tiny","minúsculo"],3:["fat","gordo"],4:["thin","magro"],5:["old","velho"],6:["young","jovem","is young"],7:["clean","limpo"],8:["dirty","sujo"],9:["sleepy","dorminhoco, com sono"],10:["energetic","cheio de energia"],11:["happy","feliz"],12:["sad","triste"]},
+ c:[[1,5],[1,7],[1,8],[2,6],[2,4],[5,12],[5,7],[5,3],[5,6],[10,9],[10,12],[10,5],[11,12]]};
+AM_D.cat={n:"cat",a:{1:["fat","gordo"],2:["thin","magro"],3:["fluffy","fofo, peludo"],4:["white","branco"],5:["black","preto"],6:["white","branco"],7:["young","jovem","is young"],8:["old","velho"],9:["sleepy","dorminhoco, com sono"],10:["playful","brincalhão"]},
  c:[[1,3],[2,7],[2,3],[7,8]]};
-AM_D.house2={n:"house",a:{1:["tall","alta"],2:["low","baixa"],4:["cracked","rachada"],6:["tiny","minúscula"],7:["flowery","cheia de flores","has flowers in the garden"],8:["bare","sem flores","has no flowers"],9:["lights on","luzes acesas","has the lights on"],12:["blue door","porta azul","has a blue door"]},
- c:[[6,7],[8,1],[8,2],[1,6],[2,6]]};
-AM_D.car2={n:"car",a:{1:["shiny","brilhante"],2:["damaged","danificado"],3:["big","grande"],4:["tiny","minúsculo"],5:["clean","limpo"],6:["dirty","sujo"],7:["convertible","conversível","is a convertible"],10:["door open","porta aberta","has an open door"]},
- c:[[1,5],[1,7],[3,4],[2,6]]};
+AM_D.house2={n:"house",a:{1:["tall","alta"],2:["low","baixa"],4:["cracked","rachada"],6:["tiny","minúscula"],7:["flowery","cheia de flores","has flowers in the garden"],8:["bare","sem flores","has no flowers"],9:["bright","iluminada","has the lights on at night"],10:["dark","escura","has the lights off at night"]},
+ c:[[6,7],[8,1],[8,2],[1,6],[2,6],[9,10]]};
+AM_D.car2={n:"car",a:{1:["shiny","brilhante"],2:["damaged","danificado"],3:["big","grande"],4:["tiny","minúsculo"],5:["clean","limpo"],6:["dirty","sujo"],7:["convertible","conversível","is a convertible"],10:["open","aberto","has a door open"]},
+ c:[[1,5],[1,7],[3,4],[2,6],[10,7]]};
+AM_D.pp1={n:"person",a:{1:["angry","bravo"],2:["calm","calmo"],3:["happy","feliz"],4:["sad","triste"],5:["shy","tímido"],6:["outgoing","extrovertido"],7:["lazy","preguiçoso"],8:["athletic","atlético"],9:["polite","educado"],10:["rude","grosseiro"],11:["strong","forte"],12:["weak","fraco"]},
+ c:[[3,6],[2,5],[1,10],[4,5],[2,7],[7,12],[8,11],[3,9],[6,9],[2,9]]};
+AM_D.pp2={n:"person",a:{1:["rich","rico"],2:["poor","pobre"],3:["married","casado"],5:["funny","engraçado"],6:["boring","chato"],7:["nice","legal, simpático"],8:["mean","malvado"],9:["loud","barulhento"],10:["quiet","quieto"],11:["tall","alto"],12:["short","baixo"]},
+ c:[[5,7],[5,9],[6,10]]};
+AM_D.ob1={n:"object",a:{1:["hot","quente"],2:["cold","frio"],3:["heavy","pesado"],4:["light","leve"],5:["easy","fácil"],6:["hard","difícil"],7:["new","novo"],8:["old","velho"],9:["huge","enorme"],10:["tiny","minúsculo"],11:["beautiful","bonito"],12:["ugly","feio"]},
+ c:[[3,9],[4,10],[7,11],[8,12]]};
+AM_D.ob2={n:"object",a:{1:["awesome","incrível, demais"],2:["awful","horrível"],3:["good","bom"],4:["bad","ruim"],5:["amazing","impressionante"],6:["terrible","terrível"],7:["large","grande"],8:["little","pequeno"],9:["noisy","barulhento"],10:["quiet","silencioso"],11:["pretty","bonito"],12:["ugly","feio"]},
+ c:[[1,3],[1,5],[3,5],[2,4],[2,6],[4,6],[1,11],[2,12]]};
 function amBoard(k){
   var D=AM_D[k],ids=Object.keys(D.a).map(Number),conf=function(x,y){return D.c.some(function(p){return(p[0]===x&&p[1]===y)||(p[0]===y&&p[1]===x)})};
   for(var t=0;t<300;t++){
@@ -2383,7 +2391,7 @@ function amBoard(k){
     return{k:k,imgs:pick.map(function(x){return k+"-"+wqPad(x-1)}),ans:pick.map(function(x){return D.a[x][0]}),adjs:gmShuffle(pick.map(function(x){return{p:D.a[x][0],s:D.a[x][0],g:D.a[x][1]}}))}}
   return null}
 window.gmAdjMatch=function(){
-  var rounds=gmShuffle(["dog","house","car","dog2","cat","house2","car2"]).slice(0,3).map(amBoard).filter(Boolean);
+  var rounds=gmShuffle(["dog","house","car","dog2","cat","house2","car2","pp1","pp2","ob1","ob2"]).slice(0,3).map(amBoard).filter(Boolean);
   gm.state={rounds:rounds,r:0,pts:0};gmStage("#2456C4","Ligue os adjetivos","");amShow()};
 function amShow(){var e=gm.state;e.link=[null,null,null,null];e.sel=null;e.locked=!1;amDraw()}
 function amDraw(){
@@ -2638,12 +2646,136 @@ window.whNextClue=function(){var e=gm.state;e.c++;e.sel=e.sel.map(function(){ret
 window.whNextRound=function(){var e=gm.state;e.r++;whShow()};
 window.whEnd=async function(){var e=gm.state,max=e.rounds.length*3;if(!document.getElementById("gmBody"))return;var r=await gmBestSave("facefind",e.pts,!1);document.getElementById("gmBody").innerHTML=gmEndHtml("🕵️",e.pts+"/"+max,"pontos"+(r?" · <b>novo recorde!</b>":""),"facefind")};
 
+/* ===== Caça ao ladrão ===== */
+var CH_C=[
+{n:"Rio de Janeiro",d:[["The thief asked me how to get to a huge statue with open arms on top of a mountain.","O ladrão me perguntou como chegar a uma estátua enorme, de braços abertos, no alto de uma montanha."],["The thief bought a ticket for the cable car to Sugarloaf Mountain.","O ladrão comprou um ingresso para o bondinho do Pão de Açúcar."]]},
+{n:"São Paulo",d:[["The thief asked for Paulista Avenue, in the biggest city in the country.","O ladrão perguntou pela Avenida Paulista, na maior cidade do país."],["The thief wanted a mortadella sandwich at the Municipal Market and a walk in Ibirapuera Park.","O ladrão queria um sanduíche de mortadela no Mercado Municipal e um passeio no Parque Ibirapuera."]]},
+{n:"Salvador",d:[["The thief asked where to eat acarajé, a fried bean snack with shrimp.","O ladrão perguntou onde comer acarajé, um bolinho frito de feijão com camarão."],["The thief took a photo of the Lacerda Elevator, which connects the upper and the lower city.","O ladrão tirou uma foto do Elevador Lacerda, que liga a cidade alta à cidade baixa."]]},
+{n:"Recife",d:[["The thief asked about a city with many rivers and bridges, called the Brazilian Venice.","O ladrão perguntou sobre uma cidade com muitos rios e pontes, chamada de Veneza brasileira."],["The thief wanted to visit the colorful old houses of Olinda, a town right next to the city.","O ladrão queria visitar as casas antigas e coloridas de Olinda, bem ao lado da cidade."]]},
+{n:"Fortaleza",d:[["The thief asked for the Beira-Mar night fair, where people sell lace and handmade crafts.","O ladrão perguntou pela feira noturna da Beira-Mar, onde vendem renda e artesanato."],["The thief wanted to eat crab and watch the sunset at Praia do Futuro.","O ladrão queria comer caranguejo e ver o pôr do sol na Praia do Futuro."]]},
+{n:"Manaus",d:[["The thief asked about the place where the dark Rio Negro meets the light brown Solimões River.","O ladrão perguntou sobre o lugar onde o Rio Negro, escuro, encontra o Solimões, marrom-claro."],["The thief wanted to see an opera house in the middle of the Amazon rainforest.","O ladrão queria ver um teatro de ópera no meio da floresta amazônica."]]},
+{n:"Belém",d:[["The thief asked for açaí with fried fish at the Ver-o-Peso market.","O ladrão pediu açaí com peixe frito no mercado Ver-o-Peso."],["The thief wanted to taste tacacá, a hot yellow soup, in the city where it rains every afternoon.","O ladrão queria provar tacacá, uma sopa amarela quente, na cidade onde chove toda tarde."]]},
+{n:"Brasília",d:[["The thief asked about two white towers and two big bowls: the National Congress.","O ladrão perguntou sobre duas torres brancas e duas tigelas grandes: o Congresso Nacional."],["The thief wanted to see the capital of Brazil, a city planned in the shape of an airplane.","O ladrão queria ver a capital do Brasil, uma cidade planejada no formato de um avião."]]},
+{n:"Curitiba",d:[["The thief asked about a glass greenhouse in the Botanical Garden of a cold southern city.","O ladrão perguntou sobre uma estufa de vidro no Jardim Botânico de uma cidade fria do sul."],["The thief wanted to ride the famous tube-shaped bus stations.","O ladrão queria andar nas famosas estações-tubo de ônibus."]]},
+{n:"Porto Alegre",d:[["The thief asked where to drink chimarrão and watch the sunset on the Guaíba river.","O ladrão perguntou onde tomar chimarrão e ver o pôr do sol no Guaíba."],["The thief wanted a churrasco in the capital of Rio Grande do Sul.","O ladrão queria um churrasco na capital do Rio Grande do Sul."]]},
+{n:"Florianópolis",d:[["The thief asked for a surfboard to use at Joaquina Beach.","O ladrão pediu uma prancha de surfe para usar na Praia da Joaquina."],["The thief wanted to eat fresh oysters in an island city with a big suspension bridge.","O ladrão queria comer ostras fresquinhas numa cidade-ilha com uma grande ponte pênsil."]]},
+{n:"Belo Horizonte",d:[["The thief asked for pão de queijo in the capital of Minas Gerais.","O ladrão pediu pão de queijo na capital de Minas Gerais."],["The thief wanted to see the modern church by Oscar Niemeyer at Pampulha lake.","O ladrão queria ver a igreja moderna de Oscar Niemeyer na Lagoa da Pampulha."]]},
+{n:"Foz do Iguaçu",d:[["The thief asked for a boat tour under huge waterfalls on the border with Argentina.","O ladrão perguntou sobre um passeio de barco sob cataratas enormes na fronteira com a Argentina."],["The thief wanted to visit the Itaipu dam.","O ladrão queria visitar a usina de Itaipu."]]},
+{n:"Ouro Preto",d:[["The thief asked about old churches from the gold rush and steep stone streets in Minas Gerais.","O ladrão perguntou sobre igrejas antigas da época do ouro e ruas de pedra íngremes em Minas Gerais."],["The thief wanted to buy soapstone crafts in a colonial mountain town.","O ladrão queria comprar artesanato de pedra-sabão numa cidade colonial de montanha."]]},
+{n:"Bonito",d:[["The thief asked for a snorkeling tour in crystal-clear rivers full of fish.","O ladrão pediu um passeio de snorkel em rios cristalinos cheios de peixes."],["The thief wanted to see a blue lake inside a cave.","O ladrão queria ver um lago azul dentro de uma caverna."]]},
+{n:"Paraty",d:[["The thief asked about old stone streets that flood with the sea tide.","O ladrão perguntou sobre ruas antigas de pedra que alagam com a maré."],["The thief wanted to take a boat from a colonial town on the Green Coast of Rio de Janeiro state.","O ladrão queria pegar um barco numa cidade colonial da Costa Verde, no estado do Rio de Janeiro."]]},
+{n:"Gramado",d:[["The thief asked for hot chocolate and fondue in a cold mountain town with Christmas decorations.","O ladrão pediu chocolate quente e fondue numa cidade fria de serra, com decoração de Natal."],["The thief wanted to see Black Lake and the Christmas shows.","O ladrão queria ver o Lago Negro e os shows de Natal."]]}
+];
+
+CH_C.push(
+{n:"Natal",d:[["The thief asked about the biggest cashew tree in the world, near a city called the City of the Sun.","O ladrão perguntou sobre o maior cajueiro do mundo, perto de uma cidade chamada Cidade do Sol."],["The thief wanted to ride a dune buggy and see the coast of Rio Grande do Norte.","O ladrão queria andar de buggy nas dunas e ver o litoral do Rio Grande do Norte."]]},
+{n:"Maceió",d:[["The thief asked about natural pools in the sea with clear water that appear at low tide.","O ladrão perguntou sobre piscinas naturais no mar, de água cristalina, que aparecem na maré baixa."],["The thief wanted to take a jangada boat and eat sururu in the capital of Alagoas.","O ladrão queria andar de jangada e comer sururu na capital de Alagoas."]]},
+{n:"Jericoacoara",d:[["The thief asked about a small village with sand streets and a famous sunset on a big dune.","O ladrão perguntou sobre uma vila pequena de ruas de areia e um pôr do sol famoso numa duna grande."],["The thief wanted to see a stone arch by the sea and to go windsurfing.","O ladrão queria ver um arco de pedra no mar e fazer windsurf."]]},
+{n:"Lençóis Maranhenses",d:[["The thief asked about white sand dunes with blue rain lagoons between them.","O ladrão perguntou sobre dunas de areia branca com lagoas azuis de chuva entre elas."],["The thief wanted to take a boat on the Preguiças River in Maranhão.","O ladrão queria passear de barco no Rio Preguiças, no Maranhão."]]},
+{n:"Campos do Jordão",d:[["The thief asked for a cold mountain town in São Paulo state, famous for its winter music festival.","O ladrão perguntou sobre uma cidade fria de serra em São Paulo, famosa pelo festival de inverno de música."],["The thief wanted to ride the cable car up Elephant Hill.","O ladrão queria subir de teleférico no Morro do Elefante."]]},
+{n:"Chapada Diamantina",d:[["The thief asked about a national park in Bahia with waterfalls, caves and tall flat mountains.","O ladrão perguntou sobre um parque nacional na Bahia com cachoeiras, cavernas e montanhas altas de topo plano."],["The thief wanted to climb Pai Inácio Hill and swim in the Blue Well cave.","O ladrão queria subir o Morro do Pai Inácio e nadar no Poço Azul."]]},
+{n:"Pantanal",d:[["The thief asked about the biggest wetland in the world, full of jaguars, caimans and capybaras.","O ladrão perguntou sobre a maior área alagada do mundo, cheia de onças, jacarés e capivaras."],["The thief wanted a boat trip to see the jabiru, the tall white bird, near Cuiabá.","O ladrão queria um passeio de barco para ver o tuiuiú, a ave alta e branca, perto de Cuiabá."]]}
+);
+var CH_IMG=!0;window.chImgOn=function(v){CH_IMG=!!v};
+CH_C.forEach(function(c,k){c.i=(k<12?"ct1-":"ct2-")+wqPad(k<12?k:k-12)});
+function chAct(){return CH_C.map(function(_,i){return i}).filter(function(i){return CH_IMG||i<17})}
+function chCI(c){return CH_IMG?"<span class=\"ch-ci\">"+wqIm(CH_C[c].i)+"</span>":""}
+var CH_P=[["Restaurant","a chef","bo1-07"],["Market","a florist","bo3-03"],["Post office","a mail carrier","bo1-12"],["Airport","a pilot","bo4-06"],["Bank","a banker","bo1-01"],["Park","a gardener","bo4-05"],["Beach","a surfer","bo4-03"],["Hospital","a doctor","bo1-08"],["Fire station","a firefighter","bo3-01"],["Garage","a mechanic","bo4-11"],["Construction site","a builder","bo3-09"],["Café","a cook","bo2-04"]];
+var CH_O=[["the golden toucan statue","a estátua dourada do tucano"],["the national football trophy","o troféu nacional de futebol"],["the old samba drum","o antigo tambor de samba"],["the diamond necklace","o colar de diamantes"],["the emerald crown","a coroa de esmeraldas"],["the golden berimbau","o berimbau dourado"]];
+/* suspeitos: [id,img,nome,sexo,cabelo[en,pt],hobby[en,pt],profissão[en,pt,artigo],característica[en,pt],outro[en,pt]] */
+var CH_S=[
+["antonio","fa1-01","Antônio Barbosa","m",["white","branco"],["fishing","pescar"],["retired teacher","professor aposentado","a"],["has a long white beard","tem uma barba branca e comprida"],["loves feijoada","adora feijoada"]],
+["marina","fa1-02","Marina Duarte","f",["black","preto"],["dancing","dançar"],["samba dancer","dançarina de samba","a"],["wears a red scarf","usa um lenço vermelho"],["loves brigadeiro","adora brigadeiro"]],
+["lucia","fa1-04","Lúcia Prado","f",["gray","grisalho"],["gardening","cuidar do jardim"],["seamstress","costureira","a"],["wears big golden earrings","usa brincos dourados grandes"],["loves cuscuz","adora cuscuz"]],
+["rico","fa1-05","Ricardo Tavares","m",["none","careca"],["boxing","lutar boxe"],["truck driver","caminhoneiro","a"],["has a thick black mustache","tem um bigode preto e grosso"],["loves coxinha","adora coxinha"]],
+["bruno","fa1-07","Bruno Lacerda","m",["blond","loiro"],["listening to music","ouvir música"],["DJ","DJ","a"],["wears blue headphones","usa fones de ouvido azuis"],["loves pão de queijo","adora pão de queijo"]],
+["camila","fa1-10","Camila Reis","f",["brown","castanho"],["surfing","surfar"],["tour guide","guia de turismo","a"],["wears sunglasses on her head","usa óculos de sol na cabeça"],["loves açaí","adora açaí"]],
+["jorge","fa2-01","Jorge Nascimento","m",["black","preto"],["playing the cavaquinho","tocar cavaquinho"],["musician","músico","a"],["wears a green bow tie","usa gravata-borboleta verde"],["loves moqueca","adora moqueca"]],
+["beatriz","fa2-05","Beatriz Santos","f",["black","preto"],["reading","ler"],["lawyer","advogada","a"],["wears red glasses","usa óculos vermelhos"],["loves acarajé","adora acarajé"]],
+["ze","fa2-04","José Pereira","m",["gray","grisalho"],["sailing","navegar"],["fisherman","pescador","a"],["wears a red cap","usa um boné vermelho"],["loves tapioca","adora tapioca"]],
+["helena","fa3-04","Helena Costa","f",["red","ruivo"],["painting","pintar"],["journalist","jornalista","a"],["wears a yellow raincoat","usa uma capa de chuva amarela"],["loves pamonha","adora pamonha"]],
+["felipe","fa3-01","Felipe Andrade","m",["black","preto"],["playing chess","jogar xadrez"],["engineer","engenheiro","an"],["wears big black glasses","usa óculos pretos grandes"],["loves pastel","adora pastel"]],
+["julia","fa3-11","Júlia Ribeiro","f",["purple","roxo"],["playing video games","jogar videogame"],["graphic designer","designer gráfica","a"],["wears blue glasses","usa óculos azuis"],["loves quindim","adora quindim"]]
+];
+var CH_F=["sex","hc","hobby","job","feat","other"];
+function chVal(s,f){return f==="sex"?s[3]:f==="hc"?s[4][0]:f==="hobby"?s[5][0]:f==="job"?s[6][0]:f==="feat"?s[7][0]:s[8][0]}
+function chClue(s,f){
+  if(f==="sex")return s[3]==="f"?["The thief is a woman.","O ladrão é uma mulher."]:["The thief is a man.","O ladrão é um homem."];
+  if(f==="hc")return s[4][0]==="none"?["The thief is bald.","O ladrão é careca."]:["The thief has "+s[4][0]+" hair.","O ladrão tem cabelo "+s[4][1]+"."];
+  if(f==="hobby")return["The thief likes "+s[5][0]+".","O ladrão gosta de "+s[5][1]+"."];
+  if(f==="job")return["The thief is "+s[6][2]+" "+s[6][0]+".","O ladrão é "+s[6][1]+"."];
+  if(f==="feat")return["The thief "+s[7][0]+".","O ladrão "+s[7][1]+"."];
+  return["The thief "+s[8][0]+".","O ladrão "+s[8][1]+"."]}
+function chGen(){
+  for(var t=0;t<200;t++){
+    var S=gmShuffle(CH_S.slice()).slice(0,5);if(S.filter(function(s){return s[3]==="f"}).length<2||S.filter(function(s){return s[3]==="m"}).length<2)continue;
+    var th=Math.floor(Math.random()*5),T=S[th],rem=[0,1,2,3,4],used={},cl=[];
+    while(rem.length>1&&cl.length<6){
+      var cand=[];CH_F.forEach(function(f){if(used[f])return;var el=rem.filter(function(i){return chVal(S[i],f)!==chVal(T,f)});if(el.length)cand.push({f:f,el:el})});
+      if(!cand.length)break;
+      cand.sort(function(a,b){return a.el.length-b.el.length+(Math.random()-.5)*2.4});
+      var c=cand[0];used[c.f]=1;cl.push(c.f);rem=rem.filter(function(i){return c.el.indexOf(i)<0})}
+    if(rem.length!==1||cl.length>5)continue;
+    var extra=gmShuffle(CH_F.filter(function(f){return!used[f]}));
+    var tg=3+Math.floor(Math.random()*3);while(cl.length<tg&&extra.length)cl.push(extra.shift());
+    return{S:S,secret:th,clues:gmShuffle(cl)}}
+  return null}
+function chThief(s){return s}
+window.gmChase=function(){
+  var G=chGen();if(!G)return;
+  var n=G.clues.length,route=gmShuffle(chAct()).slice(0,n+1);
+  gm.state={S:G.S,secret:G.secret,clues:G.clues,n:n,route:route,stop:0,pts:0,max:n*3+5,obj:CH_O[Math.floor(Math.random()*CH_O.length)],log:[],alive:G.S.map(function(){return!0}),phase:"intro",pt:!1,dos:!1};
+  gmStage("#6B4FBB","Caça ao ladrão","");chDraw()};
+function chBegin(){
+  var e=gm.state,P=gmShuffle(CH_P.slice()).slice(0,3),K=gmShuffle(["w","d1","d2"]),right=e.route[e.stop+1],dec=gmShuffle(chAct().filter(function(i){return i!==right&&i!==e.route[e.stop]})).slice(0,2);
+  e.places=P.map(function(p,i){return{p:p,k:K[i],v:!1}});e.opts=gmShuffle([right].concat(dec));e.dead=[];e.done=!1;e.fb="";e.phase="stop";chDraw()}
+function chDoss(s,i,mode){
+  var e=gm.state,cls="ch-d"+(mode==="pick"?" ch-pk":"")+(mode==="pick"&&!e.alive[i]?" gone":"")+(e.res&&mode==="pick"&&i===e.secret?" win":"")+(e.res&&mode==="pick"&&i===e.pick&&i!==e.secret?" bad":""),
+  pt=(s[3]==="f"?"Mulher":"Homem")+", cabelo "+s[4][1]+", gosta de "+s[5][1]+", "+s[6][1]+", "+s[7][1]+", "+s[8][1]+".",
+  inner="<div class=\"ch-dp\">"+wqIm(s[1])+"<span class=\"wh-x\">✕</span></div><div class=\"ch-dt\"><p><b>Name:</b> "+escapeHtml(s[2])+"</p><p><b>Sex:</b> "+(s[3]==="f"?"Female":"Male")+"</p><p><b>Hair color:</b> "+(s[4][0]==="none"?"bald":s[4][0])+"</p><p><b>Hobby:</b> "+escapeHtml(s[5][0])+"</p><p><b>Occupation:</b> "+escapeHtml(s[6][0])+"</p><p><b>Feature:</b> "+escapeHtml(s[7][0].replace(/^(wears|has) /,function(m){return m==="has "?"Has ":"Wears "}))+"</p><p><b>Other:</b> "+escapeHtml(s[8][0].replace(/^loves/,"Loves"))+"</p><p class=\"ch-dpt\">"+escapeHtml(pt)+"</p></div>";
+  return mode==="pick"?"<button type=\"button\" class=\""+cls+"\" "+(e.res?"disabled ":"")+"onclick=\"chTog("+i+")\">"+inner+"</button>":"<div class=\""+cls+"\">"+inner+"</div>"}
+function chDossAll(){var e=gm.state;return"<div class=\"ch-ds"+(e.pt?" ch-showpt":"")+"\">"+e.S.map(function(s,i){return chDoss(s,i,"view")}).join("")+"</div>"}
+function chPtBtn(){return"<button type=\"button\" class=\"wh-sm\" onclick=\"chPtD()\">Ver em português</button>"}
+function chLog(){var e=gm.state;return"<div class=\"ch-log\"><b>Pistas sobre o ladrão</b>"+(e.log.length?"<ul>"+e.log.map(function(l){return"<li>"+escapeHtml(l[0])+"<span class=\"ch-lpt\">"+escapeHtml(l[1])+"</span></li>"}).join("")+"</ul>":"<p>Nenhuma pista ainda. Visite os lugares e converse com as testemunhas.</p>")+"</div>"}
+function chBar(){var e=gm.state;bar("<span class=\"gm-chip\">"+(e.phase==="final"?"Mandado":e.phase==="intro"?"Novo caso":"Parada "+(e.stop+1)+"/"+e.n)+"</span><span class=\"gm-chip\">★ "+e.pts+"</span>")}
+function chDraw(){
+  var e=gm.state,B=document.getElementById("gmBody");if(!B)return;chBar();var h="";
+  if(e.phase==="intro"){
+    h="<div class=\"ch-wrap\"><div class=\"wh-clue\"><span class=\"wh-ck\">Novo caso</span><p class=\"wh-ct\">Someone stole "+escapeHtml(e.obj[0])+" in "+escapeHtml(CH_C[e.route[0]].n)+".</p><p class=\"ch-pt\">Roubaram "+escapeHtml(e.obj[1])+" em "+escapeHtml(CH_C[e.route[0]].n)+".</p></div><p class=\"ch-tip\">Estes são os 5 suspeitos. Leia os dossiês: as pistas vão falar sobre <b>quem o ladrão é</b> e sobre <b>para onde ele foi</b>.</p><p class=\"ch-tip\">"+chPtBtn()+"</p>"+chDossAll()+"<div id=\"chAct\"><button type=\"button\" class=\"gm-main\" onclick=\"chBegin()\">Começar a investigação</button></div></div>"}
+  else if(e.phase==="stop"){
+    var here=CH_C[e.route[e.stop]];
+    h="<div class=\"ch-wrap\">"+(CH_IMG?"<div class=\"ch-hero\">"+chCI(e.route[e.stop])+"</div>":"")+"<p class=\"ch-here\">Você está em <b>"+escapeHtml(here.n)+"</b></p><p class=\"ch-tip\">Onde procurar pistas?</p><div class=\"ch-pl\">"+e.places.map(function(x,i){return"<button type=\"button\" class=\"ch-p"+(x.v?" v":"")+"\" onclick=\"chVisit("+i+")\"><span class=\"ch-pi\">"+wqIm(x.p[2])+"</span><span>"+escapeHtml(x.p[0])+"</span></button>"}).join("")+"</div>";
+    e.places.forEach(function(x,i){if(!x.v)return;var s=chText(x);h+="<div class=\"ch-say\"><div class=\"ch-pi ch-wi\">"+wqIm(x.p[2])+"</div><div class=\"wh-clue\"><span class=\"wh-ck\">"+escapeHtml(x.p[0])+" · "+escapeHtml(x.p[1])+"</span><p class=\"wh-ct\">“"+escapeHtml(s[0])+"”</p><div class=\"wh-cb\"><button type=\"button\" class=\"wh-sm\" onclick=\"gmSay(chText(gm.state.places["+i+"])[0])\">🔊 Ouvir</button><button type=\"button\" class=\"wh-sm\" onclick=\"var n=this.parentNode.nextSibling;n.hidden=!n.hidden\">Ver em português</button></div><p class=\"ch-pt\" hidden>"+escapeHtml(s[1])+"</p></div></div>"});
+    h+="<p class=\"ch-tip\">Para onde ele foi?</p><div class=\"ch-opts\">"+e.opts.map(function(c){var dead=e.dead.indexOf(c)>=0,ok=e.done&&c===e.route[e.stop+1];return"<button type=\"button\" class=\"ch-o"+(dead?" dead":"")+(ok?" ok":"")+"\" "+(dead||e.done?"disabled ":"")+"onclick=\"chGo("+c+")\">"+chCI(c)+"<span>"+escapeHtml(CH_C[c].n)+"</span></button>"}).join("")+"</div><div class=\"gm-fb"+(e.fb?(e.done?" ok":" no"):"")+"\" id=\"gmFb\">"+(e.fb?"<span>"+e.fb+"</span>":"")+"</div>"+(e.done?"<div id=\"chAct\"><button type=\"button\" class=\"gm-main\" onclick=\"chNext()\">Continuar</button></div>":"")+chLog()+"<p class=\"ch-tip\"><b>Suspeitos.</b> Toque num suspeito que não combina com as pistas para escondê-lo. Toque de novo para mostrar. "+chPtBtn()+"</p><div class=\"ch-ds"+(e.pt?" ch-showpt":"")+"\">"+e.S.map(function(s,i){return chDoss(s,i,"pick")}).join("")+"</div></div>"}
+  else if(e.phase==="final"){
+    var left=e.alive.filter(Boolean).length;
+    h="<div class=\"ch-wrap ch-fin\"><div class=\"wh-clue\"><span class=\"wh-ck\">Esconderijo</span><p class=\"wh-ct\">The thief is hiding in "+escapeHtml(CH_C[e.route[e.n]].n)+"!</p><p class=\"ch-pt\">O ladrão está escondido em "+escapeHtml(CH_C[e.route[e.n]].n)+"! Compare as pistas com os dossiês, toque nos suspeitos que não combinam e emita o mandado.</p></div>"+chLog()+"<p class=\"ch-tip\">"+chPtBtn()+"</p><div class=\"ch-ds"+(e.pt?" ch-showpt":"")+"\">"+e.S.map(function(s,i){return chDoss(s,i,"pick")}).join("")+"</div><div class=\"gm-fb"+(e.res?(e.res==="ok"?" ok":" no"):"")+"\" id=\"gmFb\">"+(e.fb?"<span>"+e.fb+"</span>":"")+"</div><div id=\"chAct\">"+(e.res?"<button type=\"button\" class=\"gm-main\" onclick=\"chEnd()\">Ver resultado</button>":"<button type=\"button\" class=\"gm-main\" id=\"chW\" onclick=\"chWarrant()\" "+(left===1?"":"disabled")+">Emitir mandado de prisão</button>")+"</div></div>"}
+  B.innerHTML=h}
+function chText(x){var e=gm.state;if(x.k==="w"){var c=chClue(e.S[e.secret],e.clues[e.stop]);return[c[0],c[1]]}var d=CH_C[e.route[e.stop+1]].d[x.k==="d1"?0:1];return[d[0],d[1]]}
+window.chText=chText;window.chBegin=chBegin;window.chDraw=chDraw;
+window.chPtD=function(){var e=gm.state;e.pt=!e.pt;chDraw()};
+window.chDos=function(){var e=gm.state;e.dos=!e.dos;chDraw()};
+window.chVisit=function(i){var e=gm.state,x=e.places[i];if(!x||x.v||e.done)return;x.v=!0;var s=chText(x);if(x.k==="w")e.log.push(s);chDraw();gmSay(s[0])};
+window.chGo=function(c){
+  var e=gm.state;if(e.done)return;
+  if(c===e.route[e.stop+1]){var v=e.places.filter(function(x){return x.v}).length,g=v<=2?3:2;e.pts+=g;e.done=!0;e.fb="<b>Isso!</b> O ladrão passou por aqui e seguiu para "+escapeHtml(CH_C[c].n)+".<br>+"+g+" ponto"+(g>1?"s":"")}
+  else{e.pts=Math.max(0,e.pts-1);e.dead.push(c);e.fb="<b>Não.</b> O ladrão não foi para "+escapeHtml(CH_C[c].n)+". Releia as pistas e tente outra cidade.<br>−1 ponto"}
+  chDraw()};
+window.chNext=function(){var e=gm.state;e.stop++;if(e.stop>=e.n){e.phase="final";e.fb="";chDraw()}else chBegin()};
+window.chTog=function(i){var e=gm.state;if(e.res)return;e.alive[i]=!e.alive[i];chDraw()};
+window.chWarrant=function(){
+  var e=gm.state,i=e.alive.indexOf(!0);if(e.alive.filter(Boolean).length!==1)return;
+  e.pick=i;if(i===e.secret){e.res="ok";e.pts+=5;e.fb="<b>Preso!</b> "+escapeHtml(e.S[i][2])+" era o ladrão.<br>+5 pontos"}
+  else{e.res="no";e.fb="<b>Quase!</b> Esse não era o ladrão. O verdadeiro era <b>"+escapeHtml(e.S[e.secret][2])+"</b> (borda verde). Confira se você visitou todos os lugares para reunir as pistas."}
+  chDraw()};
+window.chEnd=async function(){var e=gm.state;if(!document.getElementById("gmBody"))return;var r=await gmBestSave("chase",e.pts,!1);document.getElementById("gmBody").innerHTML=gmEndHtml("🕵️",e.pts+"/"+e.max,"pontos"+(r?" · <b>novo recorde!</b>":""),"chase")};
+GM_GAMES.push({k:"chase",t:"Caça ao ladrão",c:"#6B4FBB",ct:"#F8F3E6",d:"Siga as pistas pelo Brasil: descubra para onde o ladrão fugiu e quem ele é.",best:function(e){return null!=e.chase?"Recorde: "+e.chase:""}});
+Object.assign(GM_STARTERS,{chase:function(){gmChase()}});
+
 try{var m=document.getElementById("gmMenu");m&&!m.classList.contains("hidden")&&m.children.length&&gmRenderMenu()}catch(_){}
 })();
 </script>
-<style id="newCoversCss">
-html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu .gm-grpgrid[data-home] .gm-pick:not(.zz)[data-k=countable]{background-color:#14183A!important;background-image:linear-gradient(112deg,rgba(14,21,48,.94) 0%,rgba(14,21,48,.7) 30%,rgba(14,21,48,0) 60%),url("covers/countable.webp?v=1")!important;background-size:cover!important;background-position:center!important;border:2px solid #242422!important;border-radius:0!important;box-shadow:4px 4px 0 #242422!important}
-</style><style id="orb2Css">
+<style id="orb2Css">
 html body #tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames #gmHero,html body #tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames #gmTop,html body #tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames #gmMenu{display:none!important}
 html body .page-wrap:has(#gmMenu:not(.hidden)){max-width:none!important;width:100%!important;padding:0!important;margin:0!important}
 html body .page-wrap:has(#gmMenu:not(.hidden)) #tabGames{max-width:none!important;padding:0!important;margin:0!important}
@@ -2784,7 +2916,7 @@ body:has(#gmMenu:not(.hidden)){background-image:none!important}
 (function(){
 var SECS=[
  {k:'puzzles',t:'Puzzles de palavras',d:'Desafios curtos com letras e palavras.',g:['wordle','scrabble','wordsearch','crossword','anagram','boggle','chain','ladder','novowel','hidden','stop','hangman','cipher']},
- {k:'logica',t:'Lógica e mistério',d:'Para quem gosta de pensar. Leia com atenção: a pista está no inglês.',g:['escape','fuga','whoami','emoji','intruder','ttl','memory','bridge','connections','logicgrid','whoiswho','liar','agenda','animalmyst']},
+ {k:'logica',t:'Lógica e mistério',d:'Para quem gosta de pensar. Leia com atenção: a pista está no inglês.',g:['escape','fuga','whoami','emoji','intruder','ttl','memory','bridge','connections','logicgrid','whoiswho','liar','agenda','animalmyst','chase']},
  {k:'vocab',t:'Vocabulário',d:'Aprenda palavras novas e use as que você já conhece.',g:['vtheme','vinst','vlink','define','scale','wordfam','sortcat','idiom','synant','flash','truefalse']},
  {k:'imagens',t:'Jogos com imagens',d:'Olhe, compare e clique. Jogos visuais para treinar vocabulário e descrições.',g:['facefind','outfit','picfind','adjmatch','bodylab','creature','animalconn']},
  {k:'gram',t:'Gramática',d:'As regras que mais confundem, em jogos rápidos.',g:['detective','adjord','compsup','article','prep','punct','question','countable','pastv','saytell','half','colloc','madlibs','story']},
@@ -2808,7 +2940,7 @@ function img(k,cls){return '<img'+(cls?' class="'+cls+'"':'')+' src="objs/'+k+'.
 function total(){var n=0;SECS.forEach(function(s){n+=secGames(s).length});return n+unmapped().length;}
 var LV={wordle:'Todos',scrabble:'B1–C1',wordsearch:'A1–B1',crossword:'A2–B2',anagram:'A1–B2',boggle:'A2–C1',chain:'A2–C1',ladder:'A2–B2',novowel:'A2–C1',hidden:'A2–C1',stop:'A1–B2',hangman:'A1–C1',
 escape:'Todos',fuga:'Todos',whoami:'A1–B2',emoji:'Todos',intruder:'A1–B2',ttl:'B1–C1',memory:'A1–B1',bridge:'B1–C1',connections:'A1–C1',logicgrid:'A2–C1',whoiswho:'A2–C1',liar:'A2–C1',agenda:'A2–C1',bodylab:'A1–A2',creature:'A1–B1',cipher:'A2–C1',animalmyst:'A1–B2',animalconn:'A1–B2',
-vtheme:'A1–B1',vinst:'A1–B2',vlink:'A1–B1',define:'B1–C1',scale:'B1–C1',wordfam:'B1–C1',sortcat:'A2–B2',idiom:'B1–C1',synant:'A2–C1',flash:'A1–C1',truefalse:'A2–C1',facefind:'A1–B1',picfind:'A1–B1',adjmatch:'A1–B1',outfit:'A1–B1',
+vtheme:'A1–B1',vinst:'A1–B2',vlink:'A1–B1',define:'B1–C1',scale:'B1–C1',wordfam:'B1–C1',sortcat:'A2–B2',idiom:'B1–C1',synant:'A2–C1',flash:'A1–C1',truefalse:'A2–C1',facefind:'A1–B1',picfind:'A1–B1',adjmatch:'A1–B1',chase:'A2–B2',outfit:'A1–B1',
 detective:'A1–B2',adjord:'B1–B2',compsup:'A1–B2',article:'A1–B1',prep:'A2–B2',punct:'A2–B2',question:'A2–B2',countable:'A1–C1',pastv:'A1–B2',saytell:'A2–B2',half:'B1–C1',colloc:'B1–C1',madlibs:'A2–C1',story:'B1–C1',
 shipsheep:'A1–B1',dictation:'A2–B2',soundodd:'B1–C1',listenpick:'A1–B1',rhyme:'B1–C1',sentpick:'A2–B2',audioerr:'B1–C1',spell:'A1–B1',
 vorder:'A1–B1',shopping:'A1–B1',vpack:'A1–A2',vsolve:'A2–B2',
@@ -6451,6 +6583,63 @@ html body #gmStage#gmStage .am-f{width:100%;box-sizing:border-box}
 html body #gmStage#gmStage .am-grid{width:100%}
 html body #gmStage#gmStage .am-wrap>*{align-self:center}
 html body #gmStage#gmStage .am-grid{align-self:stretch}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage#gmStage .am-f{padding:0 0 34px!important;margin:0!important;border-width:3px!important;line-height:0}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage#gmStage .am-f .wq-im{width:100%!important;margin:0!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage#gmStage .am-f .am-l{line-height:1!important}
+html body #gmStage#gmStage .am-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:410px;margin:0 auto 18px;gap:14px}html body #gmStage#gmStage .am-wrap{max-width:560px}
+</style>
+<style id="chCss">
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-wrap{width:100%;max-width:760px;margin:0 auto;text-align:center}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-here{margin:0 0 4px;font-size:20px;color:#1B1B1B}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-tip{margin:10px 0 8px;font-size:15px;color:#555}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pt{margin:8px 0 0;font-size:15px;color:#5a4a1a}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 12px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-o{border:3px solid #1B1B1B;border-radius:14px;background:#FFF8E5;color:#1B1B1B;font:800 17px/1.15 "Space Grotesk",system-ui,sans-serif;padding:16px 10px;cursor:pointer;box-shadow:3px 3px 0 #1B1B1B;transition:transform .12s ease}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-o:hover:not(:disabled){transform:translate(-2px,-2px)}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-o.dead{opacity:.35;text-decoration:line-through;box-shadow:none;cursor:default}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-o.ok{background:#D4F2DF;border-color:#1F8A4C;box-shadow:0 0 0 4px #9FE0B6}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-log{margin:18px 0 0;padding:12px 16px;border:3px solid #1B1B1B;border-radius:14px;background:#FFF8E5;text-align:left;font-size:15px;color:#1B1B1B}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-log ul{margin:6px 0 0;padding-left:20px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-log p{margin:6px 0 0;color:#666}
+@media (max-width:560px){html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-opts{grid-template-columns:1fr}}
+@media (min-width:700px){html body #gmStage#gmStage #gmBody#gmBody .ch-wrap{min-height:calc(100vh - 230px);display:flex;flex-direction:column;justify-content:center}}
+
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 14px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-p{display:flex;flex-direction:column;align-items:center;gap:6px;border:3px solid #1B1B1B;border-radius:14px;background:#FFF8E5;color:#1B1B1B;font:800 16px/1.1 "Space Grotesk",system-ui,sans-serif;padding:8px 8px 12px;cursor:pointer;box-shadow:3px 3px 0 #1B1B1B;transition:transform .12s ease}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-p:hover{transform:translate(-2px,-2px)}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-p.v{background:#E7EEFC;box-shadow:none;opacity:.75}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pi{display:block;width:100%;max-width:130px;margin:0 auto}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pi .wq-im{width:100%!important;border-radius:10px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-say{display:flex;gap:12px;align-items:center;margin:0 0 12px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-say .ch-wi{flex:0 0 118px;max-width:118px;border:3px solid #1B1B1B;border-radius:14px;overflow:hidden;box-shadow:3px 3px 0 #1B1B1B}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-say .wh-clue{flex:1;margin:0;text-align:center}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-ds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:10px 0 16px;text-align:left}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-d{display:flex;gap:12px;align-items:flex-start;border:3px solid #1B1B1B;border-radius:14px;background:#FFF8E5;color:#1B1B1B;padding:10px;font:500 14px/1.3 "Space Grotesk",system-ui,sans-serif;width:100%;box-sizing:border-box;text-align:left;box-shadow:3px 3px 0 #1B1B1B}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-d p{margin:0 0 2px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-d b{font-weight:800}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-dp{position:relative;flex:0 0 96px;width:96px;border:3px solid #1B1B1B;border-radius:10px;overflow:hidden}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-dp .wq-im{width:100%!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-dp .wh-x{display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-size:44px;color:#6f6f6f}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-dt{flex:1;min-width:0}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-dpt{display:none;margin-top:6px!important;color:#5a4a1a;font-style:italic}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-showpt .ch-dpt{display:block}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk{cursor:pointer;transition:transform .12s ease}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk:hover:not(:disabled){transform:translate(-2px,-2px)}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk.gone{opacity:.45;box-shadow:none;border-color:#8c8c8c;filter:grayscale(1)}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk.gone .wh-x{display:flex}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk.win{border-color:#1F8A4C;box-shadow:0 0 0 5px #9FE0B6;opacity:1;filter:none}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk.bad{border-color:#D7262E;box-shadow:0 0 0 4px #F3B3B6}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-lpt{display:block;color:#7a6a3a;font-style:italic;font-size:13px}
+@media (max-width:640px){html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-ds{grid-template-columns:1fr}html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pl{gap:8px}html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-p{font-size:14px}html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-say{flex-direction:column}}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk,html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk *{text-transform:none!important;letter-spacing:0!important;font-family:"Space Grotesk",system-ui,sans-serif!important;font-size:14px!important;font-weight:500!important;line-height:1.3!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk b{font-weight:800!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk.gone .ch-dt p:not(:first-child){display:none}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk.gone .ch-dp{flex-basis:56px;width:56px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pk.gone{align-items:center}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-hero{width:100%;max-width:230px;margin:0 auto 8px;border:3px solid #1B1B1B;border-radius:14px;overflow:hidden;box-shadow:3px 3px 0 #1B1B1B}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-ci,html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-ci .wq-im{display:block;width:100%!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-o{display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px 8px 12px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-o .ch-ci{border-radius:10px;overflow:hidden}
 </style>
 </body>
 </html>
