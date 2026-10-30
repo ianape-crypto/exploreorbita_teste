@@ -2245,7 +2245,7 @@ function wqGrid(ids,c){return"<div class=\"wq-g wq-pick\" data-c=\""+(c-1)+"\">"
 window.wqPick=function(i){var a=gm.ask;if(!a||a.locked)return;var g=document.querySelector(".wq-pick");if(!g)return;var c=+g.dataset.c,o=a.it.opts,k=o.indexOf(String(i+1));if(k<0){k=0;while(o[k]===a.it.correct)k++}var f=g.querySelectorAll("figure");f.forEach(function(x,j){if(j===c)x.classList.add("wq-ok");else if(j===i)x.classList.add("wq-no")});g.classList.add("wq-done");gmAskPick(k)};
 function wqOne(id){return"<div class=\"wq-g wq-one\"><figure>"+wqIm(id)+"</figure></div>"}
 /* Quem é quem? */
-window.gmFaceFind=function(){
+window.gmFaceFind=function(){wqWarm(["fa1","fa2","fa3","fa4","bo1","bo2","bo3","bo4"]);
   var rounds=[],kinds=gmShuffle(["f","f","f","f","f","b","b","b","b","b"]),usedT={};
   kinds.forEach(function(k){
     var pool=k==="f"?WQ_F:WQ_B,tries=0,r=null;
@@ -2279,7 +2279,7 @@ function wqWrongs(p,n){
     else{c2.forEach(function(c){c[0]=WQ_COL[Math.floor(Math.random()*WQ_COL.length)]})}
     add(c2)}
   return res}
-window.gmOutfit=function(){
+window.gmOutfit=function(){wqWarm(["bo1","bo2","bo3","bo4"]);
   var modes=gmShuffle(["a","a","a","a","a","b","b","b","b","b"]),usedT={},items=[];
   modes.forEach(function(m){
     var tries=0,ok=!1;
@@ -2306,6 +2306,7 @@ dog:{n:"dog",c:[["big"],["small","tiny"],["fat"],["thin","tall"],["old","sad"],[
 house:{n:"house",c:[["tall","narrow"],["small","cozy"],["old","broken","ruined"],["modern"],["big","expensive"],["small","cute"],["made of brick"],["blue","colorful"],["abandoned","old","broken","ruined"],["cozy"],["on a hill","far away"],["next to a river"]],cf:{1:[5,9],2:[8],8:[2],4:[3],5:[1],9:[1],3:[4]}},
 car:{n:"car",c:[["old","rusty","broken"],["fast","red","expensive"],["big","yellow"],["small","blue"],["long","black","expensive"],["dirty","muddy"],["clean","white","shiny"],["yellow"],["broken","red","old"],["fast","blue"],["heavy","orange"],["slow","old","red"]],cf:{0:[8,11],8:[0,11],11:[0,8],1:[9],9:[1],2:[10],10:[2],7:[2]}}
 };
+var WQ_WARM={};function wqWarm(a){a.forEach(function(n,i){if(WQ_WARM[n])return;WQ_WARM[n]=1;setTimeout(function(){var im=new Image();im.decoding="async";im.src="img/wqs/"+n+".webp"},i*120)})}
 function wqPad(i){return(i<9?"0":"")+(i+1)}
 /* Qual é a imagem? v2: cada pergunta tem UMA resposta. Para cada item, "safe" lista as imagens que claramente NÃO têm a característica. */
 var WQ_Q={
@@ -2325,7 +2326,7 @@ car:{n:"car",e:[
 [12,"is slow","lento",[2,5,7,10,8]],[3,"is the school bus","é o ônibus escolar",null,"Which one is the school bus?"],[5,"is the limousine","é a limusine",null,"Which one is the limousine?"],
 [8,"is the taxi","é o táxi",null,"Which one is the taxi?"],[11,"is the truck","é o caminhão",null,"Which one is the truck?"],[12,"is the tractor","é o trator",null,"Which one is the tractor?"],[2,"is the sports car","é o carro esportivo",null,"Which one is the sports car?"]]}
 };
-window.gmPicFind=function(){
+window.gmPicFind=function(){wqWarm(["dog","house","car","dog2","cat","house2","car2","bo1","bo2"]);
   var all7=["dog","house","car","dog2","cat","house2","car2"],seq=gmShuffle(all7.concat(gmShuffle(all7).slice(0,3))),used={},items=[];
   seq.forEach(function(k){
     if(!WQ_Q[k]){var Dn=AM_D[k],ids=Object.keys(Dn.a).map(Number),tt=0,okn=!1;
@@ -2390,7 +2391,7 @@ function amBoard(k){
     if(!ok)continue;
     return{k:k,imgs:pick.map(function(x){return k+"-"+wqPad(x-1)}),ans:pick.map(function(x){return D.a[x][0]}),adjs:gmShuffle(pick.map(function(x){return{p:D.a[x][0],s:D.a[x][0],g:D.a[x][1]}}))}}
   return null}
-window.gmAdjMatch=function(){
+window.gmAdjMatch=function(){wqWarm(["dog","house","car","dog2","cat","house2","car2","pp1","pp2","ob1","ob2"]);
   var rounds=gmShuffle(["dog","house","car","dog2","cat","house2","car2","pp1","pp2","ob1","ob2"]).slice(0,3).map(amBoard).filter(Boolean);
   gm.state={rounds:rounds,r:0,pts:0};gmStage("#2456C4","Ligue os adjetivos","");amShow()};
 function amShow(){var e=gm.state;e.link=[null,null,null,null];e.sel=null;e.locked=!1;amDraw()}
@@ -2601,7 +2602,7 @@ function whRound(kind){
     if(g&&!best)best={board:board,secret:g.secret,clues:g.clues,err:0}}
   return best}
 function whClue(c){var t=WH_T[c.t],i=c.pos?0:2;return{en:t[i],pt:t[i+1]}}
-window.gmFaceFind=function(){
+window.gmFaceFind=function(){wqWarm(["fa1","fa2","fa3","fa4","bo1","bo2","bo3","bo4"]);
   var kinds=gmShuffle(["f","b","f","b"]).slice(0,3),rounds=kinds.map(whRound).filter(Boolean);
   gm.state={rounds:rounds,r:0,c:0,pts:0};
   gmStage("#D7262E","Quem é quem?","");whShow()};
@@ -2732,7 +2733,7 @@ function chGen(){
   if(best){var used={};best.clues.forEach(function(f){used[f]=1});var ex=gmShuffle(CH_F.filter(function(f){return!used[f]}));while(best.clues.length<3&&ex.length)best.clues.push(ex.shift());return best}
   return null}
 function chThief(s){return s}
-window.gmChase=function(){
+window.gmChase=function(){wqWarm(["ct1","ct2","fa1","fa2","fa3"]);
   var G=chGen();if(!G)return;
   var n=G.clues.length,route=gmShuffle(chAct()).slice(0,n+1);
   gm.state={S:G.S,secret:G.secret,clues:G.clues,n:n,route:route,stop:0,pts:0,max:n*3+5,obj:CH_O[Math.floor(Math.random()*CH_O.length)],log:[],alive:G.S.map(function(){return!0}),phase:"intro",pt:!1,dos:!1};
@@ -2740,27 +2741,31 @@ window.gmChase=function(){
 function chBegin(){
   var e=gm.state,P=gmShuffle(CH_P.slice()).slice(0,3),K=gmShuffle(["w","d1","d2"]),right=e.route[e.stop+1],dec=gmShuffle(chAct().filter(function(i){return i!==right&&i!==e.route[e.stop]})).slice(0,2);
   e.places=P.map(function(p,i){return{p:p,k:K[i],v:!1}});e.opts=gmShuffle([right].concat(dec));e.dead=[];e.done=!1;e.fb="";e.phase="stop";chDraw()}
-function chDoss(s,i,mode){
-  var e=gm.state,cls="ch-d"+(mode==="pick"?" ch-pk":"")+(mode==="pick"&&!e.alive[i]?" gone":"")+(e.res&&mode==="pick"&&i===e.secret?" win":"")+(e.res&&mode==="pick"&&i===e.pick&&i!==e.secret?" bad":""),
-  pt=(s[3]==="f"?"Mulher":"Homem")+", cabelo "+s[4][1]+", gosta de "+s[5][1]+", "+s[6][1]+", "+s[7][1]+", "+s[8][1]+".",
-  inner="<div class=\"ch-dp\">"+wqIm(s[1])+"<span class=\"wh-x\">✕</span></div><div class=\"ch-dt\"><p><b>Name:</b> "+escapeHtml(s[2])+"</p><p><b>Sex:</b> "+(s[3]==="f"?"Female":"Male")+"</p><p><b>Hair color:</b> "+(s[4][0]==="none"?"bald":s[4][0])+"</p><p><b>Hobby:</b> "+escapeHtml(s[5][0])+"</p><p><b>Occupation:</b> "+escapeHtml(s[6][0])+"</p><p><b>Feature:</b> "+escapeHtml(s[7][0].replace(/^(wears|has) /,function(m){return m==="has "?"Has ":"Wears "}))+"</p><p><b>Other:</b> "+escapeHtml(s[8][0].replace(/^loves/,"Loves"))+"</p><p class=\"ch-dpt\">"+escapeHtml(pt)+"</p></div>";
-  return mode==="pick"?"<button type=\"button\" class=\""+cls+"\" "+(e.res?"disabled ":"")+"onclick=\"chTog("+i+")\">"+inner+"</button>":"<div class=\""+cls+"\">"+inner+"</div>"}
-function chDossAll(){var e=gm.state;return"<div class=\"ch-ds"+(e.pt?" ch-showpt":"")+"\">"+e.S.map(function(s,i){return chDoss(s,i,"view")}).join("")+"</div>"}
+function chFiles(mode){
+  var e=gm.state,t=e.tab||0,S=e.S[t],i=t,fin=mode==="final",locked=!!e.res;
+  var tabs=e.S.map(function(x,k){return"<button type=\"button\" class=\"ch-tb"+(k===t?" on":"")+(e.alive[k]?"":" gone")+(e.res&&k===e.secret?" win":"")+"\" onclick=\"chTab("+k+")\">"+escapeHtml(x[2].split(" ")[0])+"</button>"}).join("");
+  var feat=S[7][0].replace(/^(wears|has) /,function(m){return m==="has "?"Has ":"Wears "}),oth=S[8][0].replace(/^loves/,"Loves"),
+  pt=(S[3]==="f"?"Mulher":"Homem")+", cabelo "+S[4][1]+", gosta de "+S[5][1]+", "+S[6][1]+", "+S[7][1]+", "+S[8][1]+".";
+  var acts="";
+  if(mode!=="intro"&&!locked)acts="<button type=\"button\" class=\"wh-sm\" onclick=\"chTog("+i+")\">"+(e.alive[i]?"Descartar este suspeito":"Voltar a considerar")+"</button>"+(fin?"<button type=\"button\" class=\"gm-main ch-arrest\" onclick=\"chWarrant("+i+")\">Emitir mandado contra "+escapeHtml(S[2].split(" ")[0])+"</button>":"");
+  return"<div class=\"ch-fl"+(e.pt?" ch-showpt":"")+"\"><div class=\"ch-tabs\">"+tabs+"</div><div class=\"ch-card"+(e.alive[i]?"":" gone")+"\"><div class=\"ch-ct2\"><div class=\"ch-dp\">"+wqIm(S[1])+"<span class=\"wh-x\">✕</span></div><div class=\"ch-dt\"><p><b>Name:</b> "+escapeHtml(S[2])+"</p><p><b>Sex:</b> "+(S[3]==="f"?"Female":"Male")+"</p><p><b>Hair color:</b> "+(S[4][0]==="none"?"bald":S[4][0])+"</p><p><b>Hobby:</b> "+escapeHtml(S[5][0])+"</p><p><b>Occupation:</b> "+escapeHtml(S[6][0])+"</p><p><b>Feature:</b> "+escapeHtml(feat)+"</p><p><b>Other:</b> "+escapeHtml(oth)+"</p><p class=\"ch-dpt\">"+escapeHtml(pt)+"</p></div></div><div class=\"ch-acts\">"+acts+"</div></div></div>"}
+function chPop(){
+  var e=gm.state;if(!e.res||e.popX)return"";var T=e.S[e.secret],ok=e.res==="ok";
+  return"<div class=\"ch-pop\"><div class=\"ch-pb "+(ok?"ok":"no")+"\"><span class=\"wh-ck\">"+(ok?"Caso encerrado":"O ladrão escapou")+"</span><h3>"+(ok?"Arrested!":"Wrong suspect!")+"</h3><div class=\"ch-pp\">"+wqIm(T[1])+"</div><p class=\"ch-pn\">The thief was <b>"+escapeHtml(T[2])+"</b>.</p><p class=\"ch-pt\">"+(ok?"Você prendeu o ladrão certo!":"O ladrão era "+escapeHtml(T[2])+".")+" "+escapeHtml(T[6][1].charAt(0).toUpperCase()+T[6][1].slice(1))+", "+escapeHtml(T[5][1].replace(/^/,"gosta de "))+".</p><p class=\"ch-pts\">"+(ok?"+5 pontos":"+0 pontos")+" · total "+e.pts+"/"+e.max+"</p><button type=\"button\" class=\"gm-main\" onclick=\"chEnd()\">Ver resultado</button></div></div>"}
 function chPtBtn(){return"<button type=\"button\" class=\"wh-sm\" onclick=\"chPtD()\">Ver em português</button>"}
 function chLog(){var e=gm.state;return"<div class=\"ch-log\"><b>Pistas sobre o ladrão</b>"+(e.log.length?"<ul>"+e.log.map(function(l){return"<li>"+escapeHtml(l[0])+"<span class=\"ch-lpt\">"+escapeHtml(l[1])+"</span></li>"}).join("")+"</ul>":"<p>Nenhuma pista ainda. Visite os lugares e converse com as testemunhas.</p>")+"</div>"}
 function chBar(){var e=gm.state;bar("<span class=\"gm-chip\">"+(e.phase==="final"?"Mandado":e.phase==="intro"?"Novo caso":"Parada "+(e.stop+1)+"/"+e.n)+"</span><span class=\"gm-chip\">★ "+e.pts+"</span>")}
 function chDraw(){
   var e=gm.state,B=document.getElementById("gmBody");if(!B)return;chBar();var h="";
   if(e.phase==="intro"){
-    h="<div class=\"ch-wrap\"><div class=\"wh-clue\"><span class=\"wh-ck\">Novo caso</span><p class=\"wh-ct\">Someone stole "+escapeHtml(e.obj[0])+" in "+escapeHtml(CH_C[e.route[0]].n)+".</p><p class=\"ch-pt\">Roubaram "+escapeHtml(e.obj[1])+" em "+escapeHtml(CH_C[e.route[0]].n)+".</p></div><p class=\"ch-tip\">Estes são os 5 suspeitos. Leia os dossiês: as pistas vão falar sobre <b>quem o ladrão é</b> e sobre <b>para onde ele foi</b>.</p><p class=\"ch-tip\">"+chPtBtn()+"</p>"+chDossAll()+"<div id=\"chAct\"><button type=\"button\" class=\"gm-main\" onclick=\"chBegin()\">Começar a investigação</button></div></div>"}
+    h="<div class=\"ch-wrap\"><div class=\"wh-clue\"><span class=\"wh-ck\">Novo caso</span><p class=\"wh-ct\">Someone stole "+escapeHtml(e.obj[0])+" in "+escapeHtml(CH_C[e.route[0]].n)+".</p><p class=\"ch-pt\">Roubaram "+escapeHtml(e.obj[1])+" em "+escapeHtml(CH_C[e.route[0]].n)+".</p></div><p class=\"ch-tip\">Estas são as fichas dos 5 suspeitos. Toque nas abas para folhear os dossiês: as pistas vão falar sobre <b>quem o ladrão é</b> e sobre <b>para onde ele foi</b>.</p><p class=\"ch-tip\">"+chPtBtn()+"</p>"+chFiles("intro")+"<div id=\"chAct\"><button type=\"button\" class=\"gm-main\" onclick=\"chBegin()\">Começar a investigação</button></div></div>"}
   else if(e.phase==="stop"){
     var here=CH_C[e.route[e.stop]];
     h="<div class=\"ch-wrap\">"+(CH_IMG?"<div class=\"ch-hero\">"+chCI(e.route[e.stop])+"</div>":"")+"<p class=\"ch-here\">Você está em <b>"+escapeHtml(here.n)+"</b></p><p class=\"ch-tip\">Onde procurar pistas?</p><div class=\"ch-pl\">"+e.places.map(function(x,i){return"<button type=\"button\" class=\"ch-p"+(x.v?" v":"")+"\" onclick=\"chVisit("+i+")\"><span class=\"ch-pi\">"+wqIm(x.p[2])+"</span><span>"+escapeHtml(x.p[0])+"</span></button>"}).join("")+"</div>";
     e.places.forEach(function(x,i){if(!x.v)return;var s=chText(x);h+="<div class=\"ch-say\"><div class=\"ch-pi ch-wi\">"+wqIm(x.p[2])+"</div><div class=\"wh-clue\"><span class=\"wh-ck\">"+escapeHtml(x.p[0])+" · "+escapeHtml(x.p[1])+"</span><p class=\"wh-ct\">“"+escapeHtml(s[0])+"”</p><div class=\"wh-cb\"><button type=\"button\" class=\"wh-sm\" onclick=\"gmSay(chText(gm.state.places["+i+"])[0])\">🔊 Ouvir</button><button type=\"button\" class=\"wh-sm\" onclick=\"var n=this.parentNode.nextSibling;n.hidden=!n.hidden\">Ver em português</button></div><p class=\"ch-pt\" hidden>"+escapeHtml(s[1])+"</p></div></div>"});
-    h+="<p class=\"ch-tip\">Para onde ele foi?</p><div class=\"ch-opts\">"+e.opts.map(function(c){var dead=e.dead.indexOf(c)>=0,ok=e.done&&c===e.route[e.stop+1];return"<button type=\"button\" class=\"ch-o"+(dead?" dead":"")+(ok?" ok":"")+"\" "+(dead||e.done?"disabled ":"")+"onclick=\"chGo("+c+")\">"+chCI(c)+"<span>"+escapeHtml(CH_C[c].n)+"</span></button>"}).join("")+"</div><div class=\"gm-fb"+(e.fb?(e.done?" ok":" no"):"")+"\" id=\"gmFb\">"+(e.fb?"<span>"+e.fb+"</span>":"")+"</div>"+(e.done?"<div id=\"chAct\"><button type=\"button\" class=\"gm-main\" onclick=\"chNext()\">Continuar</button></div>":"")+chLog()+"<p class=\"ch-tip\"><b>Suspeitos.</b> Toque num suspeito que não combina com as pistas para escondê-lo. Toque de novo para mostrar. "+chPtBtn()+"</p><div class=\"ch-ds"+(e.pt?" ch-showpt":"")+"\">"+e.S.map(function(s,i){return chDoss(s,i,"pick")}).join("")+"</div></div>"}
+    h+="<p class=\"ch-tip\">Para onde ele foi?</p><div class=\"ch-opts\">"+e.opts.map(function(c){var dead=e.dead.indexOf(c)>=0,ok=e.done&&c===e.route[e.stop+1];return"<button type=\"button\" class=\"ch-o"+(dead?" dead":"")+(ok?" ok":"")+"\" "+(dead||e.done?"disabled ":"")+"onclick=\"chGo("+c+")\">"+chCI(c)+"<span>"+escapeHtml(CH_C[c].n)+"</span></button>"}).join("")+"</div><div class=\"gm-fb"+(e.fb?(e.done?" ok":" no"):"")+"\" id=\"gmFb\">"+(e.fb?"<span>"+e.fb+"</span>":"")+"</div>"+(e.done?"<div id=\"chAct\"><button type=\"button\" class=\"gm-main\" onclick=\"chNext()\">Continuar</button></div>":"")+chLog()+"<p class=\"ch-tip\"><b>Arquivo de suspeitos.</b> Folheie as fichas e descarte quem não combina com as pistas. "+chPtBtn()+"</p>"+chFiles("stop")+"</div>"}
   else if(e.phase==="final"){
-    var left=e.alive.filter(Boolean).length;
-    h="<div class=\"ch-wrap ch-fin\"><div class=\"wh-clue\"><span class=\"wh-ck\">Esconderijo</span><p class=\"wh-ct\">The thief is hiding in "+escapeHtml(CH_C[e.route[e.n]].n)+"!</p><p class=\"ch-pt\">O ladrão está escondido em "+escapeHtml(CH_C[e.route[e.n]].n)+"! Compare as pistas com os dossiês, toque nos suspeitos que não combinam e emita o mandado.</p></div>"+chLog()+"<p class=\"ch-tip\">"+chPtBtn()+"</p><div class=\"ch-ds"+(e.pt?" ch-showpt":"")+"\">"+e.S.map(function(s,i){return chDoss(s,i,"pick")}).join("")+"</div><div class=\"gm-fb"+(e.res?(e.res==="ok"?" ok":" no"):"")+"\" id=\"gmFb\">"+(e.fb?"<span>"+e.fb+"</span>":"")+"</div><div id=\"chAct\">"+(e.res?"<button type=\"button\" class=\"gm-main\" onclick=\"chEnd()\">Ver resultado</button>":"<button type=\"button\" class=\"gm-main\" id=\"chW\" onclick=\"chWarrant()\" "+(left===1?"":"disabled")+">Emitir mandado de prisão</button>")+"</div></div>"}
+    h="<div class=\"ch-wrap ch-fin\"><div class=\"wh-clue\"><span class=\"wh-ck\">Esconderijo</span><p class=\"wh-ct\">The thief is hiding in "+escapeHtml(CH_C[e.route[e.n]].n)+"!</p><p class=\"ch-pt\">O ladrão está escondido em "+escapeHtml(CH_C[e.route[e.n]].n)+"! Compare as pistas com as fichas, descarte quem não combina e emita o mandado contra o suspeito certo.</p></div>"+chLog()+"<p class=\"ch-tip\">"+chPtBtn()+"</p>"+chFiles("final")+"</div>"+chPop()}
   B.innerHTML=h}
 function chText(x){var e=gm.state;if(x.k==="w"){var c=chClue(e.S[e.secret],e.clues[e.stop]);return[c[0],c[1]]}var d=CH_C[e.route[e.stop+1]].d[x.k==="d1"?0:1];return[d[0],d[1]]}
 window.chClue=chClue;window.chText=chText;window.chBegin=chBegin;window.chDraw=chDraw;
@@ -2774,12 +2779,12 @@ window.chGo=function(c){
   chDraw()};
 window.chNext=function(){var e=gm.state;e.stop++;if(e.stop>=e.n){e.phase="final";e.fb="";chDraw()}else chBegin()};
 window.chTog=function(i){var e=gm.state;if(e.res)return;e.alive[i]=!e.alive[i];chDraw()};
-window.chWarrant=function(){
-  var e=gm.state,i=e.alive.indexOf(!0);if(e.alive.filter(Boolean).length!==1)return;
-  e.pick=i;if(i===e.secret){e.res="ok";e.pts+=5;e.fb="<b>Preso!</b> "+escapeHtml(e.S[i][2])+" era o ladrão.<br>+5 pontos"}
-  else{e.res="no";e.fb="<b>Quase!</b> Esse não era o ladrão. O verdadeiro era <b>"+escapeHtml(e.S[e.secret][2])+"</b> (borda verde). Confira se você visitou todos os lugares para reunir as pistas."}
+window.chTab=function(i){var e=gm.state;e.tab=i;chDraw()};
+window.chWarrant=function(i){
+  var e=gm.state;if(e.res)return;
+  e.pick=i;if(i===e.secret){e.res="ok";e.pts+=5}else e.res="no";
   chDraw()};
-window.chEnd=async function(){var e=gm.state;if(!document.getElementById("gmBody"))return;var r=await gmBestSave("chase",e.pts,!1);document.getElementById("gmBody").innerHTML=gmEndHtml("🕵️",e.pts+"/"+e.max,"pontos"+(r?" · <b>novo recorde!</b>":""),"chase")};
+window.chEnd=async function(){var e=gm.state;if(!document.getElementById("gmBody"))return;e.popX=1;var r=await gmBestSave("chase",e.pts,!1);document.getElementById("gmBody").innerHTML=gmEndHtml("🕵️",e.pts+"/"+e.max,"pontos"+(r?" · <b>novo recorde!</b>":""),"chase")};
 GM_GAMES.push({k:"chase",t:"Caça ao ladrão",c:"#6B4FBB",ct:"#F8F3E6",d:"Siga as pistas pelo Brasil: descubra para onde o ladrão fugiu e quem ele é.",best:function(e){return null!=e.chase?"Recorde: "+e.chase:""}});
 Object.assign(GM_STARTERS,{chase:function(){gmChase()}});
 
@@ -6651,6 +6656,37 @@ html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage
 html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-ci,html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-ci .wq-im{display:block;width:100%!important}
 html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-o{display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px 8px 12px}
 html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-o .ch-ci{border-radius:10px;overflow:hidden}
+
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-fl{max-width:560px;margin:10px auto 18px;text-align:left}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-tabs{display:flex;gap:4px;flex-wrap:wrap;align-items:flex-end;padding:0 10px;margin:0}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-tb{position:relative;top:3px;border:3px solid #1B1B1B;border-bottom:0;border-radius:10px 10px 0 0;background:#E3CF8B;color:#1B1B1B;font:800 13px/1 "Space Grotesk",system-ui,sans-serif;padding:9px 13px 7px;cursor:pointer;text-transform:none;letter-spacing:0;transition:transform .12s ease}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-tb:hover{transform:translateY(-2px)}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-tb.on{background:#FFC93C!important;color:#1B1B1B!important;padding-bottom:10px;z-index:2}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-tb.gone{background:#D8D4C6;color:#8a8a8a;text-decoration:line-through}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-tb.win{background:#D4F2DF;border-color:#1F8A4C;color:#14532d}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-card{position:relative;z-index:1;border:3px solid #1B1B1B;border-radius:12px;background:#FBF3D5;background-image:repeating-linear-gradient(transparent 0 25px,rgba(180,150,70,.25) 25px 26px);padding:16px 16px 14px;box-shadow:4px 4px 0 #1B1B1B}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-card.gone{background-color:#EFEDE6;background-image:none}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-card.gone .ch-dt{opacity:.55}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-card.gone .ch-dp{filter:grayscale(1);opacity:.6}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-card.gone .ch-dp .wh-x{display:flex}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-ct2{display:flex;gap:16px;align-items:flex-start}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-card .ch-dp{flex:0 0 130px;width:130px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-card .ch-dt p{margin:0 0 4px;font:500 16px/1.3 "Space Grotesk",system-ui,sans-serif;color:#1B1B1B}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-card .ch-dt b{font-weight:800}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-acts .wh-sm{padding:11px 16px;height:auto;min-height:0}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-acts .ch-arrest{font-size:14px;padding:10px 16px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pop{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(20,20,30,.62);padding:16px}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pb{width:100%;max-width:380px;background:#FBF3D5;border:4px solid #1B1B1B;border-radius:18px;box-shadow:6px 6px 0 #1B1B1B;padding:22px 20px 20px;text-align:center;animation:chPop .25s ease}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pb.ok{border-color:#1F8A4C;box-shadow:6px 6px 0 #1F8A4C}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pb.no{border-color:#D7262E;box-shadow:6px 6px 0 #D7262E}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pb h3{margin:8px 0 12px;font:800 30px/1 "Space Grotesk",system-ui,sans-serif;color:#1B1B1B}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pp{width:150px;margin:0 auto 12px;border:4px solid #1B1B1B;border-radius:14px;overflow:hidden}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pp .wq-im{width:100%!important}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pn{margin:0 0 6px;font-size:19px;color:#1B1B1B}
+html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-pts{margin:8px 0 14px;font-weight:800;color:#1B1B1B}
+@keyframes chPop{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}
+@media (max-width:560px){html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-ct2{flex-direction:column;align-items:center}html body #tabGames#tabGames#tabGames#tabGames#tabGames #gmStage#gmStage#gmStage .ch-card .ch-dt{width:100%}}
 </style>
 </body>
 </html>
