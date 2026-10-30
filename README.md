@@ -4,7 +4,7 @@
 
 👉 **[Jogar agora](https://exploreorbita.com.br)**
 
-![Tela inicial do Órbita](screenshot.jpg)
+![Órbita: inglês para explorar](orbita-capa.jpg)
 
 ## O que é
 
