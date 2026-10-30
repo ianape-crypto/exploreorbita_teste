@@ -1,0 +1,928 @@
+{
+ "dog": {
+  "a": {
+   "1": [
+    "big",
+    "grande"
+   ],
+   "2": [
+    "tiny",
+    "minúsculo"
+   ],
+   "3": [
+    "fat",
+    "gordo"
+   ],
+   "4": [
+    "thin",
+    "magro"
+   ],
+   "5": [
+    "old",
+    "velho"
+   ],
+   "6": [
+    "young",
+    "jovem"
+   ],
+   "7": [
+    "hairy",
+    "peludo"
+   ],
+   "8": [
+    "short",
+    "baixo"
+   ],
+   "9": [
+    "wet",
+    "molhado"
+   ],
+   "10": [
+    "dirty",
+    "sujo"
+   ],
+   "11": [
+    "sleepy",
+    "dorminhoco, com sono"
+   ],
+   "12": [
+    "fast",
+    "rápido"
+   ]
+  },
+  "c": [
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    2,
+    8
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    3,
+    8
+   ],
+   [
+    4,
+    8
+   ],
+   [
+    4,
+    12
+   ],
+   [
+    5,
+    7
+   ],
+   [
+    5,
+    10
+   ],
+   [
+    7,
+    10
+   ],
+   [
+    7,
+    9
+   ],
+   [
+    9,
+    10
+   ],
+   [
+    6,
+    12
+   ],
+   [
+    2,
+    12
+   ]
+  ]
+ },
+ "house": {
+  "a": {
+   "1": [
+    "tall",
+    "alta"
+   ],
+   "2": [
+    "small",
+    "pequena"
+   ],
+   "3": [
+    "broken",
+    "quebrada"
+   ],
+   "4": [
+    "modern",
+    "moderna"
+   ],
+   "5": [
+    "big",
+    "grande"
+   ],
+   "6": [
+    "small",
+    "pequena"
+   ],
+   "7": [
+    "red",
+    "vermelha"
+   ],
+   "8": [
+    "blue",
+    "azul"
+   ],
+   "9": [
+    "abandoned",
+    "abandonada"
+   ],
+   "10": [
+    "cozy",
+    "aconchegante"
+   ],
+   "11": [
+    "remote",
+    "isolada"
+   ]
+  },
+  "c": [
+   [
+    2,
+    6
+   ],
+   [
+    2,
+    10
+   ],
+   [
+    6,
+    10
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    11,
+    2
+   ],
+   [
+    11,
+    6
+   ],
+   [
+    11,
+    10
+   ],
+   [
+    7,
+    8
+   ],
+   [
+    7,
+    3
+   ],
+   [
+    7,
+    9
+   ]
+  ]
+ },
+ "car": {
+  "a": {
+   "1": [
+    "rusty",
+    "enferrujado"
+   ],
+   "2": [
+    "fast",
+    "rápido"
+   ],
+   "3": [
+    "yellow",
+    "amarelo"
+   ],
+   "4": [
+    "tiny",
+    "minúsculo"
+   ],
+   "5": [
+    "long",
+    "comprido"
+   ],
+   "6": [
+    "muddy",
+    "enlameado"
+   ],
+   "7": [
+    "clean",
+    "limpo"
+   ],
+   "8": [
+    "yellow",
+    "amarelo"
+   ],
+   "9": [
+    "broken",
+    "quebrado"
+   ],
+   "10": [
+    "fast",
+    "rápido"
+   ]
+  },
+  "c": [
+   [
+    1,
+    9
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    6,
+    9
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    7,
+    1
+   ],
+   [
+    7,
+    6
+   ],
+   [
+    7,
+    9
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    8,
+    5
+   ]
+  ]
+ },
+ "dog2": {
+  "n": "dog",
+  "a": {
+   "1": [
+    "big",
+    "grande"
+   ],
+   "2": [
+    "tiny",
+    "minúsculo"
+   ],
+   "3": [
+    "fat",
+    "gordo"
+   ],
+   "4": [
+    "thin",
+    "magro"
+   ],
+   "5": [
+    "old",
+    "velho"
+   ],
+   "6": [
+    "young",
+    "jovem",
+    "is young"
+   ],
+   "7": [
+    "clean",
+    "limpo"
+   ],
+   "8": [
+    "dirty",
+    "sujo"
+   ],
+   "9": [
+    "sleepy",
+    "dorminhoco, com sono"
+   ],
+   "10": [
+    "energetic",
+    "cheio de energia"
+   ],
+   "11": [
+    "happy",
+    "feliz"
+   ],
+   "12": [
+    "sad",
+    "triste"
+   ]
+  },
+  "c": [
+   [
+    1,
+    5
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    5,
+    12
+   ],
+   [
+    5,
+    7
+   ],
+   [
+    5,
+    3
+   ],
+   [
+    5,
+    6
+   ],
+   [
+    10,
+    9
+   ],
+   [
+    10,
+    12
+   ],
+   [
+    10,
+    5
+   ],
+   [
+    11,
+    12
+   ]
+  ]
+ },
+ "cat": {
+  "n": "cat",
+  "a": {
+   "1": [
+    "fat",
+    "gordo"
+   ],
+   "2": [
+    "thin",
+    "magro"
+   ],
+   "3": [
+    "fluffy",
+    "fofo, peludo"
+   ],
+   "4": [
+    "white",
+    "branco"
+   ],
+   "5": [
+    "black",
+    "preto"
+   ],
+   "6": [
+    "white",
+    "branco"
+   ],
+   "7": [
+    "young",
+    "jovem",
+    "is young"
+   ],
+   "8": [
+    "old",
+    "velho"
+   ],
+   "9": [
+    "sleepy",
+    "dorminhoco, com sono"
+   ],
+   "10": [
+    "playful",
+    "brincalhão"
+   ]
+  },
+  "c": [
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    7
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    7,
+    8
+   ]
+  ]
+ },
+ "house2": {
+  "n": "house",
+  "a": {
+   "1": [
+    "tall",
+    "alta"
+   ],
+   "2": [
+    "low",
+    "baixa"
+   ],
+   "4": [
+    "cracked",
+    "rachada"
+   ],
+   "6": [
+    "tiny",
+    "minúscula"
+   ],
+   "7": [
+    "flowery",
+    "cheia de flores",
+    "has flowers in the garden"
+   ],
+   "8": [
+    "bare",
+    "sem flores",
+    "has no flowers"
+   ],
+   "9": [
+    "bright",
+    "iluminada",
+    "has the lights on at night"
+   ],
+   "10": [
+    "dark",
+    "escura",
+    "has the lights off at night"
+   ]
+  },
+  "c": [
+   [
+    6,
+    7
+   ],
+   [
+    8,
+    1
+   ],
+   [
+    8,
+    2
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    9,
+    10
+   ]
+  ]
+ },
+ "car2": {
+  "n": "car",
+  "a": {
+   "1": [
+    "shiny",
+    "brilhante"
+   ],
+   "2": [
+    "damaged",
+    "danificado"
+   ],
+   "3": [
+    "big",
+    "grande"
+   ],
+   "4": [
+    "tiny",
+    "minúsculo"
+   ],
+   "5": [
+    "clean",
+    "limpo"
+   ],
+   "6": [
+    "dirty",
+    "sujo"
+   ],
+   "7": [
+    "convertible",
+    "conversível",
+    "is a convertible"
+   ],
+   "10": [
+    "open",
+    "aberto",
+    "has a door open"
+   ]
+  },
+  "c": [
+   [
+    1,
+    5
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    10,
+    7
+   ]
+  ]
+ },
+ "pp1": {
+  "n": "person",
+  "a": {
+   "1": [
+    "angry",
+    "bravo"
+   ],
+   "2": [
+    "calm",
+    "calmo"
+   ],
+   "3": [
+    "happy",
+    "feliz"
+   ],
+   "4": [
+    "sad",
+    "triste"
+   ],
+   "5": [
+    "shy",
+    "tímido"
+   ],
+   "6": [
+    "outgoing",
+    "extrovertido"
+   ],
+   "7": [
+    "lazy",
+    "preguiçoso"
+   ],
+   "8": [
+    "athletic",
+    "atlético"
+   ],
+   "9": [
+    "polite",
+    "educado"
+   ],
+   "10": [
+    "rude",
+    "grosseiro"
+   ],
+   "11": [
+    "strong",
+    "forte"
+   ],
+   "12": [
+    "weak",
+    "fraco"
+   ]
+  },
+  "c": [
+   [
+    3,
+    6
+   ],
+   [
+    2,
+    5
+   ],
+   [
+    1,
+    10
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    2,
+    7
+   ],
+   [
+    7,
+    12
+   ],
+   [
+    8,
+    11
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    6,
+    9
+   ],
+   [
+    2,
+    9
+   ]
+  ]
+ },
+ "pp2": {
+  "n": "person",
+  "a": {
+   "1": [
+    "rich",
+    "rico"
+   ],
+   "2": [
+    "poor",
+    "pobre"
+   ],
+   "3": [
+    "married",
+    "casado"
+   ],
+   "5": [
+    "funny",
+    "engraçado"
+   ],
+   "6": [
+    "boring",
+    "chato"
+   ],
+   "7": [
+    "nice",
+    "legal, simpático"
+   ],
+   "8": [
+    "mean",
+    "malvado"
+   ],
+   "9": [
+    "loud",
+    "barulhento"
+   ],
+   "10": [
+    "quiet",
+    "quieto"
+   ],
+   "11": [
+    "tall",
+    "alto"
+   ],
+   "12": [
+    "short",
+    "baixo"
+   ]
+  },
+  "c": [
+   [
+    5,
+    7
+   ],
+   [
+    5,
+    9
+   ],
+   [
+    6,
+    10
+   ]
+  ]
+ },
+ "ob1": {
+  "n": "object",
+  "a": {
+   "1": [
+    "hot",
+    "quente"
+   ],
+   "2": [
+    "cold",
+    "frio"
+   ],
+   "3": [
+    "heavy",
+    "pesado"
+   ],
+   "4": [
+    "light",
+    "leve"
+   ],
+   "5": [
+    "easy",
+    "fácil"
+   ],
+   "6": [
+    "hard",
+    "difícil"
+   ],
+   "7": [
+    "new",
+    "novo"
+   ],
+   "8": [
+    "old",
+    "velho"
+   ],
+   "9": [
+    "huge",
+    "enorme"
+   ],
+   "10": [
+    "tiny",
+    "minúsculo"
+   ],
+   "11": [
+    "beautiful",
+    "bonito"
+   ],
+   "12": [
+    "ugly",
+    "feio"
+   ]
+  },
+  "c": [
+   [
+    3,
+    9
+   ],
+   [
+    4,
+    10
+   ],
+   [
+    7,
+    11
+   ],
+   [
+    8,
+    12
+   ]
+  ]
+ },
+ "ob2": {
+  "n": "object",
+  "a": {
+   "1": [
+    "awesome",
+    "incrível, demais"
+   ],
+   "2": [
+    "awful",
+    "horrível"
+   ],
+   "3": [
+    "good",
+    "bom"
+   ],
+   "4": [
+    "bad",
+    "ruim"
+   ],
+   "5": [
+    "amazing",
+    "impressionante"
+   ],
+   "6": [
+    "terrible",
+    "terrível"
+   ],
+   "7": [
+    "large",
+    "grande"
+   ],
+   "8": [
+    "little",
+    "pequeno"
+   ],
+   "9": [
+    "noisy",
+    "barulhento"
+   ],
+   "10": [
+    "quiet",
+    "silencioso"
+   ],
+   "11": [
+    "pretty",
+    "bonito"
+   ],
+   "12": [
+    "ugly",
+    "feio"
+   ]
+  },
+  "c": [
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    4,
+    6
+   ],
+   [
+    1,
+    11
+   ],
+   [
+    2,
+    12
+   ]
+  ]
+ }
+}

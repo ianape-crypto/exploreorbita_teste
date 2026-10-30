@@ -1,0 +1,730 @@
+{
+ "cities": [
+  {
+   "n": "Rio de Janeiro",
+   "d": [
+    [
+     "The thief asked me how to get to a huge statue with open arms on top of a mountain.",
+     "O ladrão me perguntou como chegar a uma estátua enorme, de braços abertos, no alto de uma montanha."
+    ],
+    [
+     "The thief bought a ticket for the cable car to Sugarloaf Mountain.",
+     "O ladrão comprou um ingresso para o bondinho do Pão de Açúcar."
+    ]
+   ]
+  },
+  {
+   "n": "São Paulo",
+   "d": [
+    [
+     "The thief asked for Paulista Avenue, in the biggest city in the country.",
+     "O ladrão perguntou pela Avenida Paulista, na maior cidade do país."
+    ],
+    [
+     "The thief wanted a mortadella sandwich at the Municipal Market and a walk in Ibirapuera Park.",
+     "O ladrão queria um sanduíche de mortadela no Mercado Municipal e um passeio no Parque Ibirapuera."
+    ]
+   ]
+  },
+  {
+   "n": "Salvador",
+   "d": [
+    [
+     "The thief asked where to eat acarajé, a fried bean snack with shrimp.",
+     "O ladrão perguntou onde comer acarajé, um bolinho frito de feijão com camarão."
+    ],
+    [
+     "The thief took a photo of the Lacerda Elevator, which connects the upper and the lower city.",
+     "O ladrão tirou uma foto do Elevador Lacerda, que liga a cidade alta à cidade baixa."
+    ]
+   ]
+  },
+  {
+   "n": "Recife",
+   "d": [
+    [
+     "The thief asked about a city with many rivers and bridges, called the Brazilian Venice.",
+     "O ladrão perguntou sobre uma cidade com muitos rios e pontes, chamada de Veneza brasileira."
+    ],
+    [
+     "The thief wanted to visit the colorful old houses of Olinda, a town right next to the city.",
+     "O ladrão queria visitar as casas antigas e coloridas de Olinda, bem ao lado da cidade."
+    ]
+   ]
+  },
+  {
+   "n": "Fortaleza",
+   "d": [
+    [
+     "The thief asked for the Beira-Mar night fair, where people sell lace and handmade crafts.",
+     "O ladrão perguntou pela feira noturna da Beira-Mar, onde vendem renda e artesanato."
+    ],
+    [
+     "The thief wanted to eat crab and watch the sunset at Praia do Futuro.",
+     "O ladrão queria comer caranguejo e ver o pôr do sol na Praia do Futuro."
+    ]
+   ]
+  },
+  {
+   "n": "Manaus",
+   "d": [
+    [
+     "The thief asked about the place where the dark Rio Negro meets the light brown Solimões River.",
+     "O ladrão perguntou sobre o lugar onde o Rio Negro, escuro, encontra o Solimões, marrom-claro."
+    ],
+    [
+     "The thief wanted to see an opera house in the middle of the Amazon rainforest.",
+     "O ladrão queria ver um teatro de ópera no meio da floresta amazônica."
+    ]
+   ]
+  },
+  {
+   "n": "Belém",
+   "d": [
+    [
+     "The thief asked for açaí with fried fish at the Ver-o-Peso market.",
+     "O ladrão pediu açaí com peixe frito no mercado Ver-o-Peso."
+    ],
+    [
+     "The thief wanted to taste tacacá, a hot yellow soup, in the city where it rains every afternoon.",
+     "O ladrão queria provar tacacá, uma sopa amarela quente, na cidade onde chove toda tarde."
+    ]
+   ]
+  },
+  {
+   "n": "Brasília",
+   "d": [
+    [
+     "The thief asked about two white towers and two big bowls: the National Congress.",
+     "O ladrão perguntou sobre duas torres brancas e duas tigelas grandes: o Congresso Nacional."
+    ],
+    [
+     "The thief wanted to see the capital of Brazil, a city planned in the shape of an airplane.",
+     "O ladrão queria ver a capital do Brasil, uma cidade planejada no formato de um avião."
+    ]
+   ]
+  },
+  {
+   "n": "Curitiba",
+   "d": [
+    [
+     "The thief asked about a glass greenhouse in the Botanical Garden of a cold southern city.",
+     "O ladrão perguntou sobre uma estufa de vidro no Jardim Botânico de uma cidade fria do sul."
+    ],
+    [
+     "The thief wanted to ride the famous tube-shaped bus stations.",
+     "O ladrão queria andar nas famosas estações-tubo de ônibus."
+    ]
+   ]
+  },
+  {
+   "n": "Porto Alegre",
+   "d": [
+    [
+     "The thief asked where to drink chimarrão and watch the sunset on the Guaíba river.",
+     "O ladrão perguntou onde tomar chimarrão e ver o pôr do sol no Guaíba."
+    ],
+    [
+     "The thief wanted a churrasco in the capital of Rio Grande do Sul.",
+     "O ladrão queria um churrasco na capital do Rio Grande do Sul."
+    ]
+   ]
+  },
+  {
+   "n": "Florianópolis",
+   "d": [
+    [
+     "The thief asked for a surfboard to use at Joaquina Beach.",
+     "O ladrão pediu uma prancha de surfe para usar na Praia da Joaquina."
+    ],
+    [
+     "The thief wanted to eat fresh oysters in an island city with a big suspension bridge.",
+     "O ladrão queria comer ostras fresquinhas numa cidade-ilha com uma grande ponte pênsil."
+    ]
+   ]
+  },
+  {
+   "n": "Belo Horizonte",
+   "d": [
+    [
+     "The thief asked for pão de queijo in the capital of Minas Gerais.",
+     "O ladrão pediu pão de queijo na capital de Minas Gerais."
+    ],
+    [
+     "The thief wanted to see the modern church by Oscar Niemeyer at Pampulha lake.",
+     "O ladrão queria ver a igreja moderna de Oscar Niemeyer na Lagoa da Pampulha."
+    ]
+   ]
+  },
+  {
+   "n": "Foz do Iguaçu",
+   "d": [
+    [
+     "The thief asked for a boat tour under huge waterfalls on the border with Argentina.",
+     "O ladrão perguntou sobre um passeio de barco sob cataratas enormes na fronteira com a Argentina."
+    ],
+    [
+     "The thief wanted to visit the Itaipu dam.",
+     "O ladrão queria visitar a usina de Itaipu."
+    ]
+   ]
+  },
+  {
+   "n": "Ouro Preto",
+   "d": [
+    [
+     "The thief asked about old churches from the gold rush and steep stone streets in Minas Gerais.",
+     "O ladrão perguntou sobre igrejas antigas da época do ouro e ruas de pedra íngremes em Minas Gerais."
+    ],
+    [
+     "The thief wanted to buy soapstone crafts in a colonial mountain town.",
+     "O ladrão queria comprar artesanato de pedra-sabão numa cidade colonial de montanha."
+    ]
+   ]
+  },
+  {
+   "n": "Bonito",
+   "d": [
+    [
+     "The thief asked for a snorkeling tour in crystal-clear rivers full of fish.",
+     "O ladrão pediu um passeio de snorkel em rios cristalinos cheios de peixes."
+    ],
+    [
+     "The thief wanted to see a blue lake inside a cave.",
+     "O ladrão queria ver um lago azul dentro de uma caverna."
+    ]
+   ]
+  },
+  {
+   "n": "Paraty",
+   "d": [
+    [
+     "The thief asked about old stone streets that flood with the sea tide.",
+     "O ladrão perguntou sobre ruas antigas de pedra que alagam com a maré."
+    ],
+    [
+     "The thief wanted to take a boat from a colonial town on the Green Coast of Rio de Janeiro state.",
+     "O ladrão queria pegar um barco numa cidade colonial da Costa Verde, no estado do Rio de Janeiro."
+    ]
+   ]
+  },
+  {
+   "n": "Gramado",
+   "d": [
+    [
+     "The thief asked for hot chocolate and fondue in a cold mountain town with Christmas decorations.",
+     "O ladrão pediu chocolate quente e fondue numa cidade fria de serra, com decoração de Natal."
+    ],
+    [
+     "The thief wanted to see Black Lake and the Christmas shows.",
+     "O ladrão queria ver o Lago Negro e os shows de Natal."
+    ]
+   ]
+  },
+  {
+   "n": "Natal",
+   "d": [
+    [
+     "The thief asked about the biggest cashew tree in the world, near a city called the City of the Sun.",
+     "O ladrão perguntou sobre o maior cajueiro do mundo, perto de uma cidade chamada Cidade do Sol."
+    ],
+    [
+     "The thief wanted to ride a dune buggy and see the coast of Rio Grande do Norte.",
+     "O ladrão queria andar de buggy nas dunas e ver o litoral do Rio Grande do Norte."
+    ]
+   ]
+  },
+  {
+   "n": "Maceió",
+   "d": [
+    [
+     "The thief asked about natural pools in the sea with clear water that appear at low tide.",
+     "O ladrão perguntou sobre piscinas naturais no mar, de água cristalina, que aparecem na maré baixa."
+    ],
+    [
+     "The thief wanted to take a jangada boat and eat sururu in the capital of Alagoas.",
+     "O ladrão queria andar de jangada e comer sururu na capital de Alagoas."
+    ]
+   ]
+  },
+  {
+   "n": "Jericoacoara",
+   "d": [
+    [
+     "The thief asked about a small village with sand streets and a famous sunset on a big dune.",
+     "O ladrão perguntou sobre uma vila pequena de ruas de areia e um pôr do sol famoso numa duna grande."
+    ],
+    [
+     "The thief wanted to see a stone arch by the sea and to go windsurfing.",
+     "O ladrão queria ver um arco de pedra no mar e fazer windsurf."
+    ]
+   ]
+  },
+  {
+   "n": "Lençóis Maranhenses",
+   "d": [
+    [
+     "The thief asked about white sand dunes with blue rain lagoons between them.",
+     "O ladrão perguntou sobre dunas de areia branca com lagoas azuis de chuva entre elas."
+    ],
+    [
+     "The thief wanted to take a boat on the Preguiças River in Maranhão.",
+     "O ladrão queria passear de barco no Rio Preguiças, no Maranhão."
+    ]
+   ]
+  },
+  {
+   "n": "Campos do Jordão",
+   "d": [
+    [
+     "The thief asked for a cold mountain town in São Paulo state, famous for its winter music festival.",
+     "O ladrão perguntou sobre uma cidade fria de serra em São Paulo, famosa pelo festival de inverno de música."
+    ],
+    [
+     "The thief wanted to ride the cable car up Elephant Hill.",
+     "O ladrão queria subir de teleférico no Morro do Elefante."
+    ]
+   ]
+  },
+  {
+   "n": "Chapada Diamantina",
+   "d": [
+    [
+     "The thief asked about a national park in Bahia with waterfalls, caves and tall flat mountains.",
+     "O ladrão perguntou sobre um parque nacional na Bahia com cachoeiras, cavernas e montanhas altas de topo plano."
+    ],
+    [
+     "The thief wanted to climb Pai Inácio Hill and swim in the Blue Well cave.",
+     "O ladrão queria subir o Morro do Pai Inácio e nadar no Poço Azul."
+    ]
+   ]
+  },
+  {
+   "n": "Pantanal",
+   "d": [
+    [
+     "The thief asked about the biggest wetland in the world, full of jaguars, caimans and capybaras.",
+     "O ladrão perguntou sobre a maior área alagada do mundo, cheia de onças, jacarés e capivaras."
+    ],
+    [
+     "The thief wanted a boat trip to see the jabiru, the tall white bird, near Cuiabá.",
+     "O ladrão queria um passeio de barco para ver o tuiuiú, a ave alta e branca, perto de Cuiabá."
+    ]
+   ]
+  }
+ ],
+ "places": [
+  [
+   "Restaurant",
+   "a chef",
+   "bo1-07"
+  ],
+  [
+   "Market",
+   "a florist",
+   "bo3-03"
+  ],
+  [
+   "Post office",
+   "a mail carrier",
+   "bo1-12"
+  ],
+  [
+   "Airport",
+   "a pilot",
+   "bo4-06"
+  ],
+  [
+   "Bank",
+   "a banker",
+   "bo1-01"
+  ],
+  [
+   "Park",
+   "a gardener",
+   "bo4-05"
+  ],
+  [
+   "Beach",
+   "a surfer",
+   "bo4-03"
+  ],
+  [
+   "Hospital",
+   "a doctor",
+   "bo1-08"
+  ],
+  [
+   "Fire station",
+   "a firefighter",
+   "bo3-01"
+  ],
+  [
+   "Garage",
+   "a mechanic",
+   "bo4-11"
+  ],
+  [
+   "Construction site",
+   "a builder",
+   "bo3-09"
+  ],
+  [
+   "Café",
+   "a cook",
+   "bo2-04"
+  ]
+ ],
+ "objects": [
+  [
+   "the golden toucan statue",
+   "a estátua dourada do tucano"
+  ],
+  [
+   "the national football trophy",
+   "o troféu nacional de futebol"
+  ],
+  [
+   "the old samba drum",
+   "o antigo tambor de samba"
+  ],
+  [
+   "the diamond necklace",
+   "o colar de diamantes"
+  ],
+  [
+   "the emerald crown",
+   "a coroa de esmeraldas"
+  ],
+  [
+   "the golden berimbau",
+   "o berimbau dourado"
+  ]
+ ],
+ "suspects": [
+  [
+   "antonio",
+   "fa1-01",
+   "Antônio Barbosa",
+   "m",
+   [
+    "gray",
+    "grisalho"
+   ],
+   [
+    "fishing",
+    "pescar"
+   ],
+   [
+    "teacher",
+    "professor",
+    "a"
+   ],
+   [
+    "has facial hair",
+    "tem barba ou bigode"
+   ],
+   [
+    "loves feijoada",
+    "adora feijoada"
+   ]
+  ],
+  [
+   "marina",
+   "fa1-02",
+   "Marina Duarte",
+   "f",
+   [
+    "black",
+    "preto"
+   ],
+   [
+    "dancing",
+    "dançar"
+   ],
+   [
+    "nurse",
+    "enfermeira",
+    "a"
+   ],
+   [
+    "wears bright clothes",
+    "usa roupas coloridas"
+   ],
+   [
+    "loves brigadeiro",
+    "adora brigadeiro"
+   ]
+  ],
+  [
+   "lucia",
+   "fa1-04",
+   "Lúcia Prado",
+   "f",
+   [
+    "gray",
+    "grisalho"
+   ],
+   [
+    "dancing",
+    "dançar"
+   ],
+   [
+    "nurse",
+    "enfermeira",
+    "a"
+   ],
+   [
+    "wears earrings",
+    "usa brincos"
+   ],
+   [
+    "loves brigadeiro",
+    "adora brigadeiro"
+   ]
+  ],
+  [
+   "rico",
+   "fa1-05",
+   "Ricardo Tavares",
+   "m",
+   [
+    "none",
+    "careca"
+   ],
+   [
+    "cooking",
+    "cozinhar"
+   ],
+   [
+    "driver",
+    "motorista",
+    "a"
+   ],
+   [
+    "has facial hair",
+    "tem barba ou bigode"
+   ],
+   [
+    "loves feijoada",
+    "adora feijoada"
+   ]
+  ],
+  [
+   "bruno",
+   "fa1-07",
+   "Bruno Lacerda",
+   "m",
+   [
+    "blond",
+    "loiro"
+   ],
+   [
+    "playing music",
+    "tocar música"
+   ],
+   [
+    "musician",
+    "músico",
+    "a"
+   ],
+   [
+    "has facial hair",
+    "tem barba ou bigode"
+   ],
+   [
+    "loves pão de queijo",
+    "adora pão de queijo"
+   ]
+  ],
+  [
+   "camila",
+   "fa1-10",
+   "Camila Reis",
+   "f",
+   [
+    "brown",
+    "castanho"
+   ],
+   [
+    "surfing",
+    "surfar"
+   ],
+   [
+    "tour guide",
+    "guia de turismo",
+    "a"
+   ],
+   [
+    "wears earrings",
+    "usa brincos"
+   ],
+   [
+    "loves pão de queijo",
+    "adora pão de queijo"
+   ]
+  ],
+  [
+   "jorge",
+   "fa2-01",
+   "Jorge Nascimento",
+   "m",
+   [
+    "black",
+    "preto"
+   ],
+   [
+    "playing music",
+    "tocar música"
+   ],
+   [
+    "musician",
+    "músico",
+    "a"
+   ],
+   [
+    "has facial hair",
+    "tem barba ou bigode"
+   ],
+   [
+    "loves acarajé",
+    "adora acarajé"
+   ]
+  ],
+  [
+   "beatriz",
+   "fa2-05",
+   "Beatriz Santos",
+   "f",
+   [
+    "black",
+    "preto"
+   ],
+   [
+    "reading",
+    "ler"
+   ],
+   [
+    "tour guide",
+    "guia de turismo",
+    "a"
+   ],
+   [
+    "wears glasses",
+    "usa óculos"
+   ],
+   [
+    "loves acarajé",
+    "adora acarajé"
+   ]
+  ],
+  [
+   "ze",
+   "fa2-04",
+   "José Pereira",
+   "m",
+   [
+    "gray",
+    "grisalho"
+   ],
+   [
+    "fishing",
+    "pescar"
+   ],
+   [
+    "driver",
+    "motorista",
+    "a"
+   ],
+   [
+    "has facial hair",
+    "tem barba ou bigode"
+   ],
+   [
+    "loves feijoada",
+    "adora feijoada"
+   ]
+  ],
+  [
+   "helena",
+   "fa3-04",
+   "Helena Costa",
+   "f",
+   [
+    "red",
+    "ruivo"
+   ],
+   [
+    "cooking",
+    "cozinhar"
+   ],
+   [
+    "engineer",
+    "engenheira",
+    "an"
+   ],
+   [
+    "wears bright clothes",
+    "usa roupas coloridas"
+   ],
+   [
+    "loves acarajé",
+    "adora acarajé"
+   ]
+  ],
+  [
+   "felipe",
+   "fa3-01",
+   "Felipe Andrade",
+   "m",
+   [
+    "black",
+    "preto"
+   ],
+   [
+    "reading",
+    "ler"
+   ],
+   [
+    "engineer",
+    "engenheiro",
+    "an"
+   ],
+   [
+    "wears glasses",
+    "usa óculos"
+   ],
+   [
+    "loves pão de queijo",
+    "adora pão de queijo"
+   ]
+  ],
+  [
+   "julia",
+   "fa3-11",
+   "Júlia Ribeiro",
+   "f",
+   [
+    "purple",
+    "roxo"
+   ],
+   [
+    "surfing",
+    "surfar"
+   ],
+   [
+    "teacher",
+    "professora",
+    "a"
+   ],
+   [
+    "wears glasses",
+    "usa óculos"
+   ],
+   [
+    "loves brigadeiro",
+    "adora brigadeiro"
+   ]
+  ]
+ ]
+}
